@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-public class UIController : MonoBehaviour
+public class BuildUIController : MonoBehaviour
 {
-    public static UIController Instance;
+    public static BuildUIController Instance;
 
     [Header("BUILD PANEL")]
     public Animator BuildPanelAnimator;
     [Header("-Appliances Section")]
-    public List<ApplianceUIRow> ApplianceUIRows;
+    public List<ItemUIRow> ApplianceUIRows;
+
+    [Header("-Food Section")]
+    public List<ItemUIRow> FoodUIRows;
+
+    [Header("-Drink Section")]
+    public List<ItemUIRow> DrinkUIRows;
 
     [Header("Bottom Buttons")]
     public Button BuildModeButton;
@@ -18,14 +24,17 @@ public class UIController : MonoBehaviour
     [Header("New Item Control")]
     public GameObject NewItemPanel;
     public Transform NewItemContent;
+    public GameObject NewItemPrefab;
 
     // Appliances
-    public GameObject NewAppliancePrefab;
-    public List<NewApplianceUIRow> NewApplianceUIRows;
+    public List<NewItemUIRow> NewApplianceUIRows;
 
     // Food
+    public List<NewItemUIRow> NewFoodUIRows;
 
     // Drink
+    public List<NewItemUIRow> NewDrinkUIRows;
+
 
     private void Awake()
     {
@@ -87,8 +96,6 @@ public class UIController : MonoBehaviour
         NewItemPanel.gameObject.SetActive(false);
     }
 
-    // APPLIANCES
-
     public void OpenNewItemPanel(string _itemType)
     {
 
@@ -108,6 +115,7 @@ public class UIController : MonoBehaviour
 
     }
 
+    // Appliances
     void ClearNewApplianceList()
     {
         for (int i = 0; i < NewApplianceUIRows.Count; i++)
@@ -122,11 +130,11 @@ public class UIController : MonoBehaviour
         ClearNewApplianceList();
         for (int i = 0; i < ItemDatabase.Instance.Appliances.Count; i++)
         {
-            GameObject newRow = Instantiate(NewAppliancePrefab);
+            GameObject newRow = Instantiate(NewItemPrefab);
             newRow.transform.SetParent(NewItemContent);
             newRow.transform.localScale = new Vector3(1, 1, 1);
-            newRow.GetComponent<NewApplianceUIRow>().SetupAppliance(ItemDatabase.Instance.Appliances[i]);
-            NewApplianceUIRows.Add(newRow.GetComponent<NewApplianceUIRow>());
+            newRow.GetComponent<NewItemUIRow>().SetupAppliance(ItemDatabase.Instance.Appliances[i]);
+            NewApplianceUIRows.Add(newRow.GetComponent<NewItemUIRow>());
         }
 
         

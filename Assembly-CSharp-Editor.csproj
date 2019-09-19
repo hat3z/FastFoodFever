@@ -11,7 +11,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{937E613C-6414-5366-C3BB-35CFD72C102A}</ProjectGuid>
+    <ProjectGuid>{E6AD68E2-2E01-7C6F-06DD-79A7BF389ED1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -65,67 +65,67 @@
     <Compile Include="Assets\InventoryClean\Editor\ItemDatabaseEditor.cs" />
     <Compile Include="Assets\InventoryClean\Editor\ItemDatabaseWindow.cs" />
     <Reference Include="UnityEditor.TestRunner">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Lightweight.Runtime">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Runtime.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Lightweight.Editor">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Editor.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ShaderGraph.Editor">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>G:/DevApps/UnityEditor/2019.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -320,7 +320,7 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>G:/DevApps/UnityEditor/2019.2.2f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -679,7 +679,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{BC43A447-E650-12F8-3813-0D86D3BE7F94}</Project>
+      <Project>{297FFEB9-3EEF-6B90-B183-DBA9E4C894C9}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
   </ItemGroup>

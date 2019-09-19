@@ -2951,7 +2951,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 2.75508e-40, z: -3.11e-43, w: -1.114e-42}
+  m_BoundingSphereOverride: {x: 61.09907, y: 1.1046268e+27, z: 4.4632686e+30, w: 7.55458e+31}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -7530,12 +7530,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BuildPanelAnimator: {fileID: 673917206}
   ApplianceUIRows: []
+  FoodUIRows: []
+  DrinkUIRows: []
   BuildModeButton: {fileID: 560076997}
   NewItemPanel: {fileID: 1557750977}
   NewItemContent: {fileID: 913125870}
-  NewAppliancePrefab: {fileID: 7206705131440755933, guid: df5f7f46c9e6bc64fb16bc80e0f31729,
-    type: 3}
+  NewItemPrefab: {fileID: 0}
   NewApplianceUIRows: []
+  NewFoodUIRows: []
+  NewDrinkUIRows: []
 --- !u!1 &1886416514
 GameObject:
   m_ObjectHideFlags: 0

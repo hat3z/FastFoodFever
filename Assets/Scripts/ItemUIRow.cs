@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ApplianceUIRow : MonoBehaviour
+public class ItemUIRow : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

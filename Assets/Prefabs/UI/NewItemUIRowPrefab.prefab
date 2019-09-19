@@ -710,9 +710,9 @@ GameObject:
   - component: {fileID: 7206705131440755932}
   - component: {fileID: 7206705131440755930}
   - component: {fileID: 7206705131440755931}
-  - component: {fileID: 328496196696995105}
+  - component: {fileID: 5597897403292799006}
   m_Layer: 5
-  m_Name: NewApplianceRowPrefab
+  m_Name: NewItemUIRowPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -782,7 +782,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &328496196696995105
+--- !u!114 &5597897403292799006
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -794,11 +794,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab67b9ebee5747d4db95d54cbc9c6387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ApplianceImage: {fileID: 7206705131540914203}
-  ApplianceName: {fileID: 7206705131714781902}
+  ItemType: 0
+  ItemImage: {fileID: 7206705131540914203}
+  ItemName: {fileID: 7206705131714781902}
   ProduceTime: {fileID: 7206705131586037600}
   ProduceQuantity: {fileID: 7206705130154115334}
-  ApplianceCost: {fileID: 7206705131085918022}
+  ItemCost: {fileID: 7206705131085918022}
 --- !u!1 &7206705131540914205
 GameObject:
   m_ObjectHideFlags: 0

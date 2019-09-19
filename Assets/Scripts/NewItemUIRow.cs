@@ -3,22 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-public class NewApplianceUIRow : MonoBehaviour
+public class NewItemUIRow : MonoBehaviour
 {
 
-    public Image ApplianceImage;
-    public TextMeshProUGUI ApplianceName;
+    public enum itemType { Appliance, Food, Drink, Ingredient};
+    public itemType ItemType;
+
+    public Image ItemImage;
+    public TextMeshProUGUI ItemName;
     public TextMeshProUGUI ProduceTime;
     public TextMeshProUGUI ProduceQuantity;
-    public TextMeshProUGUI ApplianceCost;
+    public TextMeshProUGUI ItemCost;
 
 
     public void SetupAppliance(Appliance _applianceData)
     {
-        ApplianceImage.sprite = _applianceData.applianceImage;
-        ApplianceName.text = _applianceData.applianceName;
+        ItemImage.sprite = _applianceData.applianceImage;
+        ItemName.text = _applianceData.applianceName;
         ProduceTime.text = _applianceData.ProduceTime.ToString();
         ProduceQuantity.text = _applianceData.ProduceQuantity.ToString();
-        ApplianceCost.text = _applianceData.costPrice.ToString();
+        ItemCost.text = _applianceData.costPrice.ToString();
     }
 }

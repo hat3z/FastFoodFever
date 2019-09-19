@@ -11,7 +11,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{BC43A447-E650-12F8-3813-0D86D3BE7F94}</ProjectGuid>
+    <ProjectGuid>{297FFEB9-3EEF-6B90-B183-DBA9E4C894C9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -86,12 +86,12 @@
     <Compile Include="Assets\InventoryClean\FoodIngredients.cs" />
     <Compile Include="Assets\InventoryClean\FoodItem.cs" />
     <Compile Include="Assets\InventoryClean\ItemDatabase.cs" />
-    <Compile Include="Assets\Scripts\ApplianceUIRow.cs" />
+    <Compile Include="Assets\Scripts\BuildUIController.cs" />
     <Compile Include="Assets\Scripts\DynamicTile.cs" />
     <Compile Include="Assets\Scripts\GamePlayController.cs" />
-    <Compile Include="Assets\Scripts\NewApplianceUIRow.cs" />
+    <Compile Include="Assets\Scripts\ItemUIRow.cs" />
+    <Compile Include="Assets\Scripts\NewItemUIRow.cs" />
     <Compile Include="Assets\Scripts\ProfileController.cs" />
-    <Compile Include="Assets\Scripts\UIController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
@@ -149,61 +149,61 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Lightweight.Runtime">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Runtime.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Lightweight.Editor">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Editor.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.RenderPipelines.Lightweight.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ShaderGraph.Editor">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>G:/DevFolder/FastFoodManager.project/Project/FFM/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>G:/DevFolder/FastFoodManager.project/forkRepo/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>G:/DevApps/UnityEditor/2019.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
