@@ -86,8 +86,10 @@
     <Compile Include="Assets\InventoryClean\FoodIngredients.cs" />
     <Compile Include="Assets\InventoryClean\FoodItem.cs" />
     <Compile Include="Assets\InventoryClean\ItemDatabase.cs" />
+    <Compile Include="Assets\Scripts\ApplianceUIRow.cs" />
     <Compile Include="Assets\Scripts\DynamicTile.cs" />
     <Compile Include="Assets\Scripts\GamePlayController.cs" />
+    <Compile Include="Assets\Scripts\NewApplianceUIRow.cs" />
     <Compile Include="Assets\Scripts\ProfileController.cs" />
     <Compile Include="Assets\Scripts\UIController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />

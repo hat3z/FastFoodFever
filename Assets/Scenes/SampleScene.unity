@@ -1031,7 +1031,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0024414062, y: -137}
+  m_AnchoredPosition: {x: -0.00390625, y: -137}
   m_SizeDelta: {x: -791.7, y: 109.9}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &304570223
@@ -1279,7 +1279,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: -70}
-  m_SizeDelta: {x: 561.9, y: 70}
+  m_SizeDelta: {x: 580.01, y: 70}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &437318316
 MonoBehaviour:
@@ -2205,7 +2205,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 0
+  m_Spacing: -15
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -2647,7 +2647,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 660, y: 0.000020483}
+  m_AnchoredPosition: {x: 1300, y: 0}
   m_SizeDelta: {x: 580.03, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &673917203
@@ -2951,8 +2951,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: -2.1037849e+33, y: -2.1037849e+33, z: -2.1037849e+33,
-    w: -2.1037849e+33}
+  m_BoundingSphereOverride: {x: 0, y: 2.75508e-40, z: -3.11e-43, w: -1.114e-42}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -3022,7 +3021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -3051,7 +3050,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 720346075}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1839721373}
+        m_MethodName: ShowItems
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1992484736}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &720346075
@@ -3376,7 +3386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -3405,7 +3415,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 811704121}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1839721373}
+        m_MethodName: ShowItems
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 888043907}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &811704121
@@ -3669,9 +3690,9 @@ MonoBehaviour:
     m_Left: 0
     m_Right: 0
     m_Top: 0
-    m_Bottom: 0
+    m_Bottom: 10
   m_ChildAlignment: 6
-  m_Spacing: 0
+  m_Spacing: 10
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -4595,10 +4616,10 @@ RectTransform:
   m_Father: {fileID: 1992484737}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 561.9, y: 80}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 290.005, y: -40}
+  m_SizeDelta: {x: 580.01, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1024634783
 MonoBehaviour:
@@ -4941,8 +4962,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 280.95, y: -40}
-  m_SizeDelta: {x: 561.9, y: 80}
+  m_AnchoredPosition: {x: 290, y: -40}
+  m_SizeDelta: {x: 580.01, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1087775043
 MonoBehaviour:
@@ -5139,7 +5160,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1176199810}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1839721373}
+        m_MethodName: OpenNewItemPanel
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: appliance
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1176199810
@@ -5338,7 +5370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -5367,7 +5399,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1229299349}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1839721373}
+        m_MethodName: ShowItems
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1624146232}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1229299349
@@ -6949,9 +6992,9 @@ MonoBehaviour:
     m_Left: 0
     m_Right: 0
     m_Top: 0
-    m_Bottom: 0
+    m_Bottom: 10
   m_ChildAlignment: 0
-  m_Spacing: 0
+  m_Spacing: 10
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -7486,7 +7529,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BuildPanelAnimator: {fileID: 673917206}
+  ApplianceUIRows: []
   BuildModeButton: {fileID: 560076997}
+  NewItemPanel: {fileID: 1557750977}
+  NewItemContent: {fileID: 913125870}
+  NewAppliancePrefab: {fileID: 7206705131440755933, guid: df5f7f46c9e6bc64fb16bc80e0f31729,
+    type: 3}
+  NewApplianceUIRows: []
 --- !u!1 &1886416514
 GameObject:
   m_ObjectHideFlags: 0
@@ -7761,9 +7810,9 @@ MonoBehaviour:
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
+  m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
+  m_ChildScaleHeight: 1
 --- !u!1 &1945318884
 GameObject:
   m_ObjectHideFlags: 0
@@ -8119,7 +8168,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1965475886}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1839721373}
+        m_MethodName: CloseNewItemPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1965475886
@@ -8177,7 +8237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1992484737
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8193,10 +8253,10 @@ RectTransform:
   m_Father: {fileID: 1554995258}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 290.005, y: 0}
-  m_SizeDelta: {x: 580.01, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 290.005, y: -85}
+  m_SizeDelta: {x: 580.01, y: 90}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1992484738
 MonoBehaviour:
@@ -8698,7 +8758,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 0
+  m_Spacing: -15
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0

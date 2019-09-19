@@ -8,6 +8,7 @@ public class Appliance
     public string applianceName;
     public string applianceID;
     public GameObject model;
+    public Sprite applianceImage;
     public enum tier { Low, Medium, High, Premium};
     public tier Tier;
     public float ProduceTime;
@@ -22,6 +23,7 @@ public class Appliance
         newItem.applianceID = applianceID;
         newItem.applianceName = applianceName;
         newItem.model = model;
+        newItem.applianceImage = applianceImage;
         newItem.Tier = Tier;
         newItem.ProduceTime = ProduceTime;
         newItem.ProduceQuantity = ProduceQuantity;
