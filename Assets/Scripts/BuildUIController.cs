@@ -9,6 +9,12 @@ public class BuildUIController : MonoBehaviour
 
     [Header("BUILD PANEL")]
     public Animator BuildPanelAnimator;
+    public TextMeshProUGUI PlayerCoinsLabel;
+
+    public GameObject ApplianceUIRowPrefab;
+    public GameObject FoodUIRowPrefab;
+    public GameObject IngredientUIRowPrefab;
+
     [Header("-Appliances Section")]
     public List<ItemUIRow> ApplianceUIRows;
 
@@ -86,6 +92,8 @@ public class BuildUIController : MonoBehaviour
             _panel.gameObject.SetActive(true);
         }
     }
+
+    //public void GetPlayerItemsToUI()
 
     #endregion
 

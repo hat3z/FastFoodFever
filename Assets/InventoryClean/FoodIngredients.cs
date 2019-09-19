@@ -7,6 +7,7 @@ public class FoodIngredients
 {
     public string IngredientName;
     public string IngredientID;
+    public Sprite IngredientImage;
     public int IngredientStoredAmount;
     public int CostPrice;
 
@@ -17,6 +18,7 @@ public class FoodIngredients
         newItem.IngredientID = IngredientName;
         newItem.IngredientID = IngredientID;
         newItem.IngredientStoredAmount = IngredientStoredAmount;
+        newItem.IngredientImage = IngredientImage;
         newItem.CostPrice = CostPrice;
         return newItem;
     }
