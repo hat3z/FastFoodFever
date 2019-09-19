@@ -11,17 +11,24 @@ public class BuildUIController : MonoBehaviour
     public Animator BuildPanelAnimator;
     public TextMeshProUGUI PlayerCoinsLabel;
 
-    public GameObject ApplianceUIRowPrefab;
-    public GameObject FoodUIRowPrefab;
-    public GameObject IngredientUIRowPrefab;
-
     [Header("-Appliances Section")]
+    public GameObject ApplianceUIRowPrefab;
+    public Transform ApplianceParent;
     public List<ItemUIRow> ApplianceUIRows;
 
     [Header("-Food Section")]
+    public GameObject FoodUIRowPrefab;
+    public Transform FoodParent;
     public List<ItemUIRow> FoodUIRows;
 
+    [Header("-Ingredients Section")]
+    public GameObject IngredientsUIRowPrefab;
+    public Transform IngredientParent;
+    public List<ItemUIRow> IngredientUIRows;
+
     [Header("-Drink Section")]
+    public GameObject DrinkUIRowPrefab;
+    public Transform DrinkParent;
     public List<ItemUIRow> DrinkUIRows;
 
     [Header("Bottom Buttons")]
@@ -66,12 +73,19 @@ public class BuildUIController : MonoBehaviour
         NewItemPanel.gameObject.SetActive(false);
     }
 
+    void GetPlayerCoinsFromProfile()
+    {
+        PlayerCoinsLabel.text = ProfileController.Instance.PlayerMoney.ToString();
+    }
+
     public void OpenBuildButtonEvent(bool _state)
     {
         BuildPanelAnimator.SetBool("isOpen", _state);
         if(_state)
         {
             BuildModeButton.interactable = false;
+            GetAppliancesFromProfile();
+            GetPlayerCoinsFromProfile();
         }
         else
         {
@@ -93,7 +107,28 @@ public class BuildUIController : MonoBehaviour
         }
     }
 
-    //public void GetPlayerItemsToUI()
+    public void GetAppliancesFromProfile()
+    {
+        ClearItemList(ApplianceUIRows);
+        for (int i = 0; i < ProfileController.Instance.PlayerAppliances.Count; i++)
+        {
+            GameObject newRow = Instantiate(ApplianceUIRowPrefab);
+            newRow.transform.SetAsFirstSibling();
+            newRow.transform.SetParent(ApplianceParent);
+            newRow.transform.localScale = new Vector3(1, 1, 1);
+            ApplianceUIRows.Add(newRow.GetComponent<ItemUIRow>());
+            newRow.GetComponent<ItemUIRow>().SetupApplianceItemUI(ProfileController.Instance.PlayerAppliances[i]);
+        }
+    }
+
+    void ClearItemList(List<ItemUIRow> _list)
+    {
+        for (int i = 0; i < _list.Count; i++)
+        {
+            Destroy(_list[i].gameObject);
+        }
+        _list.Clear();
+    }
 
     #endregion
 
@@ -124,18 +159,18 @@ public class BuildUIController : MonoBehaviour
     }
 
     // Appliances
-    void ClearNewApplianceList()
+    void ClearNewItemList(List<NewItemUIRow> _list)
     {
-        for (int i = 0; i < NewApplianceUIRows.Count; i++)
+        for (int i = 0; i < _list.Count; i++)
         {
-            Destroy(NewApplianceUIRows[i].gameObject);
+            Destroy(_list[i].gameObject);
         }
-        NewApplianceUIRows.Clear();
+        _list.Clear();
     }
 
     void SetupNewApplianceContent()
     {
-        ClearNewApplianceList();
+        ClearNewItemList(NewApplianceUIRows);
         for (int i = 0; i < ItemDatabase.Instance.Appliances.Count; i++)
         {
             GameObject newRow = Instantiate(NewItemPrefab);

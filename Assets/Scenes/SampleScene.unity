@@ -3021,7 +3021,7 @@ RectTransform:
   - {fileID: 27810554}
   - {fileID: 475691208}
   m_Father: {fileID: 1071670600}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3329,7 +3329,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.012e-42, y: 0.000010435979, z: 4.5904e-41, w: 0.0000104352075}
+  m_BoundingSphereOverride: {x: 0, y: 0.16015625, z: 0.03125, w: -0.03125}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -4079,7 +4079,17 @@ MonoBehaviour:
   ProfileFilePath: 
   useDebug: 1
   PlayerMoney: 0
-  PlayerAppliances: []
+  PlayerAppliances:
+  - applianceName: Futyi
+    applianceID: futyi
+    model: {fileID: 0}
+    applianceImage: {fileID: 21300000, guid: af1ca2468cf7d45f1a30bbe5f1dba91c, type: 3}
+    Tier: 0
+    ProduceTime: 10
+    ProduceQuantity: 10
+    storedAmount: 10
+    sellPrice: 10
+    costPrice: 10
   PlayerFoodItems: []
   PlayerFoodIngredients: []
 --- !u!1 &888043907
@@ -5377,8 +5387,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 560076996}
-  - {fileID: 1557750978}
   - {fileID: 673917202}
+  - {fileID: 1557750978}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7622,7 +7632,7 @@ RectTransform:
   - {fileID: 1965475884}
   - {fileID: 527824155}
   m_Father: {fileID: 1071670600}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -8859,11 +8869,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BuildPanelAnimator: {fileID: 673917206}
   PlayerCoinsLabel: {fileID: 1613247494}
-  ApplianceUIRowPrefab: {fileID: 0}
-  FoodUIRowPrefab: {fileID: 0}
-  IngredientUIRowPrefab: {fileID: 0}
+  ApplianceUIRowPrefab: {fileID: 7915258179761793210, guid: 2b9e24a5d463f7045a84cd2bafe7336f,
+    type: 3}
+  ApplianceParent: {fileID: 1992484737}
   ApplianceUIRows: []
+  FoodUIRowPrefab: {fileID: 5760146377700515234, guid: 47e9f3d65dff43d4197f9b15d2844447,
+    type: 3}
+  FoodParent: {fileID: 1624146233}
   FoodUIRows: []
+  IngredientsUIRowPrefab: {fileID: 7099724858785060708, guid: 6dd8d1bb81b508e4596362634cd41523,
+    type: 3}
+  IngredientParent: {fileID: 1121976487}
+  IngredientUIRows: []
+  DrinkUIRowPrefab: {fileID: 0}
+  DrinkParent: {fileID: 888043908}
   DrinkUIRows: []
   BuildModeButton: {fileID: 560076997}
   NewItemPanel: {fileID: 1557750977}

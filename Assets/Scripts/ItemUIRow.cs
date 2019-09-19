@@ -16,6 +16,8 @@ public class ItemUIRow : MonoBehaviour
     public TextMeshProUGUI ItemCost;
     public TextMeshProUGUI StoredAmount;
 
+    public Sprite PlacedSprite;
+    public Sprite UnPlaceSprite;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +35,7 @@ public class ItemUIRow : MonoBehaviour
     {
         ItemImage.sprite = _applianceData.applianceImage;
         ItemName.text = _applianceData.applianceName;
-        ProduceTime.text = _applianceData.ProduceTime.ToString();
+        ProduceTime.text = _applianceData.ProduceTime.ToString() + " sec";
         ProduceQt.text = _applianceData.ProduceQuantity.ToString();
         ItemCost.text = _applianceData.costPrice.ToString();
     }
