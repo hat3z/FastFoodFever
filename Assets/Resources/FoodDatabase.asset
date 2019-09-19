@@ -1,0 +1,141 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28da34d2702a0594f9658354e5d7d6bd, type: 3}
+  m_Name: FoodDatabase
+  m_EditorClassIdentifier: 
+  FoodDatabase:
+  - foodName: Burger
+    foodID: burger
+    foodModel: {fileID: 0}
+    foodFillImage: {fileID: 0}
+    description: A simple burger.
+    Type: 0
+    Tier: 0
+    StoredAmount: 0
+    sellPrice: 10
+    costPrice: 20
+    Ingredients:
+    - IngredientID: tomato
+      amount: 2
+    - IngredientID: bums
+      amount: 1
+  - foodName: Cola
+    foodID: cola
+    foodModel: {fileID: 0}
+    foodFillImage: {fileID: 0}
+    description: Cuca cola, not gay advertisement.
+    Type: 1
+    Tier: 0
+    StoredAmount: 0
+    sellPrice: 2
+    costPrice: 5
+    Ingredients: []
+  FoodIngredients:
+  - IngredientName: Tomato
+    IngredientID: tomato
+    IngredientStoredAmount: 0
+    CostPrice: 0
+  - IngredientName: Bums
+    IngredientID: bums
+    IngredientStoredAmount: 0
+    CostPrice: 20
+  Appliances:
+  - applianceName: Basic Cooker Pad
+    applianceID: cooker1
+    model: {fileID: 5623654060856363136, guid: 2e370d59df6fc3a46ac38ffec11f236e, type: 3}
+    Tier: 0
+    ProduceTime: 10
+    ProduceQuantity: 1
+    storedAmount: 0
+    sellPrice: 10
+    costPrice: 20
+  - applianceName: Advanced Cooker Pad
+    applianceID: cooker2
+    model: {fileID: 5623654060856363136, guid: 2e370d59df6fc3a46ac38ffec11f236e, type: 3}
+    Tier: 1
+    ProduceTime: 8
+    ProduceQuantity: 1
+    storedAmount: 0
+    sellPrice: 20
+    costPrice: 50
+  - applianceName: Cooker Pad Pro
+    applianceID: cooker3
+    model: {fileID: 5623654060856363136, guid: 2e370d59df6fc3a46ac38ffec11f236e, type: 3}
+    Tier: 2
+    ProduceTime: 8
+    ProduceQuantity: 2
+    storedAmount: 0
+    sellPrice: 40
+    costPrice: 80
+  - applianceName: Cooker Pad Premium
+    applianceID: cooker4
+    model: {fileID: 5623654060856363136, guid: 2e370d59df6fc3a46ac38ffec11f236e, type: 3}
+    Tier: 3
+    ProduceTime: 6
+    ProduceQuantity: 3
+    storedAmount: 0
+    sellPrice: 50
+    costPrice: 100
+  - applianceName: Basic Drink Machine
+    applianceID: drinkMachine1
+    model: {fileID: 1680640791558438239, guid: ab7442cf8c841e541adde5843bb8973b, type: 3}
+    Tier: 0
+    ProduceTime: 8
+    ProduceQuantity: 2
+    storedAmount: 0
+    sellPrice: 5
+    costPrice: 10
+  - applianceName: Drink Machine Master
+    applianceID: drinkMachine2
+    model: {fileID: 0}
+    Tier: 1
+    ProduceTime: 4
+    ProduceQuantity: 2
+    storedAmount: 0
+    sellPrice: 45
+    costPrice: 100
+  - applianceName: Burger Pad Basic
+    applianceID: burgerPad1
+    model: {fileID: 2830437395634646197, guid: fc161e642557e2c498c9a25bc44cb2a2, type: 3}
+    Tier: 0
+    ProduceTime: 8.5
+    ProduceQuantity: 1
+    storedAmount: 0
+    sellPrice: 2
+    costPrice: 5
+  - applianceName: Burger Pad Advanced
+    applianceID: burgerPad2
+    model: {fileID: 2830437395634646197, guid: fc161e642557e2c498c9a25bc44cb2a2, type: 3}
+    Tier: 1
+    ProduceTime: 6.5
+    ProduceQuantity: 1
+    storedAmount: 0
+    sellPrice: 10
+    costPrice: 20
+  - applianceName: Burger Pad Pro
+    applianceID: burgerPad3
+    model: {fileID: 2830437395634646197, guid: fc161e642557e2c498c9a25bc44cb2a2, type: 3}
+    Tier: 2
+    ProduceTime: 6
+    ProduceQuantity: 2
+    storedAmount: 0
+    sellPrice: 20
+    costPrice: 50
+  - applianceName: Burger Pad Premium
+    applianceID: burgerPad4
+    model: {fileID: 2830437395634646197, guid: fc161e642557e2c498c9a25bc44cb2a2, type: 3}
+    Tier: 3
+    ProduceTime: 3
+    ProduceQuantity: 2
+    storedAmount: 0
+    sellPrice: 45
+    costPrice: 100
