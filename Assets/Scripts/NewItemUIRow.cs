@@ -20,6 +20,10 @@ public class NewItemUIRow : MonoBehaviour
     public TextMeshProUGUI StoredAmount;
     public Button BuyButton;
 
+    //Produce settings
+    public Image ProduceImage;
+    public TextMeshProUGUI produceName;
+
     public void SetMyItemID(string _itemID)
     {
         MyItemID = _itemID;
@@ -63,7 +67,27 @@ public class NewItemUIRow : MonoBehaviour
         ProduceTime.text = _applianceData.ProduceTime.ToString();
         ProduceQuantity.text = _applianceData.ProduceQuantity.ToString();
         ItemCost.text = _applianceData.costPrice.ToString();
+        ProduceImage.sprite = ItemDatabase.Instance.GetFoodItemByID(_applianceData.produceID).foodImage;
+        produceName.text = ItemDatabase.Instance.GetFoodItemByID(_applianceData.produceID).foodName;
         if(PlayerCanBuyItem(_applianceData))
+        {
+            BuyButton.interactable = true;
+        }
+        else
+        {
+            BuyButton.interactable = false;
+        }
+    }
+
+    public void SetupFoodItem(FoodItem _foodData)
+    {
+        SetMyItemID(_foodData.foodID);
+
+        ItemImage.sprite = _foodData.foodImage;
+        ItemName.text = _foodData.foodName;
+        Description.text = _foodData.description;
+
+        if (PlayerCanBuyItem(_foodData))
         {
             BuyButton.interactable = true;
         }

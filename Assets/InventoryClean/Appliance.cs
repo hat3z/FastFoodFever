@@ -16,7 +16,7 @@ public class Appliance
     public int storedAmount;
     public int sellPrice;
     public int costPrice;
-
+    public string produceID;
     public Appliance MyClone()
     {
         Appliance newItem = new Appliance();
@@ -30,6 +30,7 @@ public class Appliance
         newItem.storedAmount = storedAmount;
         newItem.sellPrice = sellPrice;
         newItem.costPrice = costPrice;
+        newItem.produceID = produceID;
         return newItem;
     }
 
