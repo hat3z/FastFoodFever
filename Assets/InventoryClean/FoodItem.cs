@@ -48,7 +48,7 @@ public class FoodItem {
     /// <returns></returns>
     public bool HasIngredient(IngredientRequest _ingredientRequest)
     {
-        if(_ingredientRequest.amount >= ItemDatabase.Instance.GetFoodIngredientByName(_ingredientRequest.IngredientID).IngredientStoredAmount)
+        if(_ingredientRequest.amount >= ItemDatabase.Instance.GetFoodIngredientByID(_ingredientRequest.IngredientID).IngredientStoredAmount)
         {
             return true;
         }

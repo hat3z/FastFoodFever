@@ -3329,7 +3329,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0.16015625, z: 0.03125, w: -0.03125}
+  m_BoundingSphereOverride: {x: 2.75508e-40, y: -7.61e-43, z: -1.49e-43, w: NaN}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -4079,17 +4079,7 @@ MonoBehaviour:
   ProfileFilePath: 
   useDebug: 1
   PlayerMoney: 0
-  PlayerAppliances:
-  - applianceName: Futyi
-    applianceID: futyi
-    model: {fileID: 0}
-    applianceImage: {fileID: 21300000, guid: af1ca2468cf7d45f1a30bbe5f1dba91c, type: 3}
-    Tier: 0
-    ProduceTime: 10
-    ProduceQuantity: 10
-    storedAmount: 10
-    sellPrice: 10
-    costPrice: 10
+  PlayerAppliances: []
   PlayerFoodItems: []
   PlayerFoodIngredients: []
 --- !u!1 &888043907
@@ -7484,7 +7474,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 290.015, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 580.03, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1554995259
@@ -7532,7 +7522,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554995257}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
   m_Name: 
@@ -8887,10 +8877,15 @@ MonoBehaviour:
   BuildModeButton: {fileID: 560076997}
   NewItemPanel: {fileID: 1557750977}
   NewItemContent: {fileID: 913125870}
-  NewItemPrefab: {fileID: 7206705131440755933, guid: df5f7f46c9e6bc64fb16bc80e0f31729,
+  NewApplianceUIRowPrefab: {fileID: 3315517067805239837, guid: fb3129ede50da014696bd319c9cfd200,
     type: 3}
   NewApplianceUIRows: []
+  NewFoodUIRowPrefab: {fileID: 0}
   NewFoodUIRows: []
+  NewIngredientUIRowPrefab: {fileID: 6794867660012444437, guid: c305cec06ba92974683e57fbc9c8982e,
+    type: 3}
+  NewIngredientsUIRows: []
+  NewDrinkUIRowPrefab: {fileID: 0}
   NewDrinkUIRows: []
 --- !u!1 &1886416514
 GameObject:

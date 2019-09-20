@@ -37,15 +37,22 @@ public class BuildUIController : MonoBehaviour
     [Header("New Item Control")]
     public GameObject NewItemPanel;
     public Transform NewItemContent;
-    public GameObject NewItemPrefab;
 
-    // Appliances
+
+    [Header("-New Appliance--")]
+    public GameObject NewApplianceUIRowPrefab;
     public List<NewItemUIRow> NewApplianceUIRows;
 
-    // Food
+    [Header("-New Food--")]
+    public GameObject NewFoodUIRowPrefab;
     public List<NewItemUIRow> NewFoodUIRows;
 
-    // Drink
+    [Header("-New Ingredients--")]
+    public GameObject NewIngredientUIRowPrefab;
+    public List<NewItemUIRow> NewIngredientsUIRows;
+
+    [Header("-New Drink--")]
+    public GameObject NewDrinkUIRowPrefab;
     public List<NewItemUIRow> NewDrinkUIRows;
 
 
@@ -84,13 +91,22 @@ public class BuildUIController : MonoBehaviour
         if(_state)
         {
             BuildModeButton.interactable = false;
-            GetAppliancesFromProfile();
+            GetAppliancesFromProfile(false);
             GetPlayerCoinsFromProfile();
         }
         else
         {
             BuildModeButton.interactable = true;
         }
+    }
+
+    /// <summary>
+    /// Refreshing all the contents.
+    /// </summary>
+    public void RefreshingBuildUIContent()
+    {
+        GetAppliancesFromProfile(true);
+        GetPlayerCoinsFromProfile();
     }
 
     //Item showing
@@ -107,8 +123,20 @@ public class BuildUIController : MonoBehaviour
         }
     }
 
-    public void GetAppliancesFromProfile()
+    public IEnumerator RefreshPanelWithDelay(GameObject _panel)
     {
+        _panel.gameObject.SetActive(false);
+        yield return new WaitForSeconds(.25f);
+        _panel.gameObject.SetActive(true);
+    }
+
+    public void GetAppliancesFromProfile(bool useRefresh)
+    {
+        if(useRefresh)
+        {
+            StartCoroutine(RefreshPanelWithDelay(ApplianceParent.gameObject));
+        }
+
         ClearItemList(ApplianceUIRows);
         for (int i = 0; i < ProfileController.Instance.PlayerAppliances.Count; i++)
         {
@@ -137,6 +165,7 @@ public class BuildUIController : MonoBehaviour
     public void CloseNewItemPanel()
     {
         NewItemPanel.gameObject.SetActive(false);
+        ClearNewItemList(NewApplianceUIRows);
     }
 
     public void OpenNewItemPanel(string _itemType)
@@ -173,14 +202,12 @@ public class BuildUIController : MonoBehaviour
         ClearNewItemList(NewApplianceUIRows);
         for (int i = 0; i < ItemDatabase.Instance.Appliances.Count; i++)
         {
-            GameObject newRow = Instantiate(NewItemPrefab);
+            GameObject newRow = Instantiate(NewApplianceUIRowPrefab);
             newRow.transform.SetParent(NewItemContent);
             newRow.transform.localScale = new Vector3(1, 1, 1);
             newRow.GetComponent<NewItemUIRow>().SetupAppliance(ItemDatabase.Instance.Appliances[i]);
             NewApplianceUIRows.Add(newRow.GetComponent<NewItemUIRow>());
-        }
-
-        
+        }       
     }
 
     #endregion

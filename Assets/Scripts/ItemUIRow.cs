@@ -9,6 +9,8 @@ public class ItemUIRow : MonoBehaviour
     public enum itemType { Appliance, Food, Drink, Ingredient };
     public itemType ItemType;
 
+    string MyItemID;
+
     public Image ItemImage;
     public TextMeshProUGUI ItemName;
     public TextMeshProUGUI ProduceTime;
@@ -30,6 +32,16 @@ public class ItemUIRow : MonoBehaviour
     {
         
     }
+
+    //public void SetMyItemID(string _itemID)
+    //{
+    //    MyItemID = _itemID;
+    //}
+
+    //public void SetupNewItemUI(object _itemObject)
+    //{
+
+    //}
 
     public void SetupApplianceItemUI(Appliance _applianceData)
     {

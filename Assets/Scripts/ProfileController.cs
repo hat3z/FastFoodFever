@@ -29,7 +29,7 @@ public class ProfileController : MonoBehaviour
     {
         if(useDebug)
         {
-            PlayerMoney = 50;
+            PlayerMoney = 500;
         }
     }
 
@@ -38,6 +38,35 @@ public class ProfileController : MonoBehaviour
     {
         
     }
+
+    #region Player Money management
+
+    public bool CanBuyItemByCost(int _itemPrice)
+    {
+        if(_itemPrice <= PlayerMoney)
+        {
+            PlayerMoney -= _itemPrice;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void AddItemToProfile(object _itemObject)
+    {
+        if(_itemObject is Appliance)
+        {
+            Appliance _applianceItem = (Appliance)_itemObject;
+            if(CanBuyItemByCost(_applianceItem.costPrice))
+            {
+                PlayerAppliances.Add(_applianceItem);
+            }
+        }
+    }
+
+    #endregion
 
     public void LoadProfileToBuilderUI()
     {

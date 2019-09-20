@@ -27,7 +27,7 @@ public class ItemDatabase : ScriptableObject {
 
     #region FoodItem item handlings
 
-    public FoodItem GetFoodItemByName(string _itemIDName)
+    public FoodItem GetFoodItemByID(string _itemIDName)
     {
         for (int i = 0; i < FoodDatabase.Count; i++)
         {
@@ -59,9 +59,9 @@ public class ItemDatabase : ScriptableObject {
 
     public void CreateFoodItem(string _foodItemID)
     {
-        if(GetFoodItemByName(_foodItemID).CanCreateFoodItem())
+        if(GetFoodItemByID(_foodItemID).CanCreateFoodItem())
         {
-            GetFoodItemByName(_foodItemID).StoredAmount += 1;
+            GetFoodItemByID(_foodItemID).StoredAmount += 1;
         }
     }
 
@@ -110,7 +110,7 @@ public class ItemDatabase : ScriptableObject {
 
     #region FoodIngredients item handlings
 
-    public FoodIngredients GetFoodIngredientByName(string _itemIDName)
+    public FoodIngredients GetFoodIngredientByID(string _itemIDName)
     {
         for (int i = 0; i < FoodIngredients.Count; i++)
         {
@@ -180,7 +180,7 @@ public class ItemDatabase : ScriptableObject {
 
     #region Appliance item handlings
 
-    public Appliance GetApplianceByName(string _itemIDName)
+    public Appliance GetApplianceByID(string _itemIDName)
     {
         for (int i = 0; i < Appliances.Count; i++)
         {
