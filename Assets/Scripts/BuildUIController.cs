@@ -126,7 +126,7 @@ public class BuildUIController : MonoBehaviour
     public IEnumerator RefreshPanelWithDelay(GameObject _panel)
     {
         _panel.gameObject.SetActive(false);
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(.05f);
         _panel.gameObject.SetActive(true);
     }
 
