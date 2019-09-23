@@ -46,7 +46,7 @@ MonoBehaviour:
     IngredientID: tomato
     IngredientImage: {fileID: 0}
     IngredientStoredAmount: 0
-    CostPrice: 0
+    CostPrice: 1
   - IngredientName: Bums
     IngredientID: bums
     IngredientImage: {fileID: 0}

@@ -15,7 +15,7 @@ public class FoodIngredients
     {
         FoodIngredients newItem = new FoodIngredients();
 
-        newItem.IngredientID = IngredientName;
+        newItem.IngredientName = IngredientName;
         newItem.IngredientID = IngredientID;
         newItem.IngredientStoredAmount = IngredientStoredAmount;
         newItem.IngredientImage = IngredientImage;

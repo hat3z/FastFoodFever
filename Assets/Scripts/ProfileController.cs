@@ -64,6 +64,51 @@ public class ProfileController : MonoBehaviour
                 PlayerAppliances.Add(_applianceItem);
             }
         }
+        if (_itemObject is FoodIngredients)
+        {
+            FoodIngredients _foodIngredientItem = (FoodIngredients)_itemObject;
+            if (CanBuyItemByCost(_foodIngredientItem.CostPrice))
+            {
+                if(IsFoodIngredientExists(_foodIngredientItem.IngredientID))
+                {
+                    GetFoodIngredientFromProfile(_foodIngredientItem.IngredientID).IngredientStoredAmount += 1;
+                }
+                else
+                {
+                    _foodIngredientItem.IngredientStoredAmount = 1;
+                    PlayerFoodIngredients.Add(_foodIngredientItem);
+                }
+
+            }
+        }
+    }
+
+    bool IsFoodIngredientExists(string _ingID)
+    {
+        for (int i = 0; i < PlayerFoodIngredients.Count; i++)
+        {
+            if(PlayerFoodIngredients[i].IngredientID == _ingID)
+            {
+                Debug.Log("has exists " + _ingID);
+                return true;
+            }
+        }
+        Debug.Log("not exists " + _ingID);
+        return false;
+    }
+
+    FoodIngredients GetFoodIngredientFromProfile(string _requestID)
+    {
+        for (int i = 0; i < PlayerFoodIngredients.Count; i++)
+        {
+            if(PlayerFoodIngredients[i].IngredientID == _requestID)
+            {
+                Debug.Log("Requested Ingredient " + _requestID);
+                return PlayerFoodIngredients[i];
+            }
+        }
+        Debug.Log("Requested Ingredient is null");
+        return null;
     }
 
     #endregion

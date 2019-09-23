@@ -30,11 +30,6 @@ public class ItemUIRow : MonoBehaviour
         
     }
 
-    //public void SetMyItemID(string _itemID)
-    //{
-    //    MyItemID = _itemID;
-    //}
-
     //public void SetupNewItemUI(object _itemObject)
     //{
 
@@ -42,6 +37,7 @@ public class ItemUIRow : MonoBehaviour
 
     public void SetupApplianceItemUI(Appliance _applianceData)
     {
+        MyItemID = _applianceData.applianceID;
         ItemImage.sprite = _applianceData.applianceImage;
         ItemName.text = _applianceData.applianceName;
         ProduceTime.text = _applianceData.ProduceTime.ToString() + " sec";
@@ -56,11 +52,18 @@ public class ItemUIRow : MonoBehaviour
         ItemCost.text = _foodItemData.sellPrice.ToString();
     }
 
-    public void SetupIngredientItemUI(FoodIngredients _foodItemData)
+    public void SetupIngredientItemUI(FoodIngredients _ingData)
     {
-        ItemImage.sprite = _foodItemData.IngredientImage;
-        ItemName.text = _foodItemData.IngredientName;
-        StoredAmount.text = _foodItemData.IngredientStoredAmount.ToString();
+        MyItemID = _ingData.IngredientID;
+        ItemImage.sprite = _ingData.IngredientImage;
+        ItemName.text = _ingData.IngredientName;
+        StoredAmount.text = _ingData.IngredientStoredAmount.ToString();
+    }
+
+    public void RefreshIngredientAmount(FoodIngredients _ingData)
+    {
+        int amount = ItemDatabase.Instance.GetFoodIngredientByID(_ingData.IngredientID).IngredientStoredAmount;
+        StoredAmount.text = (amount + 1).ToString();
     }
 
 }

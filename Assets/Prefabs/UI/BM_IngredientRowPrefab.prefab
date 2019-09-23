@@ -1411,7 +1411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e5e733ed2efda345b9712a0ad7a9c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemType: 1
+  ItemType: 3
   ItemImage: {fileID: 996981479376632488}
   ItemName: {fileID: 5859052332387519691}
   ProduceTime: {fileID: 535921075511001471}

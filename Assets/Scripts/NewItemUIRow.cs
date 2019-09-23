@@ -34,11 +34,24 @@ public class NewItemUIRow : MonoBehaviour
 
     //}
 
-    public void BuyItemButtonEvent()
+    public void BuyItemButtonEvent(string _refreshContentString)
     {
-        ProfileController.Instance.AddItemToProfile(ItemDatabase.Instance.GetApplianceByID(MyItemID));
-        BuildUIController.Instance.RefreshingBuildUIContent();
-        BuildUIController.Instance.CloseNewItemPanel();
+        switch (_refreshContentString)
+        {
+            case "appliance":
+                ProfileController.Instance.AddItemToProfile(ItemDatabase.Instance.GetApplianceByID(MyItemID));
+                ShopUIController.Instance.RefreshingBuildUIContent(_refreshContentString);
+                break;
+            case "ingredient":
+                ProfileController.Instance.AddItemToProfile(ItemDatabase.Instance.GetFoodIngredientByID(MyItemID));
+                ShopUIController.Instance.RefreshingBuildUIContent(_refreshContentString);
+                break;
+            default:
+                break;
+        }
+
+        ShopUIController.Instance.CloseNewItemPanel();
+
     }
 
     bool PlayerCanBuyItem(object _itemData)
@@ -47,6 +60,18 @@ public class NewItemUIRow : MonoBehaviour
         {
             Appliance _item = (Appliance)_itemData;
             if(_item.costPrice <= ProfileController.Instance.PlayerMoney)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        if(_itemData is FoodIngredients)
+        {
+            FoodIngredients ing = (FoodIngredients)_itemData;
+            if(ing.CostPrice <= ProfileController.Instance.PlayerMoney)
             {
                 return true;
             }
@@ -79,15 +104,20 @@ public class NewItemUIRow : MonoBehaviour
         }
     }
 
-    public void SetupFoodItem(FoodItem _foodData)
+    #endregion
+
+    #region Ingredient Setup
+
+    public void SetupIngredient(FoodIngredients _ingData)
     {
-        SetMyItemID(_foodData.foodID);
+        SetMyItemID(_ingData.IngredientID);
 
-        ItemImage.sprite = _foodData.foodImage;
-        ItemName.text = _foodData.foodName;
-        Description.text = _foodData.description;
+        ItemImage.sprite = _ingData.IngredientImage;
+        ItemName.text = _ingData.IngredientName;
+        ItemCost.text = _ingData.CostPrice.ToString();
+        //Description.text = _ingData.de;
 
-        if (PlayerCanBuyItem(_foodData))
+        if (PlayerCanBuyItem(_ingData))
         {
             BuyButton.interactable = true;
         }

@@ -138,6 +138,7 @@ public class ItemDatabase : ScriptableObject {
         return false;
     }
 
+
     /// <summary>
     /// Setups a new default item.
     /// </summary>
