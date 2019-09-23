@@ -42,6 +42,7 @@ public class ApplianceSlotController : MonoBehaviour, IPointerClickHandler
             SetupSlotPrefab(GamePlayController.Instance.GetDynamicTIleByID(DynamicTileID));
             ShopUIController.Instance.GetAppliancesFromProfile(true);
             ShopUIController.Instance.PlaceMaskBehaviour(false);
+            BuildUIController.Instance.SetAppliancesSlotCount();
         }
     }
 

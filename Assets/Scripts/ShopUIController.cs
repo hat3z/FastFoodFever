@@ -23,11 +23,14 @@ public class ShopUIController : MonoBehaviour
     public GameObject ApplianceUIRowPrefab;
     public Transform ApplianceParent;
     public List<ItemUIRow> ApplianceUIRows;
+    public TextMeshProUGUI ApplShowButtonText;
+    public TextMeshProUGUI ApplianceCounter;
 
     [Header("-Ingredients Section")]
     public GameObject IngredientsUIRowPrefab;
     public Transform IngredientParent;
     public List<ItemUIRow> IngredientUIRows;
+    public TextMeshProUGUI IngShowButtonText;
 
     [Header("Bottom Buttons")]
     public Button BuildModeButton;
@@ -85,6 +88,7 @@ public class ShopUIController : MonoBehaviour
             GetIngredientsFromProfile(false);
             GetPlayerCoinsFromProfile();
             BuildUIController.Instance.SetupApplianceSlots();
+            BuildUIController.Instance.SetAppliancesSlotCount();
         }
         else
         {
@@ -101,6 +105,7 @@ public class ShopUIController : MonoBehaviour
         {
             case "appliance":
                 GetAppliancesFromProfile(true);
+                BuildUIController.Instance.SetAppliancesSlotCount();
                 break;
             case "ingredient":
                 GetIngredientsFromProfile(true);
@@ -113,16 +118,37 @@ public class ShopUIController : MonoBehaviour
     }
 
     //Item showing
-    public void ShowItems(GameObject _panel)
+    public void ShowItems(string itemType)
     {
-        bool _state = _panel.activeSelf;
-        if(_state)
+        bool _state;
+        switch (itemType)
         {
-            _panel.gameObject.SetActive(false);
-        }
-        else
-        {
-            _panel.gameObject.SetActive(true);
+            case "appliance":
+                _state = ApplianceParent.gameObject.activeSelf;
+                ApplianceParent.gameObject.SetActive(!_state);
+                if(_state)
+                {
+                    ApplShowButtonText.text = "Show";
+                }
+                else
+                {
+                    ApplShowButtonText.text = "Hide";
+                }
+                break;
+            case "ingredient":
+                _state = IngredientParent.gameObject.activeSelf;
+                IngredientParent.gameObject.SetActive(!_state);
+                if (_state)
+                {
+                    IngShowButtonText.text = "Show";
+                }
+                else
+                {
+                    IngShowButtonText.text = "Hide";
+                }
+                break;
+            default:
+                break;
         }
     }
 
@@ -160,6 +186,7 @@ public class ShopUIController : MonoBehaviour
             ApplianceUIRows.Add(newRow.GetComponent<ItemUIRow>());
             newRow.GetComponent<ItemUIRow>().SetupApplianceItemUI(ProfileController.Instance.PlayerAppliances[i]);
         }
+        ApplianceCounter.text = ProfileController.Instance.PlayerAppliances.Count.ToString();
     }
 
     //Ingredient

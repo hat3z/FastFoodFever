@@ -77,11 +77,12 @@ public class ItemUIRow : MonoBehaviour
     public void ReplaceButtonEvent()
     {
         ProfileController.Instance.RemoveApplianceSlot(MyItemID);
+        BuildUIController.Instance.SetAppliancesSlotCount();
     }
 
     public void SellButtonEvent()
     {
-        ProfileController.Instance.SellItemByID(MyItemID);
+        ProfileController.Instance.SellApplianceByID(MyItemID);
         ShopUIController.Instance.GetAppliancesFromProfile(true);
         ShopUIController.Instance.GetPlayerCoinsFromProfile();
     }

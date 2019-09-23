@@ -155,10 +155,24 @@ public class ProfileController : MonoBehaviour
         ShopUIController.Instance.GetAppliancesFromProfile(true);
     }
 
-    public void SellItemByID(string _itemID)
+    public void SellApplianceByID(string _itemID)
     {
         PlayerAppliances.Remove(GetApplianceFromProfileByID(_itemID));
         PlayerMoney += ItemDatabase.Instance.GetApplianceByID(_itemID).sellPrice;
+    }
+
+    public List<Appliance> GetPlacedAppliancesList()
+    {
+        List<Appliance> result = new List<Appliance>();
+        for (int i = 0; i < PlayerAppliances.Count; i++)
+        {
+            if(PlayerAppliances[i].DynamicTileID != 0)
+            {
+                result.Add(PlayerAppliances[i]);
+
+            }
+        }
+        return result;
     }
 
     #endregion

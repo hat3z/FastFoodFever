@@ -15,20 +15,27 @@ public class BuildUIController : MonoBehaviour
     public GameObject ApplianceSlotPrefab;
     public Transform ApplSlotContent;
     public List<ApplianceSlotController> ApplianceSlots;
+    public TextMeshProUGUI ApplCounterLabel;
+    public TextMeshProUGUI ApplShowText;
 
     [Header("-Food Section")]
     public GameObject FoodUIRowPrefab;
     public Transform FoodParent;
     public List<ItemUIRow> FoodUIRows;
+    public TextMeshProUGUI FoodCounterLabel;
+    public TextMeshProUGUI FoodShowText;
 
     [Header("-New Food--")]
     public GameObject NewFoodUIRowPrefab;
     public List<NewItemUIRow> NewFoodUIRows;
 
+
     [Header("-Drink Section")]
     public GameObject DrinkUIRowPrefab;
     public Transform DrinkParent;
     public List<ItemUIRow> DrinkUIRows;
+    public TextMeshProUGUI DrinkCounterLabel;
+    public TextMeshProUGUI DrinkShowText;
 
     [Header("-New Drink--")]
     public GameObject NewDrinkUIRowPrefab;
@@ -50,6 +57,53 @@ public class BuildUIController : MonoBehaviour
     {
         
     }
+
+    public void ShowItems(string itemType)
+    {
+        bool _state;
+        switch (itemType)
+        {
+            case "appliance":
+                _state = ApplSlotContent.gameObject.activeSelf;
+                ApplSlotContent.gameObject.SetActive(!_state);
+                if (_state)
+                {
+                    ApplShowText.text = "Show";
+                }
+                else
+                {
+                    ApplShowText.text = "Hide";
+                }
+                break;
+            case "food":
+                _state = FoodParent.gameObject.activeSelf;
+                FoodParent.gameObject.SetActive(!_state);
+                if (_state)
+                {
+                    FoodShowText.text = "Show";
+                }
+                else
+                {
+                    FoodShowText.text = "Hide";
+                }
+                break;
+            case "drink":
+                _state = DrinkParent.gameObject.activeSelf;
+                DrinkParent.gameObject.SetActive(!_state);
+                if (_state)
+                {
+                    DrinkShowText.text = "Show";
+                }
+                else
+                {
+                    DrinkShowText.text = "Hide";
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
     #region Appliances Slot handling
     void ClearAppliancesSlot()
     {
@@ -58,6 +112,11 @@ public class BuildUIController : MonoBehaviour
             Destroy(ApplianceSlots[i].gameObject);
         }
         ApplianceSlots.Clear();
+    }
+
+    public void SetAppliancesSlotCount()
+    {
+        ApplCounterLabel.text = (ProfileController.Instance.GetPlacedAppliancesList().Count + "/" + ProfileController.Instance.PlayerAppliances.Count).ToString();
     }
 
     public void SetupApplianceSlots()
