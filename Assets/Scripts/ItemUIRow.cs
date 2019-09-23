@@ -17,7 +17,13 @@ public class ItemUIRow : MonoBehaviour
     public TextMeshProUGUI ProduceQt;
     public TextMeshProUGUI ItemCost;
     public TextMeshProUGUI StoredAmount;
+
     public Button PlaceButton;
+    public Button ReplaceButton;
+    public Button SellButton;
+    public TextMeshProUGUI PlacedLabel;
+    public Color PlacedTextColor;
+    public Color NotPlacedTextColor;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,11 +51,19 @@ public class ItemUIRow : MonoBehaviour
         ItemCost.text = _applianceData.sellPrice.ToString();
         if(_applianceData.DynamicTileID == 0)
         {
-            PlaceButton.interactable = true;
+            PlaceButton.gameObject.SetActive(true);
+            ReplaceButton.gameObject.SetActive(false);
+            SellButton.interactable = true;
+            PlacedLabel.color = NotPlacedTextColor;
+            PlacedLabel.text = "Not Placed!";
         }
         else
         {
-            PlaceButton.interactable = false;
+            PlaceButton.gameObject.SetActive(false);
+            ReplaceButton.gameObject.SetActive(true);
+            SellButton.interactable = false;
+            PlacedLabel.color = PlacedTextColor;
+            PlacedLabel.text = "Placed!";
         }
     }
 
@@ -57,6 +71,19 @@ public class ItemUIRow : MonoBehaviour
     {
         ShopUIController.Instance.isPlacing = true;
         ShopUIController.Instance.placingApplID = MyItemID;
+        ShopUIController.Instance.PlaceMaskBehaviour(true);
+    }
+
+    public void ReplaceButtonEvent()
+    {
+        ProfileController.Instance.RemoveApplianceSlot(MyItemID);
+    }
+
+    public void SellButtonEvent()
+    {
+        ProfileController.Instance.SellItemByID(MyItemID);
+        ShopUIController.Instance.GetAppliancesFromProfile(true);
+        ShopUIController.Instance.GetPlayerCoinsFromProfile();
     }
 
     public void SetupFoodItemItemUI(FoodItem _foodItemData)

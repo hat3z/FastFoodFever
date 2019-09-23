@@ -6,6 +6,15 @@ using TMPro;
 public class GameUIController : MonoBehaviour
 {
 
+    public static GameUIController Instance;
+
+
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,5 +31,7 @@ public class GameUIController : MonoBehaviour
     {
 
     }
+
+
 
 }

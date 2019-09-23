@@ -146,6 +146,21 @@ public class ProfileController : MonoBehaviour
         GamePlayController.Instance.GetDynamicTIleByID(_DynamicTIleID).myAppliance = GetApplianceFromProfileByID(ShopUIController.Instance.placingApplID).applianceID;
     }
 
+    public void RemoveApplianceSlot(string _applID)
+    {
+        GamePlayController.Instance.GetDynamicTIleByID(GetApplianceFromProfileByID(_applID).DynamicTileID).myAppliance = string.Empty;
+        GetApplianceFromProfileByID(_applID).DynamicTileID = 0;
+
+        BuildUIController.Instance.SetupApplianceSlots();
+        ShopUIController.Instance.GetAppliancesFromProfile(true);
+    }
+
+    public void SellItemByID(string _itemID)
+    {
+        PlayerAppliances.Remove(GetApplianceFromProfileByID(_itemID));
+        PlayerMoney += ItemDatabase.Instance.GetApplianceByID(_itemID).sellPrice;
+    }
+
     #endregion
 
     public void LoadProfileToBuilderUI()

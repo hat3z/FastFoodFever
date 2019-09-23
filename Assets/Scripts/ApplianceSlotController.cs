@@ -41,6 +41,7 @@ public class ApplianceSlotController : MonoBehaviour, IPointerClickHandler
             ShopUIController.Instance.placingApplID = string.Empty;
             SetupSlotPrefab(GamePlayController.Instance.GetDynamicTIleByID(DynamicTileID));
             ShopUIController.Instance.GetAppliancesFromProfile(true);
+            ShopUIController.Instance.PlaceMaskBehaviour(false);
         }
     }
 
@@ -64,6 +65,7 @@ public class ApplianceSlotController : MonoBehaviour, IPointerClickHandler
                 PlaceLabel.text = "Placed!";
                 ApplImage.sprite = ProfileController.Instance.GetApplianceFromProfileByID(_dynamicTile.myAppliance).applianceImage;
                 ApplNameLabel.text = ProfileController.Instance.GetApplianceFromProfileByID(_dynamicTile.myAppliance).applianceName;
+                _dynamicTile.SetupNamesByType(_dynamicTile.myAppliance);
             }
 
 

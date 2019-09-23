@@ -12,8 +12,12 @@ public class ShopUIController : MonoBehaviour
     public Animator ShopPanelAnimator;
     public TextMeshProUGUI PlayerCoinsLabel;
 
+    [Header("Placing")]
     public bool isPlacing = false;
     public string placingApplID;
+    public GameObject PlacingMask;
+    public Button CloseButtonBuild;
+    public Button CloseButtonShop;
 
     [Header("-Appliances Section")]
     public GameObject ApplianceUIRowPrefab;
@@ -65,7 +69,7 @@ public class ShopUIController : MonoBehaviour
         NewItemPanel.gameObject.SetActive(false);
     }
 
-    void GetPlayerCoinsFromProfile()
+    public void GetPlayerCoinsFromProfile()
     {
         PlayerCoinsLabel.text = ProfileController.Instance.PlayerMoney.ToString();
     }
@@ -255,5 +259,17 @@ public class ShopUIController : MonoBehaviour
     }
 
     #endregion
+
+    #region Placing Handlings
+
+    public void PlaceMaskBehaviour(bool _state)
+    {
+        PlacingMask.gameObject.SetActive(_state);
+        CloseButtonBuild.interactable = !_state;
+        CloseButtonShop.interactable = !_state;
+    }
+
+    #endregion
+
 
 }

@@ -2484,7 +2484,7 @@ RectTransform:
   - {fileID: 1688781924}
   - {fileID: 1233161007}
   m_Father: {fileID: 1071670600}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2869,7 +2869,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68167dd74c24d364bbe2e6f5e5143bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ApplianceType: 0
   ID: 2
   myAppliance: 
 --- !u!1 &548510328
@@ -3123,6 +3122,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560076995}
   m_CullTransparentMesh: 0
+--- !u!1 &603241506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 603241509}
+  - component: {fileID: 603241508}
+  - component: {fileID: 603241507}
+  m_Layer: 5
+  m_Name: PlacingMask
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &603241507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603241506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.4117647}
+  m_RaycastTarget: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &603241508
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603241506}
+  m_CullTransparentMesh: 0
+--- !u!224 &603241509
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603241506}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1071670600}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &634042791
 GameObject:
   m_ObjectHideFlags: 0
@@ -3931,7 +4005,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1, y: 1, z: 1, w: 1}
+  m_BoundingSphereOverride: {x: 0.0390625, y: 0.05078125, z: 0.02734375, w: -0.015625}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -5644,7 +5718,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68167dd74c24d364bbe2e6f5e5143bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ApplianceType: 0
   ID: 3
   myAppliance: 
 --- !u!1 &1008833015
@@ -6074,6 +6147,7 @@ RectTransform:
   m_Children:
   - {fileID: 560076996}
   - {fileID: 673917202}
+  - {fileID: 603241509}
   - {fileID: 504780307}
   - {fileID: 1557750978}
   m_Father: {fileID: 0}
@@ -6631,7 +6705,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68167dd74c24d364bbe2e6f5e5143bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ApplianceType: 3
   ID: 6
   myAppliance: 
 --- !u!1 &1189542157
@@ -6968,7 +7041,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68167dd74c24d364bbe2e6f5e5143bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ApplianceType: 1
   ID: 1
   myAppliance: 
 --- !u!1 &1270119476
@@ -7112,7 +7184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68167dd74c24d364bbe2e6f5e5143bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ApplianceType: 2
   ID: 8
   myAppliance: 
 --- !u!1 &1307794600
@@ -8829,7 +8900,7 @@ RectTransform:
   - {fileID: 1965475884}
   - {fileID: 527824155}
   m_Father: {fileID: 1071670600}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -10328,7 +10399,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68167dd74c24d364bbe2e6f5e5143bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ApplianceType: 1
   ID: 5
   myAppliance: 
 --- !u!1 &1839721371
@@ -10342,6 +10412,7 @@ GameObject:
   - component: {fileID: 1839721372}
   - component: {fileID: 1839721373}
   - component: {fileID: 1839721374}
+  - component: {fileID: 1839721375}
   m_Layer: 0
   m_Name: UIController
   m_TagString: Untagged
@@ -10378,6 +10449,11 @@ MonoBehaviour:
   BuildPanelAnimator: {fileID: 504780308}
   ShopPanelAnimator: {fileID: 673917206}
   PlayerCoinsLabel: {fileID: 1613247494}
+  isPlacing: 0
+  placingApplID: 
+  PlacingMask: {fileID: 603241506}
+  CloseButtonBuild: {fileID: 138221252}
+  CloseButtonShop: {fileID: 489442832}
   ApplianceUIRowPrefab: {fileID: 7915258179761793210, guid: 2b9e24a5d463f7045a84cd2bafe7336f,
     type: 3}
   ApplianceParent: {fileID: 1992484737}
@@ -10422,6 +10498,18 @@ MonoBehaviour:
   DrinkUIRows: []
   NewDrinkUIRowPrefab: {fileID: 0}
   NewDrinkUIRows: []
+--- !u!114 &1839721375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839721371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75980f5dc5d8f5040b055f2c7a78d997, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1868223682
 GameObject:
   m_ObjectHideFlags: 0
@@ -10603,7 +10691,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68167dd74c24d364bbe2e6f5e5143bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ApplianceType: 4
   ID: 7
   myAppliance: 
 --- !u!1 &1894095630
@@ -11038,7 +11125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68167dd74c24d364bbe2e6f5e5143bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ApplianceType: 0
   ID: 4
   myAppliance: 
 --- !u!1 &1949919708
