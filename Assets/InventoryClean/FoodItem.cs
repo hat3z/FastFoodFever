@@ -34,6 +34,7 @@ public class FoodItem {
         newItem.foodImage = foodImage;
         newItem.description = description;
         newItem.Tier = Tier;
+        newItem.Type = Type;
         newItem.StoredAmount = StoredAmount;
         newItem.sellPrice = sellPrice;
         newItem.costPrice = costPrice;

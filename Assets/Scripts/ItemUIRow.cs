@@ -82,7 +82,9 @@ public class ItemUIRow : MonoBehaviour
 
     public void SellButtonEvent()
     {
+
         ProfileController.Instance.SellApplianceByID(MyItemID);
+        BuildUIController.Instance.SetupFoodItemSlotFromList(ProfileController.Instance.PlayerFoodItems, true);
         ShopUIController.Instance.GetAppliancesFromProfile(true);
         ShopUIController.Instance.GetPlayerCoinsFromProfile();
     }

@@ -39,7 +39,7 @@ public class ProfileController : MonoBehaviour
         
     }
 
-    #region Player Money management
+    #region ----- Player Money management -----
 
     public bool CanBuyItemByCost(int _itemPrice)
     {
@@ -85,7 +85,7 @@ public class ProfileController : MonoBehaviour
         }
     }
 
-    #region --- INGREDIENTS ---
+    #region ----- INGREDIENTS -----
     bool IsFoodIngredientExists(string _ingID)
     {
         for (int i = 0; i < PlayerFoodIngredients.Count; i++)
@@ -116,16 +116,59 @@ public class ProfileController : MonoBehaviour
 
     #endregion
 
-    #region  --- FOOD ---
+    #region  ----- FOOD -----
     void UnlockFoodByAppliance(Appliance _applianceData)
     {
         FoodItem newFood = ItemDatabase.Instance.GetFoodItemByID(_applianceData.produceID);
         newFood.isLocked = false;
-        PlayerFoodItems.Add(newFood);
+        if(!isFoodItemExists(_applianceData.produceID))
+        {
+            PlayerFoodItems.Add(newFood);
+            BuildUIController.Instance.SetupFoodItemSlots(_applianceData, true);
+        }
+
     }
+
+    bool isFoodItemExists(string _foodID)
+    {
+        for (int i = 0; i < PlayerFoodItems.Count; i++)
+        {
+            if(PlayerFoodItems[i].foodID == _foodID)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    FoodItem GetFoodItemFromProfileByID(string _foodID)
+    {
+        for (int i = 0; i < PlayerFoodItems.Count; i++)
+        {
+            if(PlayerFoodItems[i].foodID == _foodID)
+            {
+                return PlayerFoodItems[i];
+            }
+        }
+        return null;
+    }
+
+    public List<FoodItem> GetFoodListFromProfileByType(FoodItem.type foodType)
+    {
+        List<FoodItem> result = new List<FoodItem>();
+        for (int i = 0; i < PlayerFoodItems.Count; i++)
+        {
+            if(foodType == PlayerFoodItems[i].Type)
+            {
+                result.Add(PlayerFoodItems[i]);
+            }
+        }
+        return result;
+    }
+
     #endregion
 
-    #region --- APPLIANCE ---
+    #region ----- APPLIANCE -----
 
     public Appliance GetApplianceFromProfileByID(string _applID)
     {
@@ -152,13 +195,34 @@ public class ProfileController : MonoBehaviour
         GetApplianceFromProfileByID(_applID).DynamicTileID = 0;
 
         BuildUIController.Instance.SetupApplianceSlots();
-        ShopUIController.Instance.GetAppliancesFromProfile(true);
+        ShopUIController.Instance.GetAppliancesFromProfile(false);
     }
 
     public void SellApplianceByID(string _itemID)
     {
+        if(ApplianceCount(_itemID) == 0)
+        {
+            Debug.Log("asd");
+            PlayerFoodItems.Remove(GetFoodItemFromProfileByID(ItemDatabase.Instance.GetApplianceByID(_itemID).produceID));
+        }
+
         PlayerAppliances.Remove(GetApplianceFromProfileByID(_itemID));
+        Debug.Log(ApplianceCount(_itemID));
         PlayerMoney += ItemDatabase.Instance.GetApplianceByID(_itemID).sellPrice;
+    }
+
+    int ApplianceCount(string _aplID)
+    {
+        int result = 0;
+        for (int i = 0; i < PlayerAppliances.Count; i++)
+        {
+            if(PlayerAppliances[i].applianceID == _aplID)
+            {
+                result +=1;
+                return result;
+            }
+        }
+        return result;
     }
 
     public List<Appliance> GetPlacedAppliancesList()

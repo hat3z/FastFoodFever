@@ -40,7 +40,7 @@ public class ApplianceSlotController : MonoBehaviour, IPointerClickHandler
             ShopUIController.Instance.isPlacing = false;
             ShopUIController.Instance.placingApplID = string.Empty;
             SetupSlotPrefab(GamePlayController.Instance.GetDynamicTIleByID(DynamicTileID));
-            ShopUIController.Instance.GetAppliancesFromProfile(true);
+            ShopUIController.Instance.GetAppliancesFromProfile(false);
             ShopUIController.Instance.PlaceMaskBehaviour(false);
             BuildUIController.Instance.SetAppliancesSlotCount();
         }
@@ -68,9 +68,8 @@ public class ApplianceSlotController : MonoBehaviour, IPointerClickHandler
                 ApplNameLabel.text = ProfileController.Instance.GetApplianceFromProfileByID(_dynamicTile.myAppliance).applianceName;
                 _dynamicTile.SetupNamesByType(_dynamicTile.myAppliance);
             }
-
-
         }
+        SlotTypeLabel.text = "Slot" + _dynamicTile.ID;
     }
 
 }

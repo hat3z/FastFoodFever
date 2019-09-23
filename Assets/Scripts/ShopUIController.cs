@@ -169,9 +169,13 @@ public class ShopUIController : MonoBehaviour
     }
 
     // Appliance
-    public void GetAppliancesFromProfile(bool useRefresh)
+    /// <summary>
+    /// Getting all the Appliances from Profile, and drawing into the "ApplianceParent". If use "useActivating", the panel will disabling and enabling after time(0.05s). 
+    /// </summary>
+    /// <param name="useActivating"></param>
+    public void GetAppliancesFromProfile(bool useActivating)
     {
-        if(useRefresh)
+        if(useActivating)
         {
             StartCoroutine(RefreshPanelWithDelay(ApplianceParent.gameObject));
         }
@@ -187,6 +191,7 @@ public class ShopUIController : MonoBehaviour
             newRow.GetComponent<ItemUIRow>().SetupApplianceItemUI(ProfileController.Instance.PlayerAppliances[i]);
         }
         ApplianceCounter.text = ProfileController.Instance.PlayerAppliances.Count.ToString();
+
     }
 
     //Ingredient

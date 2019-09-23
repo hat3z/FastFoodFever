@@ -2159,11 +2159,11 @@ MonoBehaviour:
   m_Content: {fileID: 1108541102}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
-  m_Inertia: 1
+  m_Inertia: 0
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 55
   m_Viewport: {fileID: 28466856}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 1189542159}
@@ -2710,11 +2710,11 @@ MonoBehaviour:
   m_Content: {fileID: 913125870}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
-  m_Inertia: 1
+  m_Inertia: 0
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 70
   m_Viewport: {fileID: 2059428889}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 1476224387}
@@ -3387,7 +3387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.4117647}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.6862745}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4396,7 +4396,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.83672e-40, y: -1.14e-42, z: 4.3e-44, w: 1.1e-44}
+  m_BoundingSphereOverride: {x: 7.61e-43, y: 8.3990686e-16, z: 4.5905e-41, w: 8.3986197e-16}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -4903,9 +4903,9 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 0
+    m_Top: 10
     m_Bottom: 10
-  m_ChildAlignment: 6
+  m_ChildAlignment: 4
   m_Spacing: 10
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
@@ -5121,11 +5121,11 @@ MonoBehaviour:
   m_Content: {fileID: 1919232885}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
-  m_Inertia: 1
+  m_Inertia: 0
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 55
   m_Viewport: {fileID: 198385598}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 374581985}
@@ -11032,27 +11032,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac934cc6a4bdd942b2142c5ae6abb50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuildPanelAnimator: {fileID: 0}
   ApplianceSlotPrefab: {fileID: 4632818189041777318, guid: d4090b20c26f6374681c3d3eaccaa333,
     type: 3}
   ApplSlotContent: {fileID: 1868223683}
   ApplianceSlots: []
   ApplCounterLabel: {fileID: 1995609290}
   ApplShowText: {fileID: 1685934383}
-  FoodUIRowPrefab: {fileID: 0}
+  FoodUIRowPrefab: {fileID: 8847409218351346636, guid: eec55c32a6c2b2f4585379c03a85fe7a,
+    type: 3}
   FoodParent: {fileID: 776085130}
   FoodUIRows: []
   FoodCounterLabel: {fileID: 1895967722}
   FoodShowText: {fileID: 1351266540}
-  NewFoodUIRowPrefab: {fileID: 0}
-  NewFoodUIRows: []
-  DrinkUIRowPrefab: {fileID: 0}
   DrinkParent: {fileID: 1639820729}
   DrinkUIRows: []
   DrinkCounterLabel: {fileID: 691598681}
   DrinkShowText: {fileID: 1742075796}
-  NewDrinkUIRowPrefab: {fileID: 0}
-  NewDrinkUIRows: []
 --- !u!114 &1839721375
 MonoBehaviour:
   m_ObjectHideFlags: 0
