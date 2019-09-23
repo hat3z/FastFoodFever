@@ -1547,6 +1547,7 @@ MonoBehaviour:
   ProduceQt: {fileID: 5421317197318163283}
   ItemCost: {fileID: 1049196752953331823}
   StoredAmount: {fileID: 4839588503320663131}
+  PlaceButton: {fileID: 7230547976978030413}
 --- !u!1 &8035619854338730517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1899,7 +1900,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5383761254378308159}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8208426036959675906}
+        m_MethodName: PlaceButtonEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &8978401014874585461

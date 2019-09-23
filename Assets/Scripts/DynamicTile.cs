@@ -9,6 +9,8 @@ public class DynamicTile : MonoBehaviour
 
     public applianceType ApplianceType;
 
+    public int ID;
+    public string myAppliance;
     // Start is called before the first frame update
     void Start()
     {

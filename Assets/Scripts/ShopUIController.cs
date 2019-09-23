@@ -9,7 +9,11 @@ public class ShopUIController : MonoBehaviour
 
     [Header("SHOP PANEL")]
     public Animator BuildPanelAnimator;
+    public Animator ShopPanelAnimator;
     public TextMeshProUGUI PlayerCoinsLabel;
+
+    public bool isPlacing = false;
+    public string placingApplID;
 
     [Header("-Appliances Section")]
     public GameObject ApplianceUIRowPrefab;
@@ -69,12 +73,14 @@ public class ShopUIController : MonoBehaviour
     public void OpenBuildButtonEvent(bool _state)
     {
         BuildPanelAnimator.SetBool("isOpen", _state);
+        ShopPanelAnimator.SetBool("isOpen", _state);
         if(_state)
         {
             BuildModeButton.interactable = false;
             GetAppliancesFromProfile(false);
             GetIngredientsFromProfile(false);
             GetPlayerCoinsFromProfile();
+            BuildUIController.Instance.SetupApplianceSlots();
         }
         else
         {
@@ -133,7 +139,7 @@ public class ShopUIController : MonoBehaviour
     }
 
     // Appliance
-    void GetAppliancesFromProfile(bool useRefresh)
+    public void GetAppliancesFromProfile(bool useRefresh)
     {
         if(useRefresh)
         {

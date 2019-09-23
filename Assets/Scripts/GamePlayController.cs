@@ -18,6 +18,7 @@ public class GamePlayController : MonoBehaviour
     void Start()
     {
         GetAllDynamicTiles();
+        BuildUIController.Instance.SetupApplianceSlots();
     }
 
     // Update is called once per frame
@@ -35,6 +36,18 @@ public class GamePlayController : MonoBehaviour
         {
             DynamicTiles.Add(temp[i].GetComponent<DynamicTile>());
         }
+    }
+
+    public DynamicTile GetDynamicTIleByID(int _id)
+    {
+        for (int i = 0; i < DynamicTiles.Count; i++)
+        {
+            if(DynamicTiles[i].ID == _id)
+            {
+                return DynamicTiles[i];
+            }
+        }
+        return null;
     }
 
     #endregion

@@ -53,6 +53,7 @@ public class ProfileController : MonoBehaviour
             return false;
         }
     }
+    #endregion
 
     public void AddItemToProfile(object _itemObject)
     {
@@ -62,6 +63,7 @@ public class ProfileController : MonoBehaviour
             if(CanBuyItemByCost(_applianceItem.costPrice))
             {
                 PlayerAppliances.Add(_applianceItem);
+                UnlockFoodByAppliance(_applianceItem);
             }
         }
         if (_itemObject is FoodIngredients)
@@ -83,6 +85,7 @@ public class ProfileController : MonoBehaviour
         }
     }
 
+    #region --- INGREDIENTS ---
     bool IsFoodIngredientExists(string _ingID)
     {
         for (int i = 0; i < PlayerFoodIngredients.Count; i++)
@@ -109,6 +112,38 @@ public class ProfileController : MonoBehaviour
         }
         Debug.Log("Requested Ingredient is null");
         return null;
+    }
+
+    #endregion
+
+    #region  --- FOOD ---
+    void UnlockFoodByAppliance(Appliance _applianceData)
+    {
+        FoodItem newFood = ItemDatabase.Instance.GetFoodItemByID(_applianceData.produceID);
+        newFood.isLocked = false;
+        PlayerFoodItems.Add(newFood);
+    }
+    #endregion
+
+    #region --- APPLIANCE ---
+
+    public Appliance GetApplianceFromProfileByID(string _applID)
+    {
+        for (int i = 0; i < PlayerAppliances.Count; i++)
+        {
+            if(PlayerAppliances[i].applianceID == _applID)
+            {
+                return PlayerAppliances[i];
+            }
+            
+        }
+        return null;
+    }
+
+    public void SetApplianceToSlot(int _DynamicTIleID)
+    {
+        GetApplianceFromProfileByID(ShopUIController.Instance.placingApplID).DynamicTileID = _DynamicTIleID;
+        GamePlayController.Instance.GetDynamicTIleByID(_DynamicTIleID).myAppliance = GetApplianceFromProfileByID(ShopUIController.Instance.placingApplID).applianceID;
     }
 
     #endregion

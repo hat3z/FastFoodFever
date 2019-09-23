@@ -10,7 +10,7 @@ public class FoodIngredients
     public Sprite IngredientImage;
     public int IngredientStoredAmount;
     public int CostPrice;
-
+    public int TravelTime;
     public FoodIngredients MyClone()
     {
         FoodIngredients newItem = new FoodIngredients();
@@ -20,6 +20,7 @@ public class FoodIngredients
         newItem.IngredientStoredAmount = IngredientStoredAmount;
         newItem.IngredientImage = IngredientImage;
         newItem.CostPrice = CostPrice;
+        newItem.TravelTime = TravelTime;
         return newItem;
     }
 

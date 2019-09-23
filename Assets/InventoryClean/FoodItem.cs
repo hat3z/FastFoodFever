@@ -22,7 +22,7 @@ public class FoodItem {
     public int costPrice;
 
     public List<IngredientRequest> Ingredients = new List<IngredientRequest>();
-
+    public bool isLocked = true;
     public FoodItem MyClone()
     {
         FoodItem newItem = new FoodItem();
@@ -38,6 +38,7 @@ public class FoodItem {
         newItem.sellPrice = sellPrice;
         newItem.costPrice = costPrice;
         newItem.Ingredients = Ingredients;
+        newItem.isLocked = isLocked;
         return newItem;
     }
 

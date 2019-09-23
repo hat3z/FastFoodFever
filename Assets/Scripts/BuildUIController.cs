@@ -6,8 +6,15 @@ using TMPro;
 
 public class BuildUIController : MonoBehaviour
 {
+    public static BuildUIController Instance;
+
     [Header("BUILD PANEL")]
     public Animator BuildPanelAnimator;
+
+    [Header("Appliance Slots")]
+    public GameObject ApplianceSlotPrefab;
+    public Transform ApplSlotContent;
+    public List<ApplianceSlotController> ApplianceSlots;
 
     [Header("-Food Section")]
     public GameObject FoodUIRowPrefab;
@@ -27,6 +34,11 @@ public class BuildUIController : MonoBehaviour
     public GameObject NewDrinkUIRowPrefab;
     public List<NewItemUIRow> NewDrinkUIRows;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,4 +50,28 @@ public class BuildUIController : MonoBehaviour
     {
         
     }
+    #region Appliances Slot handling
+    void ClearAppliancesSlot()
+    {
+        for (int i = 0; i < ApplianceSlots.Count; i++)
+        {
+            Destroy(ApplianceSlots[i].gameObject);
+        }
+        ApplianceSlots.Clear();
+    }
+
+    public void SetupApplianceSlots()
+    {
+        ClearAppliancesSlot();
+        for (int i = 0; i < GamePlayController.Instance.DynamicTiles.Count; i++)
+        {
+            GameObject newSlot = Instantiate(ApplianceSlotPrefab);
+            newSlot.transform.SetParent(ApplSlotContent);
+            newSlot.transform.SetAsFirstSibling();
+            newSlot.transform.localScale = new Vector3(1, 1, 1);
+            ApplianceSlots.Add(newSlot.GetComponent<ApplianceSlotController>());
+            newSlot.GetComponent<ApplianceSlotController>().SetupSlotPrefab(GamePlayController.Instance.DynamicTiles[i]);
+        }
+    }
+    #endregion
 }

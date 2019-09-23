@@ -86,9 +86,12 @@
     <Compile Include="Assets\InventoryClean\FoodIngredients.cs" />
     <Compile Include="Assets\InventoryClean\FoodItem.cs" />
     <Compile Include="Assets\InventoryClean\ItemDatabase.cs" />
+    <Compile Include="Assets\Scripts\ApplianceSlotController.cs" />
     <Compile Include="Assets\Scripts\BuildUIController.cs" />
     <Compile Include="Assets\Scripts\DynamicTile.cs" />
+    <Compile Include="Assets\Scripts\Extensions.cs" />
     <Compile Include="Assets\Scripts\GamePlayController.cs" />
+    <Compile Include="Assets\Scripts\GameUIController.cs" />
     <Compile Include="Assets\Scripts\ItemUIRow.cs" />
     <Compile Include="Assets\Scripts\NewItemUIRow.cs" />
     <Compile Include="Assets\Scripts\ProfileController.cs" />

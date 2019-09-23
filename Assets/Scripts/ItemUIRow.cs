@@ -17,7 +17,7 @@ public class ItemUIRow : MonoBehaviour
     public TextMeshProUGUI ProduceQt;
     public TextMeshProUGUI ItemCost;
     public TextMeshProUGUI StoredAmount;
-
+    public Button PlaceButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +43,20 @@ public class ItemUIRow : MonoBehaviour
         ProduceTime.text = _applianceData.ProduceTime.ToString() + " sec";
         ProduceQt.text = _applianceData.ProduceQuantity.ToString();
         ItemCost.text = _applianceData.sellPrice.ToString();
+        if(_applianceData.DynamicTileID == 0)
+        {
+            PlaceButton.interactable = true;
+        }
+        else
+        {
+            PlaceButton.interactable = false;
+        }
+    }
+
+    public void PlaceButtonEvent()
+    {
+        ShopUIController.Instance.isPlacing = true;
+        ShopUIController.Instance.placingApplID = MyItemID;
     }
 
     public void SetupFoodItemItemUI(FoodItem _foodItemData)

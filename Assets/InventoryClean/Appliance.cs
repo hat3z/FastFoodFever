@@ -17,6 +17,7 @@ public class Appliance
     public int sellPrice;
     public int costPrice;
     public string produceID;
+    public int DynamicTileID;
     public Appliance MyClone()
     {
         Appliance newItem = new Appliance();

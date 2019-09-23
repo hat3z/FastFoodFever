@@ -29,6 +29,7 @@ MonoBehaviour:
       amount: 2
     - IngredientID: bums
       amount: 1
+    isLocked: 1
   - foodName: Cola
     foodID: cola
     foodModel: {fileID: 0}
@@ -41,17 +42,20 @@ MonoBehaviour:
     sellPrice: 2
     costPrice: 5
     Ingredients: []
+    isLocked: 1
   FoodIngredients:
   - IngredientName: Tomato
     IngredientID: tomato
     IngredientImage: {fileID: 0}
     IngredientStoredAmount: 0
     CostPrice: 1
+    TravelTime: 0
   - IngredientName: Bums
     IngredientID: bums
     IngredientImage: {fileID: 0}
     IngredientStoredAmount: 0
     CostPrice: 20
+    TravelTime: 0
   Appliances:
   - applianceName: Basic Cooker Pad
     applianceID: cooker1
