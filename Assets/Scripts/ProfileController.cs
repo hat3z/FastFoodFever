@@ -183,19 +183,45 @@ public class ProfileController : MonoBehaviour
         return null;
     }
 
-    public void SetApplianceToSlot(int _DynamicTIleID)
+    public Appliance GetApplianceFromProfileByDynamicID(int _dynamicID)
     {
-        GetApplianceFromProfileByID(ShopUIController.Instance.placingApplID).DynamicTileID = _DynamicTIleID;
-        GamePlayController.Instance.GetDynamicTIleByID(_DynamicTIleID).myAppliance = GetApplianceFromProfileByID(ShopUIController.Instance.placingApplID).applianceID;
+        for (int i = 0; i < PlayerAppliances.Count; i++)
+        {
+            if(PlayerAppliances[i].DynamicTileID == _dynamicID)
+            {
+                return PlayerAppliances[i];
+            }
+        }
+        return null;
     }
 
-    public void RemoveApplianceSlot(string _applID)
+    public void SetApplianceToSlot(int _DynamicTIleID)
     {
-        GamePlayController.Instance.GetDynamicTIleByID(GetApplianceFromProfileByID(_applID).DynamicTileID).myAppliance = string.Empty;
-        GetApplianceFromProfileByID(_applID).DynamicTileID = 0;
+        Appliance placingAppliance = GetApplianceFromProfileByDynamicID(0);
+        placingAppliance.DynamicTileID = _DynamicTIleID;
+        GamePlayController.Instance.GetDynamicTIleByID(_DynamicTIleID).myAppliance = placingAppliance.applianceID;
+    }
+
+    public void RemoveApplianceSlot(int id)
+    {
+        GamePlayController.Instance.GetDynamicTIleByID(id).myAppliance = string.Empty;
+        GamePlayController.Instance.GetDynamicTIleByID(id).RemoveObjectModel();
+        GetApplianceFromProfileByDynamicID(id).DynamicTileID = 0;
 
         BuildUIController.Instance.SetupApplianceSlots();
         ShopUIController.Instance.GetAppliancesFromProfile(false);
+    }
+
+    bool ApplianceHasDynamicTileByID( int _dynamicID)
+    {
+        if(GamePlayController.Instance.GetDynamicTIleByID(_dynamicID).ID == GetApplianceFromProfileByDynamicID(_dynamicID).DynamicTileID)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public void SellApplianceByID(string _itemID)

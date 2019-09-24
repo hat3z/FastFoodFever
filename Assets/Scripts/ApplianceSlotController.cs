@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public class ApplianceSlotController : MonoBehaviour, IPointerClickHandler
+public class ApplianceSlotController : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
 
     public Color EmptyBackgroundColor;
@@ -19,7 +19,7 @@ public class ApplianceSlotController : MonoBehaviour, IPointerClickHandler
     public TextMeshProUGUI PlaceLabel;
 
     public int DynamicTileID;
-
+    string myApplianceID;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,16 +34,21 @@ public class ApplianceSlotController : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData e)
     {
-        if(ShopUIController.Instance.isPlacing)
+        if(GamePlayController.Instance.GetDynamicTIleByID(DynamicTileID).myAppliance == string.Empty)
         {
-            ProfileController.Instance.SetApplianceToSlot(DynamicTileID);
-            ShopUIController.Instance.isPlacing = false;
-            ShopUIController.Instance.placingApplID = string.Empty;
-            SetupSlotPrefab(GamePlayController.Instance.GetDynamicTIleByID(DynamicTileID));
-            ShopUIController.Instance.GetAppliancesFromProfile(false);
-            ShopUIController.Instance.PlaceMaskBehaviour(false);
-            BuildUIController.Instance.SetAppliancesSlotCount();
+            if (ShopUIController.Instance.isPlacing)
+            {
+                ProfileController.Instance.SetApplianceToSlot(DynamicTileID);
+                ShopUIController.Instance.isPlacing = false;
+                ShopUIController.Instance.placingApplID = string.Empty;
+                SetupSlotPrefab(GamePlayController.Instance.GetDynamicTIleByID(DynamicTileID));
+                ShopUIController.Instance.GetAppliancesFromProfile(false);
+                ShopUIController.Instance.PlaceMaskBehaviour(false);
+                BuildUIController.Instance.SetAppliancesSlotCount();
+                GamePlayController.Instance.GetDynamicTIleByID(DynamicTileID).RemoveObjectModel();
+            }
         }
+
     }
 
 
@@ -67,9 +72,38 @@ public class ApplianceSlotController : MonoBehaviour, IPointerClickHandler
                 ApplImage.sprite = ProfileController.Instance.GetApplianceFromProfileByID(_dynamicTile.myAppliance).applianceImage;
                 ApplNameLabel.text = ProfileController.Instance.GetApplianceFromProfileByID(_dynamicTile.myAppliance).applianceName;
                 _dynamicTile.SetupNamesByType(_dynamicTile.myAppliance);
+                myApplianceID = _dynamicTile.myAppliance;
+                _dynamicTile.PlaceAppliancePrefab(ProfileController.Instance.GetApplianceFromProfileByID(_dynamicTile.myAppliance).model, false);
             }
         }
         SlotTypeLabel.text = "Slot" + _dynamicTile.ID;
+    }
+
+    void ShowPlacingHelper(DynamicTile _dynamicTile)
+    {
+        if(_dynamicTile.myAppliance == string.Empty)
+        {
+            _dynamicTile.PlaceAppliancePrefab(ItemDatabase.Instance.GetApplianceByID(ShopUIController.Instance.placingApplID).model, true);
+        }
+
+    }
+
+    public void OnPointerEnter(PointerEventData e)
+    {
+        if(ShopUIController.Instance.isPlacing)
+        {
+            ShowPlacingHelper(GamePlayController.Instance.GetDynamicTIleByID(DynamicTileID));
+        }
+
+    }
+
+    public void OnPointerExit(PointerEventData e)
+    {
+        if(ShopUIController.Instance.isPlacing)
+        {
+            GamePlayController.Instance.GetDynamicTIleByID(DynamicTileID).RemoveObjectModel();
+        }
+
     }
 
 }

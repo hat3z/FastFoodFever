@@ -185,7 +185,7 @@ public class ItemDatabase : ScriptableObject {
     {
         for (int i = 0; i < Appliances.Count; i++)
         {
-            if (Appliances[i].applianceID.ToLower() == _itemIDName.ToLower())
+            if (Appliances[i].applianceID == _itemIDName)
             {
                 return Appliances[i].MyClone();
             }

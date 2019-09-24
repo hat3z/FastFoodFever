@@ -68,6 +68,7 @@ MonoBehaviour:
     sellPrice: 10
     costPrice: 20
     produceID: burger
+    DynamicTileID: 0
   - applianceName: Advanced Cooker Pad
     applianceID: cooker2
     model: {fileID: 5623654060856363136, guid: 2e370d59df6fc3a46ac38ffec11f236e, type: 3}
@@ -79,6 +80,7 @@ MonoBehaviour:
     sellPrice: 20
     costPrice: 50
     produceID: burger
+    DynamicTileID: 0
   - applianceName: Cooker Pad Pro
     applianceID: cooker3
     model: {fileID: 5623654060856363136, guid: 2e370d59df6fc3a46ac38ffec11f236e, type: 3}
@@ -90,6 +92,7 @@ MonoBehaviour:
     sellPrice: 40
     costPrice: 80
     produceID: burger
+    DynamicTileID: 0
   - applianceName: Cooker Pad Premium
     applianceID: cooker4
     model: {fileID: 5623654060856363136, guid: 2e370d59df6fc3a46ac38ffec11f236e, type: 3}
@@ -101,6 +104,7 @@ MonoBehaviour:
     sellPrice: 50
     costPrice: 100
     produceID: burger
+    DynamicTileID: 0
   - applianceName: Basic Drink Machine
     applianceID: drinkMachine1
     model: {fileID: 1680640791558438239, guid: ab7442cf8c841e541adde5843bb8973b, type: 3}
@@ -112,9 +116,10 @@ MonoBehaviour:
     sellPrice: 5
     costPrice: 10
     produceID: cola
+    DynamicTileID: 0
   - applianceName: Drink Machine Master
     applianceID: drinkMachine2
-    model: {fileID: 0}
+    model: {fileID: 1680640791558438239, guid: ab7442cf8c841e541adde5843bb8973b, type: 3}
     applianceImage: {fileID: 21300000, guid: cfd03e44bb8cc4b028201df7ed374d69, type: 3}
     Tier: 1
     ProduceTime: 4
@@ -123,6 +128,7 @@ MonoBehaviour:
     sellPrice: 45
     costPrice: 100
     produceID: cola
+    DynamicTileID: 0
   - applianceName: Burger Pad Basic
     applianceID: burgerPad1
     model: {fileID: 2830437395634646197, guid: fc161e642557e2c498c9a25bc44cb2a2, type: 3}
@@ -134,6 +140,7 @@ MonoBehaviour:
     sellPrice: 2
     costPrice: 5
     produceID: burger
+    DynamicTileID: 0
   - applianceName: Burger Pad Advanced
     applianceID: burgerPad2
     model: {fileID: 2830437395634646197, guid: fc161e642557e2c498c9a25bc44cb2a2, type: 3}
@@ -145,6 +152,7 @@ MonoBehaviour:
     sellPrice: 10
     costPrice: 20
     produceID: burger
+    DynamicTileID: 0
   - applianceName: Burger Pad Pro
     applianceID: burgerPad3
     model: {fileID: 2830437395634646197, guid: fc161e642557e2c498c9a25bc44cb2a2, type: 3}
@@ -156,6 +164,7 @@ MonoBehaviour:
     sellPrice: 20
     costPrice: 50
     produceID: burger
+    DynamicTileID: 0
   - applianceName: Burger Pad Premium
     applianceID: burgerPad4
     model: {fileID: 2830437395634646197, guid: fc161e642557e2c498c9a25bc44cb2a2, type: 3}
@@ -167,3 +176,4 @@ MonoBehaviour:
     sellPrice: 45
     costPrice: 100
     produceID: burger
+    DynamicTileID: 0

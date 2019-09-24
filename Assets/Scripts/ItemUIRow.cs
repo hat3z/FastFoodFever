@@ -10,7 +10,7 @@ public class ItemUIRow : MonoBehaviour
     public itemType ItemType;
 
     string MyItemID;
-
+    int myDynamicTileID;
     public Image ItemImage;
     public TextMeshProUGUI ItemName;
     public TextMeshProUGUI ProduceTime;
@@ -56,6 +56,7 @@ public class ItemUIRow : MonoBehaviour
             SellButton.interactable = true;
             PlacedLabel.color = NotPlacedTextColor;
             PlacedLabel.text = "Not Placed!";
+            myDynamicTileID = 0;
         }
         else
         {
@@ -64,6 +65,7 @@ public class ItemUIRow : MonoBehaviour
             SellButton.interactable = false;
             PlacedLabel.color = PlacedTextColor;
             PlacedLabel.text = "Placed!";
+            myDynamicTileID = _applianceData.DynamicTileID;
         }
     }
 
@@ -76,9 +78,14 @@ public class ItemUIRow : MonoBehaviour
 
     public void ReplaceButtonEvent()
     {
-        ProfileController.Instance.RemoveApplianceSlot(MyItemID);
-        BuildUIController.Instance.SetAppliancesSlotCount();
+        if(ProfileController.Instance.GetApplianceFromProfileByDynamicID(myDynamicTileID).applianceID == MyItemID)
+        {
+            ProfileController.Instance.RemoveApplianceSlot(myDynamicTileID);
+            BuildUIController.Instance.SetAppliancesSlotCount();
+        }
+
     }
+
 
     public void SellButtonEvent()
     {

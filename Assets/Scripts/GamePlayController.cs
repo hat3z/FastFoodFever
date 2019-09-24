@@ -8,6 +8,8 @@ public class GamePlayController : MonoBehaviour
     public static GamePlayController Instance;
 
     public List<DynamicTile> DynamicTiles;
+    public Material PlacingMaterial;
+    public GameObject activePlacingApplliance;
 
     private void Awake()
     {
@@ -48,6 +50,23 @@ public class GamePlayController : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public void ClearActivePlacingAppliance()
+    {
+        if(activePlacingApplliance != null)
+        {
+            activePlacingApplliance = null;
+        }
+
+    }
+
+    public void SetActivePlacingAppliance(GameObject _model)
+    {
+        if(activePlacingApplliance == null)
+        {
+            activePlacingApplliance = _model;
+        }
     }
 
     #endregion
