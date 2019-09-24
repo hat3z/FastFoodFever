@@ -200,14 +200,11 @@ public class ProfileController : MonoBehaviour
 
     public void SellApplianceByID(string _itemID)
     {
-        if(ApplianceCount(_itemID) == 0)
+        PlayerAppliances.Remove(GetApplianceFromProfileByID(_itemID));
+        if (ApplianceCount(_itemID) < 1)
         {
-            Debug.Log("asd");
             PlayerFoodItems.Remove(GetFoodItemFromProfileByID(ItemDatabase.Instance.GetApplianceByID(_itemID).produceID));
         }
-
-        PlayerAppliances.Remove(GetApplianceFromProfileByID(_itemID));
-        Debug.Log(ApplianceCount(_itemID));
         PlayerMoney += ItemDatabase.Instance.GetApplianceByID(_itemID).sellPrice;
     }
 
