@@ -7,9 +7,11 @@ public class DynamicTile : MonoBehaviour
 
     public int ID;
     public string myAppliance;
+    public string myApplianceHash;
 
     public Transform ObjectPivot;
     GameObject modelObject;
+    GameObject placingObject;
     public int rotatingAngle;
 
     Material modelMaterial;
@@ -28,13 +30,15 @@ public class DynamicTile : MonoBehaviour
 
     public void PlaceAppliancePrefab(GameObject _object, bool isPreload)
     {
+        RemoveObjectModel();
         Quaternion newRotate = Quaternion.Euler(new Vector3(0, rotatingAngle, 0));
         GameObject newObject = Instantiate(_object,ObjectPivot.transform.position, newRotate);
         newObject.transform.SetParent(ObjectPivot,true);
-        modelObject = ObjectPivot.transform.GetChild(0).gameObject;
-        if(isPreload)
+        modelObject = newObject;
+        if (isPreload)
         {
             SetSameMaterialToGameObject(GamePlayController.Instance.PlacingMaterial, newObject);
+            placingObject = ObjectPivot.transform.GetChild(0).gameObject;
         }
     }
 
@@ -44,7 +48,6 @@ public class DynamicTile : MonoBehaviour
         {
             if(_model.transform.GetChild(i).GetComponent<MeshRenderer>())
             {
-                Debug.Log(_model.transform.GetChild(i).GetComponent<MeshRenderer>().materials[0].name);
                 _model.transform.GetChild(i).GetComponent<MeshRenderer>().material = _mat;
             }
         }
@@ -52,8 +55,22 @@ public class DynamicTile : MonoBehaviour
 
     public void RemoveObjectModel()
     {
-        Destroy(modelObject);
-        modelObject = null;
+        if(modelObject != null)
+        {
+            Destroy(modelObject.gameObject);
+            modelObject = null;
+            SetupNamesByType("Empty");
+        }
+
+    }
+
+    public void RemovePlacingObject()
+    {
+        if(placingObject != null)
+        {
+            Destroy(placingObject.gameObject);
+            placingObject = null;
+        }
     }
 
     public void SetupNamesByType(string _appLName)

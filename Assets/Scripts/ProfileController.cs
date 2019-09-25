@@ -62,6 +62,7 @@ public class ProfileController : MonoBehaviour
             Appliance _applianceItem = (Appliance)_itemObject;
             if(CanBuyItemByCost(_applianceItem.costPrice))
             {
+                _applianceItem.ProfileHash = StringRandomizer.Instance.GetRandomString();
                 PlayerAppliances.Add(_applianceItem);
                 UnlockFoodByAppliance(_applianceItem);
             }
@@ -195,11 +196,71 @@ public class ProfileController : MonoBehaviour
         return null;
     }
 
-    public void SetApplianceToSlot(int _DynamicTIleID)
+    public Appliance GetApplianceFromProfileByDynamicID(int _dynamicID, string _aplID)
     {
-        Appliance placingAppliance = GetApplianceFromProfileByDynamicID(0);
+        for (int i = 0; i < PlayerAppliances.Count; i++)
+        {
+            if(PlayerAppliances[i].applianceID == _aplID)
+            {
+                Debug.Log(PlayerAppliances[i].applianceID);
+                if (PlayerAppliances[i].DynamicTileID == _dynamicID)
+                {
+                    Debug.Log(PlayerAppliances[i].applianceID);
+                    return PlayerAppliances[i];
+                }
+            }
+
+        }
+        return null;
+    }
+
+    public Appliance GetApplianceFromProfileByHash(string _hash)
+    {
+        for (int i = 0; i < PlayerAppliances.Count; i++)
+        {
+            if (PlayerAppliances[i].ProfileHash == _hash)
+            {
+                return PlayerAppliances[i];
+            }
+
+        }
+        return null;
+    }
+
+    bool HasApplianceWithDynamicID(string _aplID, int _dynamicID)
+    {
+        for (int i = 0; i < PlayerAppliances.Count; i++)
+        {
+            if (PlayerAppliances[i].applianceID == _aplID)
+            {
+                if (PlayerAppliances[i].DynamicTileID == _dynamicID)
+                {
+                    Debug.Log(PlayerAppliances[i].applianceID);
+                    return true;
+                }
+                else
+                {
+                    Debug.Log("false");
+                    return false;
+                }
+            }
+            else
+            {
+                Debug.Log("false");
+                return false;
+            }
+        }
+        Debug.Log("false");
+        return false;
+    }
+
+    public void SetApplianceToSlot(int _DynamicTIleID, string _applHash)
+    {
+        Appliance placingAppliance = GetApplianceFromProfileByHash(_applHash);
+        Debug.Log(placingAppliance.applianceID + "dID:" + _DynamicTIleID);
         placingAppliance.DynamicTileID = _DynamicTIleID;
         GamePlayController.Instance.GetDynamicTIleByID(_DynamicTIleID).myAppliance = placingAppliance.applianceID;
+        GamePlayController.Instance.GetDynamicTIleByID(_DynamicTIleID).myApplianceHash = placingAppliance.ProfileHash;
     }
 
     public void RemoveApplianceSlot(int id)
@@ -207,7 +268,6 @@ public class ProfileController : MonoBehaviour
         GamePlayController.Instance.GetDynamicTIleByID(id).myAppliance = string.Empty;
         GamePlayController.Instance.GetDynamicTIleByID(id).RemoveObjectModel();
         GetApplianceFromProfileByDynamicID(id).DynamicTileID = 0;
-
         BuildUIController.Instance.SetupApplianceSlots();
         ShopUIController.Instance.GetAppliancesFromProfile(false);
     }

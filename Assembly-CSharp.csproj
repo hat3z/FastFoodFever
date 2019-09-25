@@ -98,6 +98,7 @@
     <Compile Include="Assets\Scripts\NewItemUIRow.cs" />
     <Compile Include="Assets\Scripts\ProfileController.cs" />
     <Compile Include="Assets\Scripts\ShopUIController.cs" />
+    <Compile Include="Assets\Scripts\StringRandomizer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />

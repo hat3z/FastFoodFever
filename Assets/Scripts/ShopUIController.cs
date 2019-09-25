@@ -14,7 +14,7 @@ public class ShopUIController : MonoBehaviour
 
     [Header("Placing")]
     public bool isPlacing = false;
-    public string placingApplID;
+    public string placingApplHash;
     public GameObject PlacingMask;
     public Button CloseButtonBuild;
     public Button CloseButtonShop;

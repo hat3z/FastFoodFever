@@ -2965,6 +2965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 2
   myAppliance: 
+  myApplianceHash: 
   ObjectPivot: {fileID: 1673695139}
   rotatingAngle: -90
 --- !u!1 &535942013
@@ -3483,7 +3484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.6862745}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4775,6 +4776,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735428938}
   m_CullTransparentMesh: 0
+--- !u!1 &773218083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 773218084}
+  - component: {fileID: 773218085}
+  m_Layer: 0
+  m_Name: Utilities
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &773218084
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773218083}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1741034393}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &773218085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773218083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0503f1debbacd64fbff233f96bf26e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterCount: 4
+  results: []
 --- !u!1 &775181918
 GameObject:
   m_ObjectHideFlags: 0
@@ -6283,6 +6329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 3
   myAppliance: 
+  myApplianceHash: 
   ObjectPivot: {fileID: 1916220290}
   rotatingAngle: -90
 --- !u!1 &1008833015
@@ -7274,6 +7321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 6
   myAppliance: 
+  myApplianceHash: 
   ObjectPivot: {fileID: 1221757175}
   rotatingAngle: 90
 --- !u!1 &1189542157
@@ -7643,6 +7691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 1
   myAppliance: 
+  myApplianceHash: 
   ObjectPivot: {fileID: 1577482700}
   rotatingAngle: 180
 --- !u!1 &1266595330
@@ -7819,6 +7868,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 8
   myAppliance: 
+  myApplianceHash: 
   ObjectPivot: {fileID: 313069664}
   rotatingAngle: 90
 --- !u!1 &1307794600
@@ -10785,6 +10835,7 @@ Transform:
   - {fileID: 846505777}
   - {fileID: 327664617}
   - {fileID: 1839721372}
+  - {fileID: 773218084}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11175,6 +11226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 5
   myAppliance: 
+  myApplianceHash: 
   ObjectPivot: {fileID: 1266595331}
   rotatingAngle: 180
 --- !u!1 &1839721371
@@ -11226,7 +11278,7 @@ MonoBehaviour:
   ShopPanelAnimator: {fileID: 673917206}
   PlayerCoinsLabel: {fileID: 1613247494}
   isPlacing: 0
-  placingApplID: 
+  placingApplHash: 
   PlacingMask: {fileID: 603241506}
   CloseButtonBuild: {fileID: 138221252}
   CloseButtonShop: {fileID: 489442832}
@@ -11474,6 +11526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 7
   myAppliance: 
+  myApplianceHash: 
   ObjectPivot: {fileID: 365863931}
   rotatingAngle: 90
 --- !u!1 &1894095630
@@ -12098,6 +12151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 4
   myAppliance: 
+  myApplianceHash: 
   ObjectPivot: {fileID: 525635765}
   rotatingAngle: -90
 --- !u!1 &1949919708

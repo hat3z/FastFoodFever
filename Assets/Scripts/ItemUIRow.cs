@@ -11,6 +11,7 @@ public class ItemUIRow : MonoBehaviour
 
     string MyItemID;
     int myDynamicTileID;
+    string MyApplianceHash;
     public Image ItemImage;
     public TextMeshProUGUI ItemName;
     public TextMeshProUGUI ProduceTime;
@@ -44,6 +45,7 @@ public class ItemUIRow : MonoBehaviour
     public void SetupApplianceItemUI(Appliance _applianceData)
     {
         MyItemID = _applianceData.applianceID;
+        MyApplianceHash = _applianceData.ProfileHash;
         ItemImage.sprite = _applianceData.applianceImage;
         ItemName.text = _applianceData.applianceName;
         ProduceTime.text = _applianceData.ProduceTime.ToString() + " sec";
@@ -72,13 +74,13 @@ public class ItemUIRow : MonoBehaviour
     public void PlaceButtonEvent()
     {
         ShopUIController.Instance.isPlacing = true;
-        ShopUIController.Instance.placingApplID = MyItemID;
+        ShopUIController.Instance.placingApplHash = MyApplianceHash;
         ShopUIController.Instance.PlaceMaskBehaviour(true);
     }
 
     public void ReplaceButtonEvent()
     {
-        if(ProfileController.Instance.GetApplianceFromProfileByDynamicID(myDynamicTileID).applianceID == MyItemID)
+        if(ProfileController.Instance.GetApplianceFromProfileByDynamicID(myDynamicTileID).ProfileHash == MyApplianceHash)
         {
             ProfileController.Instance.RemoveApplianceSlot(myDynamicTileID);
             BuildUIController.Instance.SetAppliancesSlotCount();
