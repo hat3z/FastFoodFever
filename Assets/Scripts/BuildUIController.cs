@@ -176,38 +176,29 @@ public class BuildUIController : MonoBehaviour
 
             if (_fooditemList[i].Type == FoodItem.type.Food)
             {
-                for (int a = 0; a < ProfileController.Instance.GetFoodListFromProfileByType(FoodItem.type.Food).Count; a++)
-                {
-                    GameObject newFoodRow = Instantiate(FoodUIRowPrefab);
-                    newFoodRow.transform.SetParent(FoodParent);
-                    newFoodRow.transform.SetAsLastSibling();
-                    newFoodRow.transform.localScale = new Vector3(1, 1, 1);
-                    newFoodRow.GetComponent<FoodItemSlotController>().SetupItemData(ProfileController.Instance.PlayerFoodItems[a]);
-                    FoodUIRows.Add(newFoodRow.GetComponent<FoodItemSlotController>());
-                }
-
-
+                GameObject newFoodRow = Instantiate(FoodUIRowPrefab);
+                newFoodRow.transform.SetParent(FoodParent);
+                newFoodRow.transform.SetAsLastSibling();
+                newFoodRow.transform.localScale = new Vector3(1, 1, 1);
+                newFoodRow.GetComponent<FoodItemSlotController>().SetupItemData(ProfileController.Instance.PlayerFoodItems[i]);
+                FoodUIRows.Add(newFoodRow.GetComponent<FoodItemSlotController>());
             }
             if(_fooditemList[i].Type == FoodItem.type.Drink)
             {
-
-                for (int a = 0; a < ProfileController.Instance.GetFoodListFromProfileByType(FoodItem.type.Drink).Count; a++)
-                {
-                    GameObject newFoodRow = Instantiate(FoodUIRowPrefab);
-                    newFoodRow.transform.SetParent(DrinkParent);
-                    newFoodRow.transform.SetAsLastSibling();
-                    newFoodRow.transform.localScale = new Vector3(1, 1, 1);
-                    newFoodRow.GetComponent<FoodItemSlotController>().SetupItemData(ProfileController.Instance.PlayerFoodItems[a]);
-                    DrinkUIRows.Add(newFoodRow.GetComponent<FoodItemSlotController>());
-                }
-
-
+                GameObject newFoodRow = Instantiate(FoodUIRowPrefab);
+                newFoodRow.transform.SetParent(DrinkParent);
+                newFoodRow.transform.SetAsLastSibling();
+                newFoodRow.transform.localScale = new Vector3(1, 1, 1);
+                newFoodRow.GetComponent<FoodItemSlotController>().SetupItemData(ProfileController.Instance.PlayerFoodItems[i]);
+                DrinkUIRows.Add(newFoodRow.GetComponent<FoodItemSlotController>());
             }
         }
     }
 
     public void SetupFoodItemSlots(Appliance applianceData, bool useActivating)
     {
+        ClearFoodSlotsList();
+        ClearDrinkSlots();
         FoodItem food = ItemDatabase.Instance.GetFoodItemByID(applianceData.produceID);
         if(food.Type == FoodItem.type.Food)
         {
@@ -215,8 +206,6 @@ public class BuildUIController : MonoBehaviour
             {
                 StartCoroutine(ShopUIController.Instance.RefreshPanelWithDelay(FoodParent.gameObject));
             }
-
-            ClearFoodSlotsList();
 
             for (int i = 0; i < ProfileController.Instance.GetFoodListFromProfileByType(FoodItem.type.Food).Count; i++)
             {
@@ -236,8 +225,6 @@ public class BuildUIController : MonoBehaviour
             {
                 StartCoroutine(ShopUIController.Instance.RefreshPanelWithDelay(DrinkParent.gameObject));
             }
-
-            ClearDrinkSlots();
 
             for (int i = 0; i < ProfileController.Instance.GetFoodListFromProfileByType(FoodItem.type.Drink).Count; i++)
             {

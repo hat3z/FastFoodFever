@@ -122,12 +122,14 @@ public class ProfileController : MonoBehaviour
     {
         FoodItem newFood = ItemDatabase.Instance.GetFoodItemByID(_applianceData.produceID);
         newFood.isLocked = false;
+        Debug.Log(newFood.foodID);
         if(!isFoodItemExists(_applianceData.produceID))
         {
             PlayerFoodItems.Add(newFood);
-            BuildUIController.Instance.SetupFoodItemSlots(_applianceData, true);
-        }
+            //BuildUIController.Instance.SetupFoodItemSlots(_applianceData, false);
 
+        }
+        BuildUIController.Instance.SetupFoodItemSlotFromList(PlayerFoodItems, true);
     }
 
     bool isFoodItemExists(string _foodID)
