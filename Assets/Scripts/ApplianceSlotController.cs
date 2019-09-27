@@ -45,7 +45,7 @@ public class ApplianceSlotController : MonoBehaviour, IPointerClickHandler, IPoi
                 SetupSlotPrefab(GamePlayController.Instance.GetDynamicTIleByID(DynamicTileID));
                 ShopUIController.Instance.GetAppliancesFromProfile(false);
                 ShopUIController.Instance.PlaceMaskBehaviour(false);
-                BuildUIController.Instance.SetAppliancesSlotCount();
+                BuildUIController.Instance.SetFoodItemCount(ItemUIRow.itemType.Appliance);
                 GamePlayController.Instance.GetDynamicTIleByID(DynamicTileID).RemovePlacingObject();
             }
         }
@@ -65,17 +65,17 @@ public class ApplianceSlotController : MonoBehaviour, IPointerClickHandler, IPoi
         }
         else
         {
-            if(ProfileController.Instance.PlayerAppliances.Count !=0)
+            if(ProfileController.Instance.playerProfile.PlayerAppliances.Count !=0)
             {
                 gameObject.GetComponent<Image>().color = PlacedBackgroundColor;
                 PlaceLabel.color = PlacedLabelColor;
                 PlaceLabel.text = "Placed!";
-                ApplImage.sprite = ProfileController.Instance.GetApplianceFromProfileByHash(_dynamicTile.myApplianceHash).applianceImage;
+                ApplImage.sprite = ItemDatabase.Instance.GetSpriteFromPath(ProfileController.Instance.GetApplianceFromProfileByHash(_dynamicTile.myApplianceHash).applianceImagePath);
                 ApplNameLabel.text = ProfileController.Instance.GetApplianceFromProfileByHash(_dynamicTile.myApplianceHash).applianceName;
                 _dynamicTile.SetupNamesByType(_dynamicTile.myAppliance);
                 myApplianceID = _dynamicTile.myAppliance;
                 myApplianceHash = _dynamicTile.myApplianceHash;
-                _dynamicTile.PlaceAppliancePrefab(ProfileController.Instance.GetApplianceFromProfileByHash(_dynamicTile.myApplianceHash).model, false);
+                _dynamicTile.PlaceAppliancePrefab(ProfileController.Instance.GetApplianceFromProfileByHash(_dynamicTile.myApplianceHash).modelPath, false);
             }
         }
         SlotTypeLabel.text = "Slot" + _dynamicTile.ID;
@@ -85,7 +85,7 @@ public class ApplianceSlotController : MonoBehaviour, IPointerClickHandler, IPoi
     {
         if(_dynamicTile.myAppliance == string.Empty)
         {
-            _dynamicTile.PlaceAppliancePrefab(ProfileController.Instance.GetApplianceFromProfileByHash(ShopUIController.Instance.placingApplHash).model, true);
+            _dynamicTile.PlaceAppliancePrefab(ProfileController.Instance.GetApplianceFromProfileByHash(ShopUIController.Instance.placingApplHash).modelPath, true);
         }
 
     }

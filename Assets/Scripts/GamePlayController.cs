@@ -19,8 +19,13 @@ public class GamePlayController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ProfileController.Instance.LoadProfileFromFile();
         GetAllDynamicTiles();
+        GetAllDynamicTilesData();
         BuildUIController.Instance.SetupApplianceSlots();
+        BuildUIController.Instance.SetupFoodItemSlotFromList(ProfileController.Instance.playerProfile.PlayerFoodItems, false);
+        BuildUIController.Instance.SetFoodItemCount(ItemUIRow.itemType.Food);
+        BuildUIController.Instance.SetFoodItemCount(ItemUIRow.itemType.Drink);
     }
 
     // Update is called once per frame
@@ -37,6 +42,15 @@ public class GamePlayController : MonoBehaviour
         for (int i = 0; i < temp.Length; i++)
         {
             DynamicTiles.Add(temp[i].GetComponent<DynamicTile>());
+        }
+
+    }
+
+    void GetAllDynamicTilesData()
+    {
+        for (int i = 0; i < DynamicTiles.Count; i++)
+        {
+            DynamicTiles[i].GetComponent<DynamicTile>().GetApplianceData();
         }
     }
 

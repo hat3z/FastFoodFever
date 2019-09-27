@@ -15,9 +15,8 @@ MonoBehaviour:
   FoodDatabase:
   - foodName: Burger
     foodID: burger
-    foodModel: {fileID: 0}
-    foodFillImage: {fileID: 0}
-    foodImage: {fileID: 0}
+    foodModelPath: 
+    foodImagePath: 
     description: A simple burger.
     Type: 0
     Tier: 0
@@ -32,9 +31,8 @@ MonoBehaviour:
     isLocked: 1
   - foodName: Cola
     foodID: cola
-    foodModel: {fileID: 0}
-    foodFillImage: {fileID: 0}
-    foodImage: {fileID: 0}
+    foodModelPath: 
+    foodImagePath: 
     description: Cuca cola, not gay advertisement.
     Type: 1
     Tier: 0
@@ -46,21 +44,21 @@ MonoBehaviour:
   FoodIngredients:
   - IngredientName: Tomato
     IngredientID: tomato
-    IngredientImage: {fileID: 0}
+    IngredientImagePath: 
     IngredientStoredAmount: 0
     CostPrice: 1
     TravelTime: 0
   - IngredientName: Bums
     IngredientID: bums
-    IngredientImage: {fileID: 0}
+    IngredientImagePath: 
     IngredientStoredAmount: 0
     CostPrice: 20
     TravelTime: 0
   Appliances:
   - applianceName: Basic Cooker Pad
     applianceID: cooker1
-    model: {fileID: 5623654060856363136, guid: 2e370d59df6fc3a46ac38ffec11f236e, type: 3}
-    applianceImage: {fileID: 21300000, guid: fad0afc160ab94d0bae8f555594f1683, type: 3}
+    modelPath: CookerPad
+    applianceImagePath: 
     Tier: 0
     ProduceTime: 10
     ProduceQuantity: 1
@@ -69,10 +67,11 @@ MonoBehaviour:
     costPrice: 20
     produceID: burger
     DynamicTileID: 0
+    ProfileHash: 
   - applianceName: Advanced Cooker Pad
     applianceID: cooker2
-    model: {fileID: 5623654060856363136, guid: 2e370d59df6fc3a46ac38ffec11f236e, type: 3}
-    applianceImage: {fileID: 21300000, guid: f4e42a95bedcf4c4686c206595bbb679, type: 3}
+    modelPath: CookerPad
+    applianceImagePath: 
     Tier: 1
     ProduceTime: 8
     ProduceQuantity: 1
@@ -81,10 +80,11 @@ MonoBehaviour:
     costPrice: 50
     produceID: burger
     DynamicTileID: 0
+    ProfileHash: 
   - applianceName: Cooker Pad Pro
     applianceID: cooker3
-    model: {fileID: 5623654060856363136, guid: 2e370d59df6fc3a46ac38ffec11f236e, type: 3}
-    applianceImage: {fileID: 21300000, guid: c110766f0bf5343d48b4ebd014664688, type: 3}
+    modelPath: CookerPad
+    applianceImagePath: 
     Tier: 2
     ProduceTime: 8
     ProduceQuantity: 2
@@ -93,10 +93,11 @@ MonoBehaviour:
     costPrice: 80
     produceID: burger
     DynamicTileID: 0
+    ProfileHash: 
   - applianceName: Cooker Pad Premium
     applianceID: cooker4
-    model: {fileID: 5623654060856363136, guid: 2e370d59df6fc3a46ac38ffec11f236e, type: 3}
-    applianceImage: {fileID: 21300000, guid: e919baf0cfa7a4dc7b6b8afe40ad8cdc, type: 3}
+    modelPath: CookerPad
+    applianceImagePath: 
     Tier: 3
     ProduceTime: 6
     ProduceQuantity: 3
@@ -105,10 +106,11 @@ MonoBehaviour:
     costPrice: 100
     produceID: burger
     DynamicTileID: 0
+    ProfileHash: 
   - applianceName: Basic Drink Machine
     applianceID: drinkMachine1
-    model: {fileID: 1680640791558438239, guid: ab7442cf8c841e541adde5843bb8973b, type: 3}
-    applianceImage: {fileID: 21300000, guid: 4da66e9fafab94c59b353105c35c8c82, type: 3}
+    modelPath: DrinkMachine
+    applianceImagePath: 
     Tier: 0
     ProduceTime: 8
     ProduceQuantity: 2
@@ -117,10 +119,11 @@ MonoBehaviour:
     costPrice: 10
     produceID: cola
     DynamicTileID: 0
+    ProfileHash: 
   - applianceName: Drink Machine Master
     applianceID: drinkMachine2
-    model: {fileID: 1680640791558438239, guid: ab7442cf8c841e541adde5843bb8973b, type: 3}
-    applianceImage: {fileID: 21300000, guid: cfd03e44bb8cc4b028201df7ed374d69, type: 3}
+    modelPath: DrinkMachine
+    applianceImagePath: 
     Tier: 1
     ProduceTime: 4
     ProduceQuantity: 2
@@ -129,10 +132,11 @@ MonoBehaviour:
     costPrice: 100
     produceID: cola
     DynamicTileID: 0
+    ProfileHash: 
   - applianceName: Burger Pad Basic
     applianceID: burgerPad1
-    model: {fileID: 2830437395634646197, guid: fc161e642557e2c498c9a25bc44cb2a2, type: 3}
-    applianceImage: {fileID: 21300000, guid: d21609e3635db4831ba17f45225ef511, type: 3}
+    modelPath: BurgerBoard
+    applianceImagePath: 
     Tier: 0
     ProduceTime: 8.5
     ProduceQuantity: 1
@@ -141,10 +145,11 @@ MonoBehaviour:
     costPrice: 5
     produceID: burger
     DynamicTileID: 0
+    ProfileHash: 
   - applianceName: Burger Pad Advanced
     applianceID: burgerPad2
-    model: {fileID: 2830437395634646197, guid: fc161e642557e2c498c9a25bc44cb2a2, type: 3}
-    applianceImage: {fileID: 21300000, guid: a22b870848a8443478c13e9f914e42d8, type: 3}
+    modelPath: BurgerBoard
+    applianceImagePath: 
     Tier: 1
     ProduceTime: 6.5
     ProduceQuantity: 1
@@ -153,10 +158,11 @@ MonoBehaviour:
     costPrice: 20
     produceID: burger
     DynamicTileID: 0
+    ProfileHash: 
   - applianceName: Burger Pad Pro
     applianceID: burgerPad3
-    model: {fileID: 2830437395634646197, guid: fc161e642557e2c498c9a25bc44cb2a2, type: 3}
-    applianceImage: {fileID: 21300000, guid: 7d3734582876c4e5a94637fc4d480648, type: 3}
+    modelPath: BurgerBoard
+    applianceImagePath: 
     Tier: 2
     ProduceTime: 6
     ProduceQuantity: 2
@@ -165,10 +171,11 @@ MonoBehaviour:
     costPrice: 50
     produceID: burger
     DynamicTileID: 0
+    ProfileHash: 
   - applianceName: Burger Pad Premium
     applianceID: burgerPad4
-    model: {fileID: 2830437395634646197, guid: fc161e642557e2c498c9a25bc44cb2a2, type: 3}
-    applianceImage: {fileID: 21300000, guid: f0bcf68dfae44474295d71c39c076625, type: 3}
+    modelPath: BurgerBoard
+    applianceImagePath: 
     Tier: 3
     ProduceTime: 3
     ProduceQuantity: 2
@@ -177,3 +184,4 @@ MonoBehaviour:
     costPrice: 100
     produceID: burger
     DynamicTileID: 0
+    ProfileHash: 

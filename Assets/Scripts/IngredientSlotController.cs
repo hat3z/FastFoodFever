@@ -13,7 +13,7 @@ public class IngredientSlotController : MonoBehaviour
 
     public void SetupIngredientSlot(IngredientRequest foodIngredients)
     {
-        IngImage.sprite = ItemDatabase.Instance.GetFoodIngredientByID(foodIngredients.IngredientID).IngredientImage;
+        IngImage.sprite = ItemDatabase.Instance.GetSpriteFromPath(ItemDatabase.Instance.GetFoodIngredientByID(foodIngredients.IngredientID).IngredientImagePath);
         IngName.text = ItemDatabase.Instance.GetFoodIngredientByID(foodIngredients.IngredientID).IngredientName;
         IngAmount.text = foodIngredients.amount.ToString();
 

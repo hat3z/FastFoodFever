@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
-
 public class ProfileController : MonoBehaviour
 {
 
@@ -9,28 +9,23 @@ public class ProfileController : MonoBehaviour
 
     public string ProfileFilePath;
 
+    string ProfileFileName = "Profile.save";
+
     public bool useDebug;
-    public int PlayerMoney;
+    public bool useSaving;    
 
-    public List<Appliance> PlayerAppliances;
-
-    public List<FoodItem> PlayerFoodItems;
-
-    public List<FoodIngredients> PlayerFoodIngredients;
+    public PlayerProfile playerProfile;
 
     private void Awake()
     {
         Instance = this;
-        ProfileFilePath = Application.persistentDataPath + "/Player.bin";
+        ProfileFilePath = Application.persistentDataPath;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        if(useDebug)
-        {
-            PlayerMoney = 500;
-        }
+
     }
 
     // Update is called once per frame
@@ -43,9 +38,10 @@ public class ProfileController : MonoBehaviour
 
     public bool CanBuyItemByCost(int _itemPrice)
     {
-        if(_itemPrice <= PlayerMoney)
+
+        if(_itemPrice <= playerProfile.PlayerMoney)
         {
-            PlayerMoney -= _itemPrice;
+            playerProfile.PlayerMoney -= _itemPrice;
             return true;
         }
         else
@@ -63,7 +59,7 @@ public class ProfileController : MonoBehaviour
             if(CanBuyItemByCost(_applianceItem.costPrice))
             {
                 _applianceItem.ProfileHash = StringRandomizer.Instance.GetRandomString();
-                PlayerAppliances.Add(_applianceItem);
+                playerProfile.PlayerAppliances.Add(_applianceItem);
                 UnlockFoodByAppliance(_applianceItem);
             }
         }
@@ -79,7 +75,7 @@ public class ProfileController : MonoBehaviour
                 else
                 {
                     _foodIngredientItem.IngredientStoredAmount = 1;
-                    PlayerFoodIngredients.Add(_foodIngredientItem);
+                    playerProfile.PlayerFoodIngredients.Add(_foodIngredientItem);
                 }
 
             }
@@ -89,9 +85,9 @@ public class ProfileController : MonoBehaviour
     #region ----- INGREDIENTS -----
     bool IsFoodIngredientExists(string _ingID)
     {
-        for (int i = 0; i < PlayerFoodIngredients.Count; i++)
+        for (int i = 0; i < playerProfile.PlayerFoodIngredients.Count; i++)
         {
-            if(PlayerFoodIngredients[i].IngredientID == _ingID)
+            if(playerProfile.PlayerFoodIngredients[i].IngredientID == _ingID)
             {
                 Debug.Log("has exists " + _ingID);
                 return true;
@@ -103,12 +99,12 @@ public class ProfileController : MonoBehaviour
 
     FoodIngredients GetFoodIngredientFromProfile(string _requestID)
     {
-        for (int i = 0; i < PlayerFoodIngredients.Count; i++)
+        for (int i = 0; i < playerProfile.PlayerFoodIngredients.Count; i++)
         {
-            if(PlayerFoodIngredients[i].IngredientID == _requestID)
+            if(playerProfile.PlayerFoodIngredients[i].IngredientID == _requestID)
             {
                 Debug.Log("Requested Ingredient " + _requestID);
-                return PlayerFoodIngredients[i];
+                return playerProfile.PlayerFoodIngredients[i];
             }
         }
         Debug.Log("Requested Ingredient is null");
@@ -125,18 +121,18 @@ public class ProfileController : MonoBehaviour
         Debug.Log(newFood.foodID);
         if(!isFoodItemExists(_applianceData.produceID))
         {
-            PlayerFoodItems.Add(newFood);
+            playerProfile.PlayerFoodItems.Add(newFood);
             //BuildUIController.Instance.SetupFoodItemSlots(_applianceData, false);
 
         }
-        BuildUIController.Instance.SetupFoodItemSlotFromList(PlayerFoodItems, true);
+        BuildUIController.Instance.SetupFoodItemSlotFromList(playerProfile.PlayerFoodItems, true);
     }
 
     bool isFoodItemExists(string _foodID)
     {
-        for (int i = 0; i < PlayerFoodItems.Count; i++)
+        for (int i = 0; i < playerProfile.PlayerFoodItems.Count; i++)
         {
-            if(PlayerFoodItems[i].foodID == _foodID)
+            if(playerProfile.PlayerFoodItems[i].foodID == _foodID)
             {
                 return true;
             }
@@ -146,11 +142,11 @@ public class ProfileController : MonoBehaviour
 
     FoodItem GetFoodItemFromProfileByID(string _foodID)
     {
-        for (int i = 0; i < PlayerFoodItems.Count; i++)
+        for (int i = 0; i < playerProfile.PlayerFoodItems.Count; i++)
         {
-            if(PlayerFoodItems[i].foodID == _foodID)
+            if(playerProfile.PlayerFoodItems[i].foodID == _foodID)
             {
-                return PlayerFoodItems[i];
+                return playerProfile.PlayerFoodItems[i];
             }
         }
         return null;
@@ -159,11 +155,11 @@ public class ProfileController : MonoBehaviour
     public List<FoodItem> GetFoodListFromProfileByType(FoodItem.type foodType)
     {
         List<FoodItem> result = new List<FoodItem>();
-        for (int i = 0; i < PlayerFoodItems.Count; i++)
+        for (int i = 0; i < playerProfile.PlayerFoodItems.Count; i++)
         {
-            if(foodType == PlayerFoodItems[i].Type)
+            if(foodType == playerProfile.PlayerFoodItems[i].Type)
             {
-                result.Add(PlayerFoodItems[i]);
+                result.Add(playerProfile.PlayerFoodItems[i]);
             }
         }
         return result;
@@ -175,11 +171,11 @@ public class ProfileController : MonoBehaviour
 
     public Appliance GetApplianceFromProfileByID(string _applID)
     {
-        for (int i = 0; i < PlayerAppliances.Count; i++)
+        for (int i = 0; i < playerProfile.PlayerAppliances.Count; i++)
         {
-            if(PlayerAppliances[i].applianceID == _applID)
+            if(playerProfile.PlayerAppliances[i].applianceID == _applID)
             {
-                return PlayerAppliances[i];
+                return playerProfile.PlayerAppliances[i];
             }
             
         }
@@ -188,11 +184,11 @@ public class ProfileController : MonoBehaviour
 
     public Appliance GetApplianceFromProfileByDynamicID(int _dynamicID)
     {
-        for (int i = 0; i < PlayerAppliances.Count; i++)
+        for (int i = 0; i < playerProfile.PlayerAppliances.Count; i++)
         {
-            if(PlayerAppliances[i].DynamicTileID == _dynamicID)
+            if(playerProfile.PlayerAppliances[i].DynamicTileID == _dynamicID)
             {
-                return PlayerAppliances[i];
+                return playerProfile.PlayerAppliances[i];
             }
         }
         return null;
@@ -200,15 +196,15 @@ public class ProfileController : MonoBehaviour
 
     public Appliance GetApplianceFromProfileByDynamicID(int _dynamicID, string _aplID)
     {
-        for (int i = 0; i < PlayerAppliances.Count; i++)
+        for (int i = 0; i < playerProfile.PlayerAppliances.Count; i++)
         {
-            if(PlayerAppliances[i].applianceID == _aplID)
+            if(playerProfile.PlayerAppliances[i].applianceID == _aplID)
             {
-                Debug.Log(PlayerAppliances[i].applianceID);
-                if (PlayerAppliances[i].DynamicTileID == _dynamicID)
+                Debug.Log(playerProfile.PlayerAppliances[i].applianceID);
+                if (playerProfile.PlayerAppliances[i].DynamicTileID == _dynamicID)
                 {
-                    Debug.Log(PlayerAppliances[i].applianceID);
-                    return PlayerAppliances[i];
+                    Debug.Log(playerProfile.PlayerAppliances[i].applianceID);
+                    return playerProfile.PlayerAppliances[i];
                 }
             }
 
@@ -218,11 +214,11 @@ public class ProfileController : MonoBehaviour
 
     public Appliance GetApplianceFromProfileByHash(string _hash)
     {
-        for (int i = 0; i < PlayerAppliances.Count; i++)
+        for (int i = 0; i < playerProfile.PlayerAppliances.Count; i++)
         {
-            if (PlayerAppliances[i].ProfileHash == _hash)
+            if (playerProfile.PlayerAppliances[i].ProfileHash == _hash)
             {
-                return PlayerAppliances[i];
+                return playerProfile.PlayerAppliances[i];
             }
 
         }
@@ -231,13 +227,13 @@ public class ProfileController : MonoBehaviour
 
     bool HasApplianceWithDynamicID(string _aplID, int _dynamicID)
     {
-        for (int i = 0; i < PlayerAppliances.Count; i++)
+        for (int i = 0; i < playerProfile.PlayerAppliances.Count; i++)
         {
-            if (PlayerAppliances[i].applianceID == _aplID)
+            if (playerProfile.PlayerAppliances[i].applianceID == _aplID)
             {
-                if (PlayerAppliances[i].DynamicTileID == _dynamicID)
+                if (playerProfile.PlayerAppliances[i].DynamicTileID == _dynamicID)
                 {
-                    Debug.Log(PlayerAppliances[i].applianceID);
+                    Debug.Log(playerProfile.PlayerAppliances[i].applianceID);
                     return true;
                 }
                 else
@@ -259,10 +255,10 @@ public class ProfileController : MonoBehaviour
     public void SetApplianceToSlot(int _DynamicTIleID, string _applHash)
     {
         Appliance placingAppliance = GetApplianceFromProfileByHash(_applHash);
-        Debug.Log(placingAppliance.applianceID + "dID:" + _DynamicTIleID);
         placingAppliance.DynamicTileID = _DynamicTIleID;
         GamePlayController.Instance.GetDynamicTIleByID(_DynamicTIleID).myAppliance = placingAppliance.applianceID;
         GamePlayController.Instance.GetDynamicTIleByID(_DynamicTIleID).myApplianceHash = placingAppliance.ProfileHash;
+        SavePlayerProfileToFile();
     }
 
     public void RemoveApplianceSlot(int id)
@@ -288,20 +284,20 @@ public class ProfileController : MonoBehaviour
 
     public void SellApplianceByID(string _itemID)
     {
-        PlayerAppliances.Remove(GetApplianceFromProfileByID(_itemID));
+        playerProfile.PlayerAppliances.Remove(GetApplianceFromProfileByID(_itemID));
         if (ApplianceCount(_itemID) < 1)
         {
-            PlayerFoodItems.Remove(GetFoodItemFromProfileByID(ItemDatabase.Instance.GetApplianceByID(_itemID).produceID));
+            playerProfile.PlayerFoodItems.Remove(GetFoodItemFromProfileByID(ItemDatabase.Instance.GetApplianceByID(_itemID).produceID));
         }
-        PlayerMoney += ItemDatabase.Instance.GetApplianceByID(_itemID).sellPrice;
+        playerProfile.PlayerMoney += ItemDatabase.Instance.GetApplianceByID(_itemID).sellPrice;
     }
 
     int ApplianceCount(string _aplID)
     {
         int result = 0;
-        for (int i = 0; i < PlayerAppliances.Count; i++)
+        for (int i = 0; i < playerProfile.PlayerAppliances.Count; i++)
         {
-            if(PlayerAppliances[i].applianceID == _aplID)
+            if(playerProfile.PlayerAppliances[i].applianceID == _aplID)
             {
                 result +=1;
                 return result;
@@ -313,11 +309,11 @@ public class ProfileController : MonoBehaviour
     public List<Appliance> GetPlacedAppliancesList()
     {
         List<Appliance> result = new List<Appliance>();
-        for (int i = 0; i < PlayerAppliances.Count; i++)
+        for (int i = 0; i < playerProfile.PlayerAppliances.Count; i++)
         {
-            if(PlayerAppliances[i].DynamicTileID != 0)
+            if(playerProfile.PlayerAppliances[i].DynamicTileID != 0)
             {
-                result.Add(PlayerAppliances[i]);
+                result.Add(playerProfile.PlayerAppliances[i]);
 
             }
         }
@@ -326,12 +322,47 @@ public class ProfileController : MonoBehaviour
 
     #endregion
 
-    public void LoadProfileToBuilderUI()
+    #region SAVE AND LOAD HANDLING
+
+    public void SavePlayerProfileToFile()
     {
-        //FILE LOAD-->
+        File.Delete(ProfileFilePath + Path.DirectorySeparatorChar + ProfileFileName);
+        PlayerProfile profile = playerProfile;
+        BinaryFormatter formatter = new BinaryFormatter();
+        Stream stream = new FileStream(ProfileFilePath + Path.DirectorySeparatorChar + ProfileFileName, FileMode.Create, FileAccess.Write, FileShare.None);
+        formatter.Serialize(stream, profile);
+        stream.Close();
+        Debug.Log("Profile has been saved!");
+    }
 
+    public void LoadProfileFromFile()
+    {
+        // CLEARING
+        playerProfile.PlayerAppliances.Clear();
+        playerProfile.PlayerFoodIngredients.Clear();
+        playerProfile.PlayerFoodItems.Clear();
+        if (useDebug)
+        {
+            playerProfile.PlayerMoney = 500;
+        }
+        else
+        {
+            playerProfile.PlayerMoney = 0;
+        }
+        playerProfile.RestaurantName = string.Empty;
+        playerProfile.RestaurantImagePath = string.Empty;
 
+        if(File.Exists(ProfileFilePath + Path.DirectorySeparatorChar + ProfileFileName))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(ProfileFilePath + Path.DirectorySeparatorChar + ProfileFileName, FileMode.Open, FileAccess.Read);
+            PlayerProfile loadedProfile = (PlayerProfile)formatter.Deserialize(stream);
+            playerProfile = loadedProfile;
+            stream.Close();
+        }
 
     }
+    #endregion
+
 
 }

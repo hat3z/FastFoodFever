@@ -7,6 +7,7 @@ using TMPro;
 public class BuildUIController : MonoBehaviour
 {
     public static BuildUIController Instance;
+    public TextMeshProUGUI RestaurantNameLabel;
 
     [Header("Appliance Slots")]
     public GameObject ApplianceSlotPrefab;
@@ -36,7 +37,7 @@ public class BuildUIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -101,11 +102,6 @@ public class BuildUIController : MonoBehaviour
         ApplianceSlots.Clear();
     }
 
-    public void SetAppliancesSlotCount()
-    {
-        ApplCounterLabel.text = (ProfileController.Instance.GetPlacedAppliancesList().Count + "/" + ProfileController.Instance.PlayerAppliances.Count).ToString();
-    }
-
     public void SetupApplianceSlots()
     {
         ClearAppliancesSlot();
@@ -146,6 +142,7 @@ public class BuildUIController : MonoBehaviour
         switch (itemType)
         {
             case ItemUIRow.itemType.Appliance:
+                ApplCounterLabel.text = (ProfileController.Instance.GetPlacedAppliancesList().Count + "/" + ProfileController.Instance.playerProfile.PlayerAppliances.Count).ToString();
                 break;
             case ItemUIRow.itemType.Food:
                 FoodCounterLabel.text = ProfileController.Instance.GetFoodListFromProfileByType(FoodItem.type.Food).Count.ToString();
@@ -180,7 +177,7 @@ public class BuildUIController : MonoBehaviour
                 newFoodRow.transform.SetParent(FoodParent);
                 newFoodRow.transform.SetAsLastSibling();
                 newFoodRow.transform.localScale = new Vector3(1, 1, 1);
-                newFoodRow.GetComponent<FoodItemSlotController>().SetupItemData(ProfileController.Instance.PlayerFoodItems[i]);
+                newFoodRow.GetComponent<FoodItemSlotController>().SetupItemData(ProfileController.Instance.playerProfile.PlayerFoodItems[i]);
                 FoodUIRows.Add(newFoodRow.GetComponent<FoodItemSlotController>());
             }
             if(_fooditemList[i].Type == FoodItem.type.Drink)
@@ -189,7 +186,7 @@ public class BuildUIController : MonoBehaviour
                 newFoodRow.transform.SetParent(DrinkParent);
                 newFoodRow.transform.SetAsLastSibling();
                 newFoodRow.transform.localScale = new Vector3(1, 1, 1);
-                newFoodRow.GetComponent<FoodItemSlotController>().SetupItemData(ProfileController.Instance.PlayerFoodItems[i]);
+                newFoodRow.GetComponent<FoodItemSlotController>().SetupItemData(ProfileController.Instance.playerProfile.PlayerFoodItems[i]);
                 DrinkUIRows.Add(newFoodRow.GetComponent<FoodItemSlotController>());
             }
         }
@@ -213,7 +210,7 @@ public class BuildUIController : MonoBehaviour
                 newFoodRow.transform.SetParent(FoodParent);
                 newFoodRow.transform.SetAsLastSibling();
                 newFoodRow.transform.localScale = new Vector3(1, 1, 1);
-                newFoodRow.GetComponent<FoodItemSlotController>().SetupItemData(ProfileController.Instance.PlayerFoodItems[i]);
+                newFoodRow.GetComponent<FoodItemSlotController>().SetupItemData(ProfileController.Instance.playerProfile.PlayerFoodItems[i]);
                 FoodUIRows.Add(newFoodRow.GetComponent<FoodItemSlotController>());
             }
 
@@ -232,7 +229,7 @@ public class BuildUIController : MonoBehaviour
                 newFoodRow.transform.SetParent(DrinkParent);
                 newFoodRow.transform.SetAsLastSibling();
                 newFoodRow.transform.localScale = new Vector3(1, 1, 1);
-                newFoodRow.GetComponent<FoodItemSlotController>().SetupItemData(ProfileController.Instance.PlayerFoodItems[i]);
+                newFoodRow.GetComponent<FoodItemSlotController>().SetupItemData(ProfileController.Instance.playerProfile.PlayerFoodItems[i]);
                 DrinkUIRows.Add(newFoodRow.GetComponent<FoodItemSlotController>());
             }
 

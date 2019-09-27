@@ -1,4 +1,7 @@
-﻿using UnityEditor;
+﻿#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,6 +18,7 @@ public class ItemDatabaseEditor : Editor
 
     bool showAppliances = false;
     private SerializedProperty appliances;
+    private SerializedProperty applianceModelPath;
 
     Color original = new Color();
     Color green = new Color();
@@ -52,6 +56,16 @@ public class ItemDatabaseEditor : Editor
 
                 SerializedProperty item = foodItems.GetArrayElementAtIndex(i);
                 EditorGUILayout.PropertyField(item, true);
+
+                if(itemDatabaseList.FoodDatabase[i].foodModelPath == string.Empty)
+                {
+                    if (GUILayout.Button("Set Model Path!"))
+                    {
+                        itemDatabaseList.FoodDatabase[i].foodModelPath = Selection.activeGameObject.name;
+                    }
+                }
+
+
                 GUI.backgroundColor = red;
                 if (GUILayout.Button("Delete"))
                 {
@@ -139,6 +153,18 @@ public class ItemDatabaseEditor : Editor
                 SerializedProperty item = appliances.GetArrayElementAtIndex(i);
                 EditorGUILayout.PropertyField(item, true);
 
+                //SerializedProperty modelPathItem = item.FindPropertyRelative("modelPath");
+                //EditorGUILayout.PropertyField(modelPathItem, true);
+
+                if(itemDatabaseList.Appliances[i].modelPath == string.Empty)
+                {
+                    if (GUILayout.Button("Set Model Path!"))
+                    {
+                        itemDatabaseList.Appliances[i].modelPath = Selection.activeGameObject.name;
+                    }
+                }
+
+
                 GUI.backgroundColor = red;
                 if (GUILayout.Button("Delete"))
                 {
@@ -169,6 +195,10 @@ public class ItemDatabaseEditor : Editor
 
     }
 
+    void SetModelPath(string _pathToset)
+    {
+        _pathToset = AssetDatabase.GetAssetPath(Selection.activeObject);
+    }
 
     public void ShowDialogPromptFoodItem(int _itemIndex)
     {

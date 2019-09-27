@@ -51,7 +51,7 @@ public class NewItemUIRow : MonoBehaviour
         }
 
         ShopUIController.Instance.CloseNewItemPanel();
-
+        ProfileController.Instance.SavePlayerProfileToFile();
     }
 
     bool PlayerCanBuyItem(object _itemData)
@@ -59,7 +59,7 @@ public class NewItemUIRow : MonoBehaviour
         if(_itemData is Appliance)
         {
             Appliance _item = (Appliance)_itemData;
-            if(_item.costPrice <= ProfileController.Instance.PlayerMoney)
+            if(_item.costPrice <= ProfileController.Instance.playerProfile.PlayerMoney)
             {
                 return true;
             }
@@ -71,7 +71,7 @@ public class NewItemUIRow : MonoBehaviour
         if(_itemData is FoodIngredients)
         {
             FoodIngredients ing = (FoodIngredients)_itemData;
-            if(ing.CostPrice <= ProfileController.Instance.PlayerMoney)
+            if(ing.CostPrice <= ProfileController.Instance.playerProfile.PlayerMoney)
             {
                 return true;
             }
@@ -87,12 +87,12 @@ public class NewItemUIRow : MonoBehaviour
     public void SetupAppliance(Appliance _applianceData)
     {
         SetMyItemID(_applianceData.applianceID);
-        ItemImage.sprite = _applianceData.applianceImage;
+        ItemImage.sprite = ItemDatabase.Instance.GetSpriteFromPath(_applianceData.applianceImagePath);
         ItemName.text = _applianceData.applianceName;
         ProduceTime.text = _applianceData.ProduceTime.ToString();
         ProduceQuantity.text = _applianceData.ProduceQuantity.ToString();
         ItemCost.text = _applianceData.costPrice.ToString();
-        ProduceImage.sprite = ItemDatabase.Instance.GetFoodItemByID(_applianceData.produceID).foodImage;
+        ProduceImage.sprite =ItemDatabase.Instance.GetSpriteFromPath(ItemDatabase.Instance.GetFoodItemByID(_applianceData.produceID).foodImagePath);
         produceName.text = ItemDatabase.Instance.GetFoodItemByID(_applianceData.produceID).foodName;
         if(PlayerCanBuyItem(_applianceData))
         {
@@ -112,7 +112,7 @@ public class NewItemUIRow : MonoBehaviour
     {
         SetMyItemID(_ingData.IngredientID);
 
-        ItemImage.sprite = _ingData.IngredientImage;
+        ItemImage.sprite = ItemDatabase.Instance.GetSpriteFromPath(_ingData.IngredientImagePath);
         ItemName.text = _ingData.IngredientName;
         ItemCost.text = _ingData.CostPrice.ToString();
         //Description.text = _ingData.de;

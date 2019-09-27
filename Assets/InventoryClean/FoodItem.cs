@@ -7,9 +7,8 @@ public class FoodItem {
 
     public string foodName;
     public string foodID;
-    public GameObject foodModel;
-    public Sprite foodFillImage;
-    public Sprite foodImage;
+    public string foodModelPath;
+    public string foodImagePath;
     public string description;
 
     public enum type { Food, Drink};
@@ -29,9 +28,8 @@ public class FoodItem {
 
         newItem.foodID = foodID;
         newItem.foodName = foodName;
-        newItem.foodModel = foodModel;
-        newItem.foodFillImage = foodFillImage;
-        newItem.foodImage = foodImage;
+        newItem.foodModelPath = foodModelPath;
+        newItem.foodImagePath = foodImagePath;
         newItem.description = description;
         newItem.Tier = Tier;
         newItem.Type = Type;

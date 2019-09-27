@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class DynamicTile : MonoBehaviour
 {
 
@@ -19,7 +18,7 @@ public class DynamicTile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetupNamesByType("Empty");
+
     }
 
     // Update is called once per frame
@@ -28,11 +27,27 @@ public class DynamicTile : MonoBehaviour
         
     }
 
-    public void PlaceAppliancePrefab(GameObject _object, bool isPreload)
+    public void GetApplianceData()
+    {
+        Appliance loaded = ProfileController.Instance.GetApplianceFromProfileByDynamicID(ID);
+
+        if(loaded == null)
+        {
+            SetupNamesByType("Empty");
+        }
+        else
+        {
+            SetupNamesByType(myAppliance);
+            myAppliance = loaded.applianceID;
+            myApplianceHash = loaded.ProfileHash;
+        }
+    }
+    
+    public void PlaceAppliancePrefab(string _objectPath, bool isPreload)
     {
         RemoveObjectModel();
         Quaternion newRotate = Quaternion.Euler(new Vector3(0, rotatingAngle, 0));
-        GameObject newObject = Instantiate(_object,ObjectPivot.transform.position, newRotate);
+        GameObject newObject = Instantiate(ItemDatabase.Instance.GetGameObjectFromPath(_objectPath),ObjectPivot.transform.position, newRotate);
         newObject.transform.SetParent(ObjectPivot,true);
         modelObject = newObject;
         if (isPreload)

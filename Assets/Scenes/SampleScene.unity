@@ -4492,7 +4492,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0.078125, y: 0.07421875, z: 0.02734375, w: -0.0390625}
+  m_BoundingSphereOverride: {x: 4.8391318e+30, y: 1.7247627e+25, z: 3878.9658, w: 1.7753217e+28}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -5363,10 +5363,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProfileFilePath: 
   useDebug: 1
-  PlayerMoney: 0
-  PlayerAppliances: []
-  PlayerFoodItems: []
-  PlayerFoodIngredients: []
+  useSaving: 1
+  playerProfile:
+    RestaurantName: Test Restaurant
+    RestaurantImagePath: 
+    PlayerMoney: 0
+    PlayerAppliances: []
+    PlayerFoodItems: []
+    PlayerFoodIngredients: []
 --- !u!1 &879442846
 GameObject:
   m_ObjectHideFlags: 0
@@ -11314,6 +11318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac934cc6a4bdd942b2142c5ae6abb50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RestaurantNameLabel: {fileID: 45929570}
   ApplianceSlotPrefab: {fileID: 4632818189041777318, guid: d4090b20c26f6374681c3d3eaccaa333,
     type: 3}
   ApplSlotContent: {fileID: 1868223683}

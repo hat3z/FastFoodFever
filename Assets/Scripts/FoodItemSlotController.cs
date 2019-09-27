@@ -37,7 +37,7 @@ public class FoodItemSlotController : MonoBehaviour
     public void SetupItemData(FoodItem foodItemData)
     {
 
-        FoodItemImage.sprite = foodItemData.foodImage;
+        FoodItemImage.sprite = ItemDatabase.Instance.GetSpriteFromPath(foodItemData.foodImagePath);
         NameLabel.text = foodItemData.foodName;
         DescLabel.text = foodItemData.description;
         SellPriceLabel.text = foodItemData.sellPrice.ToString();

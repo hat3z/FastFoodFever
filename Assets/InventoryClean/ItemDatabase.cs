@@ -249,4 +249,15 @@ public class ItemDatabase : ScriptableObject {
     }
     #endregion
 
+    public Sprite GetSpriteFromPath(string _path)
+    {
+        Sprite result =(Sprite) Resources.Load("ItemSprites/" + _path, typeof(Sprite));
+        return result;
+    }
+
+    public GameObject GetGameObjectFromPath(string _path)
+    {
+        GameObject result = (GameObject)Resources.Load("Prefabs/" + _path, typeof(GameObject));
+        return result;
+    }
 }

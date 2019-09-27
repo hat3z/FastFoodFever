@@ -72,9 +72,10 @@ public class ShopUIController : MonoBehaviour
         NewItemPanel.gameObject.SetActive(false);
     }
 
-    public void GetPlayerCoinsFromProfile()
+    public void GetPlayerBaseInfoFromProfile()
     {
-        PlayerCoinsLabel.text = ProfileController.Instance.PlayerMoney.ToString();
+        PlayerCoinsLabel.text = ProfileController.Instance.playerProfile.PlayerMoney.ToString();
+        BuildUIController.Instance.RestaurantNameLabel.text = ProfileController.Instance.playerProfile.RestaurantName;
     }
 
     public void OpenBuildButtonEvent(bool _state)
@@ -86,9 +87,9 @@ public class ShopUIController : MonoBehaviour
             BuildModeButton.interactable = false;
             GetAppliancesFromProfile(false);
             GetIngredientsFromProfile(false);
-            GetPlayerCoinsFromProfile();
+            GetPlayerBaseInfoFromProfile();
             BuildUIController.Instance.SetupApplianceSlots();
-            BuildUIController.Instance.SetAppliancesSlotCount();
+            BuildUIController.Instance.SetFoodItemCount(ItemUIRow.itemType.Appliance);
         }
         else
         {
@@ -105,7 +106,7 @@ public class ShopUIController : MonoBehaviour
         {
             case "appliance":
                 GetAppliancesFromProfile(true);
-                BuildUIController.Instance.SetAppliancesSlotCount();
+                BuildUIController.Instance.SetFoodItemCount(ItemUIRow.itemType.Appliance);
                 break;
             case "ingredient":
                 GetIngredientsFromProfile(true);
@@ -114,7 +115,7 @@ public class ShopUIController : MonoBehaviour
                 break;
         }
 
-        GetPlayerCoinsFromProfile();
+        GetPlayerBaseInfoFromProfile();
     }
 
     //Item showing
@@ -181,16 +182,16 @@ public class ShopUIController : MonoBehaviour
         }
 
         ClearItemList(ApplianceUIRows);
-        for (int i = 0; i < ProfileController.Instance.PlayerAppliances.Count; i++)
+        for (int i = 0; i < ProfileController.Instance.playerProfile.PlayerAppliances.Count; i++)
         {
             GameObject newRow = Instantiate(ApplianceUIRowPrefab);
             newRow.transform.SetAsFirstSibling();
             newRow.transform.SetParent(ApplianceParent);
             newRow.transform.localScale = new Vector3(1, 1, 1);
             ApplianceUIRows.Add(newRow.GetComponent<ItemUIRow>());
-            newRow.GetComponent<ItemUIRow>().SetupApplianceItemUI(ProfileController.Instance.PlayerAppliances[i]);
+            newRow.GetComponent<ItemUIRow>().SetupApplianceItemUI(ProfileController.Instance.playerProfile.PlayerAppliances[i]);
         }
-        ApplianceCounter.text = ProfileController.Instance.PlayerAppliances.Count.ToString();
+        ApplianceCounter.text = ProfileController.Instance.playerProfile.PlayerAppliances.Count.ToString();
 
     }
 
@@ -203,14 +204,14 @@ public class ShopUIController : MonoBehaviour
         }
 
         ClearItemList(IngredientUIRows);
-        for (int i = 0; i < ProfileController.Instance.PlayerFoodIngredients.Count; i++)
+        for (int i = 0; i < ProfileController.Instance.playerProfile.PlayerFoodIngredients.Count; i++)
         {
             GameObject newRow = Instantiate(IngredientsUIRowPrefab);
             newRow.transform.SetAsFirstSibling();
             newRow.transform.SetParent(IngredientParent);
             newRow.transform.localScale = new Vector3(1, 1, 1);
             IngredientUIRows.Add(newRow.GetComponent<ItemUIRow>());
-            newRow.GetComponent<ItemUIRow>().SetupIngredientItemUI(ProfileController.Instance.PlayerFoodIngredients[i]);
+            newRow.GetComponent<ItemUIRow>().SetupIngredientItemUI(ProfileController.Instance.playerProfile.PlayerFoodIngredients[i]);
         }
     }
 
