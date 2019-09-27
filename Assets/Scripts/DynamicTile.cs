@@ -29,8 +29,8 @@ public class DynamicTile : MonoBehaviour
 
     public void GetApplianceData()
     {
-        Appliance loaded = ProfileController.Instance.GetApplianceFromProfileByDynamicID(ID);
-
+        Appliance loaded = ProfileController.Instance.GetApplianceFromProfileByHash(myApplianceHash);
+        Debug.Log(loaded.applianceID);
         if(loaded == null)
         {
             SetupNamesByType("Empty");

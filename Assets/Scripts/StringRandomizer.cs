@@ -22,7 +22,6 @@ public class StringRandomizer : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(GetRandomString());
     }
 
     void GetRandomResult()

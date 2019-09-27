@@ -94,6 +94,7 @@ public class ApplianceSlotController : MonoBehaviour, IPointerClickHandler, IPoi
     {
         if(ShopUIController.Instance.isPlacing)
         {
+            Debug.Log("myID: " + GamePlayController.Instance.GetDynamicTIleByID(DynamicTileID));
             ShowPlacingHelper(GamePlayController.Instance.GetDynamicTIleByID(DynamicTileID));
         }
 

@@ -21,9 +21,9 @@ public class GamePlayController : MonoBehaviour
     {
         ProfileController.Instance.LoadProfileFromFile();
         GetAllDynamicTiles();
-        GetAllDynamicTilesData();
         BuildUIController.Instance.SetupApplianceSlots();
         BuildUIController.Instance.SetupFoodItemSlotFromList(ProfileController.Instance.playerProfile.PlayerFoodItems, false);
+        GetAllDynamicTilesData();
         BuildUIController.Instance.SetFoodItemCount(ItemUIRow.itemType.Food);
         BuildUIController.Instance.SetFoodItemCount(ItemUIRow.itemType.Drink);
     }
