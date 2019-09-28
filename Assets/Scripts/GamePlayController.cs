@@ -20,10 +20,9 @@ public class GamePlayController : MonoBehaviour
     void Start()
     {
         ProfileController.Instance.LoadProfileFromFile();
-        GetAllDynamicTiles();
+        ShopUIController.Instance.GetAppliancesFromProfile(false);
         BuildUIController.Instance.SetupApplianceSlots();
         BuildUIController.Instance.SetupFoodItemSlotFromList(ProfileController.Instance.playerProfile.PlayerFoodItems, false);
-        GetAllDynamicTilesData();
         BuildUIController.Instance.SetFoodItemCount(ItemUIRow.itemType.Food);
         BuildUIController.Instance.SetFoodItemCount(ItemUIRow.itemType.Drink);
     }
@@ -36,21 +35,12 @@ public class GamePlayController : MonoBehaviour
 
     #region Dynamic Tile handling section
 
-    void GetAllDynamicTiles()
+    IEnumerator SetApplianceToDynamicTile()
     {
-        GameObject []temp = GameObject.FindGameObjectsWithTag("DynamicTile");
-        for (int i = 0; i < temp.Length; i++)
-        {
-            DynamicTiles.Add(temp[i].GetComponent<DynamicTile>());
-        }
-
-    }
-
-    void GetAllDynamicTilesData()
-    {
+        yield return new WaitForSeconds(1);
         for (int i = 0; i < DynamicTiles.Count; i++)
         {
-            DynamicTiles[i].GetComponent<DynamicTile>().GetApplianceData();
+            DynamicTiles[i].GetComponent<DynamicTile>().SetApplianceData(DynamicTiles[i]);
         }
     }
 

@@ -188,26 +188,9 @@ public class ProfileController : MonoBehaviour
         {
             if(playerProfile.PlayerAppliances[i].DynamicTileID == _dynamicID)
             {
+                Debug.Log("Found: " + playerProfile.PlayerAppliances[i].ProfileHash);
                 return playerProfile.PlayerAppliances[i];
             }
-        }
-        return null;
-    }
-
-    public Appliance GetApplianceFromProfileByDynamicID(int _dynamicID, string _aplID)
-    {
-        for (int i = 0; i < playerProfile.PlayerAppliances.Count; i++)
-        {
-            if(playerProfile.PlayerAppliances[i].applianceID == _aplID)
-            {
-                Debug.Log(playerProfile.PlayerAppliances[i].applianceID);
-                if (playerProfile.PlayerAppliances[i].DynamicTileID == _dynamicID)
-                {
-                    Debug.Log(playerProfile.PlayerAppliances[i].applianceID);
-                    return playerProfile.PlayerAppliances[i];
-                }
-            }
-
         }
         return null;
     }
@@ -218,6 +201,7 @@ public class ProfileController : MonoBehaviour
         {
             if (playerProfile.PlayerAppliances[i].ProfileHash == _hash)
             {
+                Debug.Log("Found: " + playerProfile.PlayerAppliances[i].ProfileHash);
                 return playerProfile.PlayerAppliances[i];
             }
 

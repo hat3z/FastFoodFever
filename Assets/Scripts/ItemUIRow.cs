@@ -68,6 +68,7 @@ public class ItemUIRow : MonoBehaviour
             PlacedLabel.color = PlacedTextColor;
             PlacedLabel.text = "Placed!";
             myDynamicTileID = _applianceData.DynamicTileID;
+            GamePlayController.Instance.GetDynamicTIleByID(myDynamicTileID).SetApplianceData(GamePlayController.Instance.GetDynamicTIleByID(myDynamicTileID));
         }
     }
 

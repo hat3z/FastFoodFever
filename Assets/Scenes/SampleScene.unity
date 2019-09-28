@@ -1808,7 +1808,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee7b7beb901d6634fbc6e3330fd9de36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DynamicTiles: []
+  DynamicTiles:
+  - {fileID: 1239097148}
+  - {fileID: 535138396}
+  - {fileID: 998529002}
+  - {fileID: 1945318889}
+  - {fileID: 1815665084}
+  - {fileID: 1185039648}
+  - {fileID: 1886416519}
+  - {fileID: 1279679648}
   PlacingMaterial: {fileID: 2100000, guid: ac963dd5891a6ad4f8c84c8badb816af, type: 2}
   activePlacingApplliance: {fileID: 0}
 --- !u!4 &327664617
@@ -2796,7 +2804,7 @@ GameObject:
   - component: {fileID: 535836456}
   - component: {fileID: 535836455}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: Camera_BuildUI
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4391,7 +4399,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 2.3877232e-38, y: -6.9e-44, z: -6.9e-44, w: NaN}
+  m_BoundingSphereOverride: {x: 0.0390625, y: 0.1015625, z: 0.02734375, w: -0.03125}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0

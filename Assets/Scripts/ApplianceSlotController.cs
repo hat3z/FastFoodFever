@@ -75,6 +75,7 @@ public class ApplianceSlotController : MonoBehaviour, IPointerClickHandler, IPoi
                 _dynamicTile.SetupNamesByType(_dynamicTile.myAppliance);
                 myApplianceID = _dynamicTile.myAppliance;
                 myApplianceHash = _dynamicTile.myApplianceHash;
+                DynamicTileID = _dynamicTile.ID;
                 _dynamicTile.PlaceAppliancePrefab(ProfileController.Instance.GetApplianceFromProfileByHash(_dynamicTile.myApplianceHash).modelPath, false);
             }
         }

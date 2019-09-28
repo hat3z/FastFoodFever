@@ -27,20 +27,24 @@ public class DynamicTile : MonoBehaviour
         
     }
 
-    public void GetApplianceData()
+    public void SetApplianceData(DynamicTile _dynamicTileData)
     {
-        Appliance loaded = ProfileController.Instance.GetApplianceFromProfileByHash(myApplianceHash);
-        Debug.Log(loaded.applianceID);
-        if(loaded == null)
+        if(ProfileController.Instance.playerProfile !=null)
         {
-            SetupNamesByType("Empty");
+            Appliance loaded = ProfileController.Instance.GetApplianceFromProfileByDynamicID(_dynamicTileData.ID);
+            Debug.Log("loaded appl " + loaded.ProfileHash);
+            if (loaded == null)
+            {
+                SetupNamesByType("Empty");
+            }
+            else
+            {
+                SetupNamesByType(myAppliance);
+                myAppliance = loaded.applianceID;
+                myApplianceHash = loaded.ProfileHash;
+            }
         }
-        else
-        {
-            SetupNamesByType(myAppliance);
-            myAppliance = loaded.applianceID;
-            myApplianceHash = loaded.ProfileHash;
-        }
+
     }
     
     public void PlaceAppliancePrefab(string _objectPath, bool isPreload)
