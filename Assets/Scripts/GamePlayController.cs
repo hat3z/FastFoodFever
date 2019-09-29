@@ -25,12 +25,25 @@ public class GamePlayController : MonoBehaviour
         BuildUIController.Instance.SetupFoodItemSlotFromList(ProfileController.Instance.playerProfile.PlayerFoodItems, false);
         BuildUIController.Instance.SetFoodItemCount(ItemUIRow.itemType.Food);
         BuildUIController.Instance.SetFoodItemCount(ItemUIRow.itemType.Drink);
+        CheckPlayerStartGame();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void CheckPlayerStartGame()
+    {
+        if(ProfileController.Instance.CanPlayerStartGame())
+        {
+            ShopUIController.Instance.PlayButton.interactable = true;
+        }
+        else
+        {
+            ShopUIController.Instance.PlayButton.interactable = false;
+        }
     }
 
     #region Dynamic Tile handling section

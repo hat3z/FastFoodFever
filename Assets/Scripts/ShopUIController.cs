@@ -10,7 +10,9 @@ public class ShopUIController : MonoBehaviour
     [Header("SHOP PANEL")]
     public Animator BuildPanelAnimator;
     public Animator ShopPanelAnimator;
+    public Animator BuildButtonAnimator;
     public TextMeshProUGUI PlayerCoinsLabel;
+    public Button PlayButton;
 
     [Header("Placing")]
     public bool isPlacing = false;
@@ -66,6 +68,14 @@ public class ShopUIController : MonoBehaviour
     }
 
     #region BuildPanel Handlings
+
+    public void PlayButtonEvent()
+    {
+        BuildButtonAnimator.SetBool("isHiding", true);
+        BuildPanelAnimator.SetBool("isOpen", false);
+        ShopPanelAnimator.SetBool("isOpen", false);
+        StartCoroutine(GameUIController.Instance.EnableGameplayUIDelayed());
+    }
 
     void TearDownPanels()
     {

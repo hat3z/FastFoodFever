@@ -47,6 +47,7 @@ public class ApplianceSlotController : MonoBehaviour, IPointerClickHandler, IPoi
                 ShopUIController.Instance.PlaceMaskBehaviour(false);
                 BuildUIController.Instance.SetFoodItemCount(ItemUIRow.itemType.Appliance);
                 GamePlayController.Instance.GetDynamicTIleByID(DynamicTileID).RemovePlacingObject();
+                GamePlayController.Instance.CheckPlayerStartGame();
             }
         }
 

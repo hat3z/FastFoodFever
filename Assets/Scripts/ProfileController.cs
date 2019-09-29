@@ -82,6 +82,32 @@ public class ProfileController : MonoBehaviour
         }
     }
 
+    public bool CanPlayerStartGame()
+    {
+        if(ApplianceHasPlacedToList().Count > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    List<Appliance> ApplianceHasPlacedToList()
+    {
+        List<Appliance> result = new List<Appliance>();
+        for (int i = 0; i < playerProfile.PlayerAppliances.Count; i++)
+        {
+            if (playerProfile.PlayerAppliances[i].DynamicTileID != 0)
+            {
+                result.Add(playerProfile.PlayerAppliances[i]);
+            }
+        }
+        return result;
+    }
+    
+
     #region ----- INGREDIENTS -----
     bool IsFoodIngredientExists(string _ingID)
     {

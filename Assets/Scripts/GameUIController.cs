@@ -8,7 +8,7 @@ public class GameUIController : MonoBehaviour
 
     public static GameUIController Instance;
 
-
+    public GameObject GameplayUI;
 
     private void Awake()
     {
@@ -18,7 +18,7 @@ public class GameUIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameplayUI.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -32,6 +32,10 @@ public class GameUIController : MonoBehaviour
 
     }
 
-
+    public IEnumerator EnableGameplayUIDelayed()
+    {
+        yield return new WaitForSeconds(1f);
+        GameplayUI.gameObject.SetActive(true);
+    }
 
 }
