@@ -75,6 +75,7 @@ public class ShopUIController : MonoBehaviour
         BuildPanelAnimator.SetBool("isOpen", false);
         ShopPanelAnimator.SetBool("isOpen", false);
         StartCoroutine(GameUIController.Instance.EnableGameplayUIDelayed());
+
     }
 
     void TearDownPanels()

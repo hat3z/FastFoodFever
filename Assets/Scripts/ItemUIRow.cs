@@ -86,6 +86,7 @@ public class ItemUIRow : MonoBehaviour
             ProfileController.Instance.RemoveApplianceSlot(myDynamicTileID);
             BuildUIController.Instance.SetFoodItemCount(itemType.Appliance);
             ProfileController.Instance.SavePlayerProfileToFile();
+            GamePlayController.Instance.CheckPlayerStartGame();
         }
 
     }
@@ -98,6 +99,7 @@ public class ItemUIRow : MonoBehaviour
         ShopUIController.Instance.GetAppliancesFromProfile(true);
         ShopUIController.Instance.GetPlayerBaseInfoFromProfile();
         ProfileController.Instance.SavePlayerProfileToFile();
+        GamePlayController.Instance.CheckPlayerStartGame();
     }
 
     public void SetupFoodItemItemUI(FoodItem _foodItemData)

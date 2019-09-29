@@ -34,6 +34,7 @@ public class GameUIController : MonoBehaviour
 
     public IEnumerator EnableGameplayUIDelayed()
     {
+        CameraController.Instance.FadeToPlayCamera = true;
         yield return new WaitForSeconds(1f);
         GameplayUI.gameObject.SetActive(true);
     }
