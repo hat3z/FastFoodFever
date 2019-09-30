@@ -17,8 +17,6 @@ public class CameraController : MonoBehaviour
     public bool FadeToPlayCamera;
 
     public float transitionTime;
-    public bool startTransition;
-
     private void Awake()
     {
         Instance = this;
@@ -35,26 +33,33 @@ public class CameraController : MonoBehaviour
     {
         if(FadeToBuildCamera)
         {
-            SetZoom(BuildCameraZoom);
+            SetZoom(BuildCameraZoom, true);
         }
         if(FadeToPlayCamera)
         {
-            SetZoom(PlayCameraZoom);
+            SetZoom(PlayCameraZoom, false);
         }
     }
 
-    void SetZoom(float _amount)
+    void SetZoom(float _amount, bool _cam)
     {
         if(MainCamera.orthographicSize != _amount)
         {
             MainCamera.orthographicSize = Mathf.Lerp(MainCamera.orthographicSize, _amount, transitionTime * Time.deltaTime);
-            StartCoroutine(TurnOffTransition());
+            StartCoroutine(TurnOffTransition(_cam));
         }
     }
-    IEnumerator TurnOffTransition()
+    IEnumerator TurnOffTransition(bool _isBuildCam)
     {
         yield return new WaitForSeconds(transitionTime);
-        startTransition = false;
+        if(_isBuildCam)
+        {
+            FadeToBuildCamera = false;
+        }
+        else
+        {
+            FadeToPlayCamera = false;
+        }
     }
 
 
