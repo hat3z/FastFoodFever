@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200.8, y: -0.000024796}
+  m_AnchoredPosition: {x: -154.31, y: 2.4}
   m_SizeDelta: {x: 115.6, y: 115.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4140438636932524579
@@ -576,8 +576,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -24.602, y: -0.000022888}
-  m_SizeDelta: {x: 216.02, y: 46.7}
+  m_AnchoredPosition: {x: -8.814893, y: -0.000022888}
+  m_SizeDelta: {x: 175.4, y: 46.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6780643736377300717
 CanvasRenderer:
@@ -1359,7 +1359,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 561.9, y: 161.2}
+  m_SizeDelta: {x: 442.2, y: 161.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5324412293018258698
 CanvasRenderer:
@@ -1418,6 +1418,12 @@ MonoBehaviour:
   ProduceQt: {fileID: 4927936351251051661}
   ItemCost: {fileID: 130764536773275569}
   StoredAmount: {fileID: 5509665266007419781}
+  PlaceButton: {fileID: 0}
+  ReplaceButton: {fileID: 0}
+  SellButton: {fileID: 0}
+  PlacedLabel: {fileID: 0}
+  PlacedTextColor: {r: 0, g: 0, b: 0, a: 0}
+  NotPlacedTextColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &9092469970241033275
 GameObject:
   m_ObjectHideFlags: 0

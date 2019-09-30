@@ -98,6 +98,7 @@
     <Compile Include="Assets\Scripts\GamePlayUI Scripts\GamePlayController.cs" />
     <Compile Include="Assets\Scripts\GamePlayUI Scripts\GameplayUIButton.cs" />
     <Compile Include="Assets\Scripts\GamePlayUI Scripts\GameUIController.cs" />
+    <Compile Include="Assets\Scripts\GamePlayUI Scripts\IngredientRowController.cs" />
     <Compile Include="Assets\Scripts\GamePlayUI Scripts\IngredientsPanelController.cs" />
     <Compile Include="Assets\Scripts\GamePlayUI Scripts\MenusPanelController.cs" />
     <Compile Include="Assets\Scripts\GamePlayUI Scripts\OrderItemController.cs" />
