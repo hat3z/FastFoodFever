@@ -7,6 +7,7 @@ public class OrdersPanelController : MonoBehaviour
 {
 
     public GameplayUIButton MyGameplayButton;
+    public GameObject OrderRowPrefab;
 
     [Header("Tab Switcher")]
     public Color ActiveTabButtonColor;
@@ -16,6 +17,11 @@ public class OrdersPanelController : MonoBehaviour
     [Space(5)]
     public GameObject OrdersContent;
     public GameObject ComplOrdersContent;
+
+    [Header("Orders")]
+    public List<Order> Orders;
+    [Space(5)]
+    public List<Order> CompletedOrders;
 
     // Start is called before the first frame update
     void Start()
@@ -57,4 +63,12 @@ public class OrdersPanelController : MonoBehaviour
     }
     #endregion
 
+}
+
+[System.Serializable]
+public class Order
+{
+    public int OrderID;
+    public List<string> OrderItems = new List<string>();
+    public bool isCompleted = false;
 }
