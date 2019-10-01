@@ -47,7 +47,7 @@ MonoBehaviour:
     IngredientImagePath: 
     IngredientStoredAmount: 0
     CostPrice: 1
-    TravelTime: 0
+    TravelTime: 10
   - IngredientName: Bums
     IngredientID: bums
     IngredientImagePath: 

@@ -49,6 +49,25 @@ public class ProfileController : MonoBehaviour
             return false;
         }
     }
+
+    public bool CanBuyItem(int _itemPrice)
+    {
+        if (_itemPrice <= playerProfile.PlayerMoney)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void RemoveFromPlayerMoney(int _amount)
+    {
+        playerProfile.PlayerMoney -= _amount;
+        SavePlayerProfileToFile();
+    }
+
     #endregion
 
     public void AddItemToProfile(object _itemObject)
@@ -123,7 +142,7 @@ public class ProfileController : MonoBehaviour
         return false;
     }
 
-    FoodIngredients GetFoodIngredientFromProfile(string _requestID)
+    public FoodIngredients GetFoodIngredientFromProfile(string _requestID)
     {
         for (int i = 0; i < playerProfile.PlayerFoodIngredients.Count; i++)
         {
