@@ -11,12 +11,18 @@ public class IngredientRowController : MonoBehaviour
     public Image IngImage;
 
     [Header("Buy settings")]
-    public GameObject BuyButtonPanel;
     public Button BuyButton;
     public TextMeshProUGUI BuyButtonLabel;
+    public Button BuyAmountButton;
     public TextMeshProUGUI BuyAmountLabel;
-    int buyAmount;
-    int buyPrice;
+    public int buyAmount;
+    public int buyPrice;
+
+    private void Start()
+    {
+        BuyAmountButton.onClick.AddListener(() => AmountSelectButton.Instance.OpenAmountSelectorEvent(this));
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -30,40 +36,13 @@ public class IngredientRowController : MonoBehaviour
         IngNameLabel.text = ingredientData.IngredientName;
         IngStoredAmount.text = ingredientData.IngredientStoredAmount.ToString();
         IngImage.sprite = ItemDatabase.Instance.GetSpriteFromPath(ingredientData.IngredientImagePath);
-        SelectAmount(1);
+        BuyButtonLabel.text = ingredientData.CostPrice.ToString();
     }
-
-    #region BuyAmount handling
-    public void OpenAmountSelectorEvent()
-    {
-        BuyButtonPanel.gameObject.SetActive(true);
-        BuyButton.interactable = false;
-    }
-
-    public void SelectAmount(int amount)
-    {
-        BuyAmountLabel.text = "x" + amount.ToString();
-        buyAmount = amount;
-        buyPrice = ItemDatabase.Instance.GetFoodIngredientByID(ingredientID).CostPrice * amount;
-        BuyButtonLabel.text = buyPrice.ToString();
-        BuyButtonPanel.gameObject.SetActive(false);
-        if(ProfileController.Instance.CanBuyItem(buyPrice))
-        {
-            BuyButton.interactable = true;
-        }
-        else
-        {
-            BuyButton.interactable = false;
-        }
-    }
-
     public void BuyButtonEvent()
     {
         ProfileController.Instance.GetFoodIngredientFromProfile(ingredientID).IngredientStoredAmount += buyAmount;
         ProfileController.Instance.RemoveFromPlayerMoney(buyPrice);
         IngredientsPanelController.Instance.DrawIngredients();
     }
-
-    #endregion
 }
 //705889896
