@@ -9,7 +9,7 @@ public class IngredientRowController : MonoBehaviour
     public TextMeshProUGUI IngNameLabel;
     public TextMeshProUGUI IngStoredAmount;
     public Image IngImage;
-
+    float deliverTime;
     [Header("Buy settings")]
     public Button BuyButton;
     public TextMeshProUGUI BuyButtonLabel;
@@ -18,15 +18,36 @@ public class IngredientRowController : MonoBehaviour
     public int buyAmount;
     public int buyPrice;
 
+    public GameObject UIContainer;
+    public GameObject TravelContainer;
+    public Image DeliverFillImage;
+    bool startDeliver;
+    float tempDeliverTime;
     private void Start()
     {
         BuyAmountButton.onClick.AddListener(() => AmountSelectButton.Instance.OpenAmountSelectorEvent(this));
+        UIContainer.gameObject.SetActive(true);
+        TravelContainer.gameObject.SetActive(false);
+        startDeliver = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(startDeliver)
+        {
+            UIContainer.gameObject.SetActive(false);
+            TravelContainer.gameObject.SetActive(true);
+            tempDeliverTime -= Time.deltaTime;
+            DeliverFillImage.fillAmount -= 1.0f / deliverTime * Time.deltaTime;
+        }
+        if(tempDeliverTime <=0)
+        {
+            startDeliver = false;
+            UIContainer.gameObject.SetActive(true);
+            TravelContainer.gameObject.SetActive(false);
+            DeliverFillImage.fillAmount = 1.0f;
+        }
     }
 
     public void SetupIngredientData(string _ingredientID)
@@ -37,12 +58,16 @@ public class IngredientRowController : MonoBehaviour
         IngStoredAmount.text = ingredientData.IngredientStoredAmount.ToString();
         IngImage.sprite = ItemDatabase.Instance.GetSpriteFromPath(ingredientData.IngredientImagePath);
         BuyButtonLabel.text = ingredientData.CostPrice.ToString();
+        deliverTime = ingredientData.TravelTime;
     }
     public void BuyButtonEvent()
     {
+        Debug.Log("asd");
         ProfileController.Instance.GetFoodIngredientFromProfile(ingredientID).IngredientStoredAmount += buyAmount;
         ProfileController.Instance.RemoveFromPlayerMoney(buyPrice);
-        IngredientsPanelController.Instance.DrawIngredients();
+        tempDeliverTime = deliverTime;
+        startDeliver = true;
+        SetupIngredientData(ingredientID);
     }
 }
 //705889896

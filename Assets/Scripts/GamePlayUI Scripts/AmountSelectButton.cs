@@ -10,7 +10,7 @@ public class AmountSelectButton : MonoBehaviour
     public GameObject ButtonPanel;
 
     private IngredientRowController selectedController;
-
+    public Vector2 offset;
     private void Awake()
     {
         Instance = this;
@@ -25,10 +25,14 @@ public class AmountSelectButton : MonoBehaviour
 
     public void OpenAmountSelectorEvent(IngredientRowController _controller)
     {
-        Debug.Log("asd");
         if(selectedController == null)
         {
             ButtonPanel.gameObject.SetActive(true);
+
+            ButtonPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(
+                _controller.GetComponent<RectTransform>().anchoredPosition.x + offset.x,
+                _controller.GetComponent<RectTransform>().anchoredPosition.y + offset.y);
+
             selectedController = _controller;
             selectedController.BuyButton.interactable = false;
         }

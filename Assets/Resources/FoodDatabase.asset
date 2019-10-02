@@ -53,7 +53,7 @@ MonoBehaviour:
     IngredientImagePath: 
     IngredientStoredAmount: 0
     CostPrice: 20
-    TravelTime: 0
+    TravelTime: 10
   Appliances:
   - applianceName: Basic Cooker Pad
     applianceID: cooker1

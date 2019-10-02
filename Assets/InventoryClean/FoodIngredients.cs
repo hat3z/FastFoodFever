@@ -10,7 +10,7 @@ public class FoodIngredients
     public string IngredientImagePath;
     public int IngredientStoredAmount;
     public int CostPrice;
-    public int TravelTime;
+    public float TravelTime;
     public FoodIngredients MyClone()
     {
         FoodIngredients newItem = new FoodIngredients();
