@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - DynamicTile
+  - Appliance
   layers:
   - Default
   - TransparentFX
