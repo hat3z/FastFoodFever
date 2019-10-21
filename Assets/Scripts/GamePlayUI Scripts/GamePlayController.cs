@@ -7,9 +7,19 @@ public class GamePlayController : MonoBehaviour
 
     public static GamePlayController Instance;
 
+    private bool isBuildMode, isPlayMode;
+
+    [Header("Dynamic Tiles")]
     public List<DynamicTile> DynamicTiles;
     public Material PlacingMaterial;
     public GameObject activePlacingApplliance;
+
+    [Header("Orders")]
+    public int maxOrdersNum;
+    public int itemRepeatRate;
+    public int orderWaitTime;
+
+    public List<Order> Orders;
 
     private void Awake()
     {
@@ -19,6 +29,8 @@ public class GamePlayController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        EnableBuildMode();
+
         ProfileController.Instance.LoadProfileFromFile();
         ShopUIController.Instance.GetAppliancesFromProfile(false);
         BuildUIController.Instance.SetupApplianceSlots();
@@ -33,6 +45,23 @@ public class GamePlayController : MonoBehaviour
     {
         
     }
+
+    #region Build/Play Mode handling
+    public void EnableBuildMode()
+    {
+        isBuildMode = true;
+        isPlayMode = false;
+    }
+
+    public void EnablePlayMode()
+    {
+        isPlayMode = true;
+        isBuildMode = false;
+        SetupOrders();
+        OrderNPCController.Instance.SpawnOrderNPC();
+    }
+
+    #endregion
 
     public void CheckPlayerStartGame()
     {
@@ -83,6 +112,32 @@ public class GamePlayController : MonoBehaviour
         if(activePlacingApplliance == null)
         {
             activePlacingApplliance = _model;
+        }
+    }
+
+    #endregion
+
+    #region Order Handling
+
+    public void SetupOrders()
+    {
+        //How many fooditems will be order by the Customer
+        int randomFoodItemCount;
+
+        // Which FoodItem from the available foooditems
+        int randomPickFoodIndex;
+
+        for (int i = 0; i < maxOrdersNum; i++)
+        {
+            Order newOrder = new Order();
+            randomFoodItemCount = Random.Range(1, itemRepeatRate + 1);
+            newOrder.OrderID = Orders.Count +1;
+            randomPickFoodIndex = Random.Range(0, ProfileController.Instance.playerProfile.PlayerFoodItems.Count);
+            for (int a = 0; a < randomFoodItemCount; a++)
+            {
+                newOrder.OrderItems.Add(ProfileController.Instance.playerProfile.PlayerFoodItems[randomPickFoodIndex].foodID);
+            }
+            Orders.Add(newOrder);
         }
     }
 

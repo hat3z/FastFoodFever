@@ -57,17 +57,29 @@ public class IngredientRowController : MonoBehaviour
         IngNameLabel.text = ingredientData.IngredientName;
         IngStoredAmount.text = ingredientData.IngredientStoredAmount.ToString();
         IngImage.sprite = ItemDatabase.Instance.GetSpriteFromPath(ingredientData.IngredientImagePath);
-        BuyButtonLabel.text = ingredientData.CostPrice.ToString();
+        buyAmount = 5;
+        BuyAmountLabel.text = "x" + buyAmount.ToString();
+        BuyButtonLabel.text = (ingredientData.CostPrice * buyAmount).ToString();
         deliverTime = ingredientData.TravelTime;
+        
     }
+
+
     public void BuyButtonEvent()
     {
-        Debug.Log("asd");
-        ProfileController.Instance.GetFoodIngredientFromProfile(ingredientID).IngredientStoredAmount += buyAmount;
-        ProfileController.Instance.RemoveFromPlayerMoney(buyPrice);
+        StartCoroutine(RemoveAmountOfIngredient());
         tempDeliverTime = deliverTime;
         startDeliver = true;
+
+    }
+
+    IEnumerator RemoveAmountOfIngredient()
+    {
+        yield return new WaitForSeconds(ProfileController.Instance.GetFoodIngredientFromProfile(ingredientID).TravelTime);
+        ProfileController.Instance.GetFoodIngredientFromProfile(ingredientID).IngredientStoredAmount += buyAmount;
+        ProfileController.Instance.RemoveFromPlayerMoney(buyPrice);
         SetupIngredientData(ingredientID);
     }
+
 }
 //705889896

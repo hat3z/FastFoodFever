@@ -13,6 +13,7 @@ public class OrderSlotController : MonoBehaviour
     public TextMeshProUGUI OrderIDLabel;
     public Button ReadyOrderButton;
     public TextMeshProUGUI OrderReadyLabel;
+    public Image CountdownTimerImg;
 
     public List<OrderItemController> OrderItems;
 

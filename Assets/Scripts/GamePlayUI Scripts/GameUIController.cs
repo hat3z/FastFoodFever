@@ -37,6 +37,7 @@ public class GameUIController : MonoBehaviour
         CameraController.Instance.FadeToPlayCamera = true;
         yield return new WaitForSeconds(1f);
         GameplayUI.gameObject.SetActive(true);
+        GamePlayController.Instance.EnablePlayMode();
     }
 
 

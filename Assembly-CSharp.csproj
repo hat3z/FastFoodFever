@@ -106,6 +106,8 @@
     <Compile Include="Assets\Scripts\GamePlayUI Scripts\OrderItemController.cs" />
     <Compile Include="Assets\Scripts\GamePlayUI Scripts\OrderSlotController.cs" />
     <Compile Include="Assets\Scripts\GamePlayUI Scripts\OrdersPanelController.cs" />
+    <Compile Include="Assets\Scripts\OrderNPC.cs" />
+    <Compile Include="Assets\Scripts\OrderNPCController.cs" />
     <Compile Include="Assets\Scripts\PlayerProfile.cs" />
     <Compile Include="Assets\Scripts\ProfileController.cs" />
     <Compile Include="Assets\Scripts\Utilities\CameraController.cs" />
