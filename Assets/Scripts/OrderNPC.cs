@@ -21,6 +21,27 @@ public class OrderNPC : MonoBehaviour
         
     }
 
+    public void PlayAnimByTrigger(string _trigger)
+    {
+        switch (_trigger)
+        {
+            case "comeToOrder":
+                NPCAnimator.SetTrigger("comeToOrder");
+                //WAITING!
+                break;
+            case "comeToOrderPoint":
+                NPCAnimator.SetTrigger("comeToOrderPoint");
+                //ORDERING!
+                break;
+            default:
+                break;
+        }
 
+    }
+
+    public void SetMyStartPosition(int _myID)
+    {
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + (_myID * 1));
+    }
 
 }

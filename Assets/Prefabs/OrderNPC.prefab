@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCAnimator: {fileID: 6629280230021753590}
+  myOrderID: 0
 --- !u!1 &7756973135077964149
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,8 +8,10 @@ public class OrderNPCController : MonoBehaviour
     public static OrderNPCController Instance;
     public GameObject OrderNPCPrefab;
     public Transform NPCSpawnPoint;
-    public float nextOrderTime;
     public List<OrderNPC> orderNPCs;
+
+    public List<OrderNPC> activeNPCs;
+
     private void Awake()
     {
         Instance = this;
@@ -27,15 +29,43 @@ public class OrderNPCController : MonoBehaviour
         
     }
 
-    public void SpawnOrderNPC()
+    public IEnumerator Refresh(float waitTimeToPoint)
     {
-        for (int i = 0; i < GamePlayController.Instance.Orders.Count; i++)
+        if(orderNPCs.Count !=0)
         {
-            GameObject newOrderNPC = Instantiate(OrderNPCPrefab, NPCSpawnPoint);
-            newOrderNPC.transform.localScale = Vector3.one;
-            newOrderNPC.transform.SetParent(gameObject.transform);
-            newOrderNPC.GetComponent<OrderNPC>().myOrderID = GamePlayController.Instance.Orders[i].OrderID;
-            orderNPCs.Add(newOrderNPC.GetComponent<OrderNPC>());
+            yield return new WaitForSeconds(waitTimeToPoint);
+            activeNPCs.Add(orderNPCs[0]);
+            orderNPCs.Remove(activeNPCs[0]);
+            activeNPCs[0].GetComponent<OrderNPC>().PlayAnimByTrigger("comeToOrderPoint");
+            for (int i = 0; i < orderNPCs.Count; i++)
+            {
+                yield return new WaitForSeconds(waitTimeToPoint);
+                orderNPCs[i].GetComponent<OrderNPC>().PlayAnimByTrigger("comeToOrder");
+            }
+        }
+
+    }
+
+
+    public void CreateNewOrderNPC(Order _orderData)
+    {
+        GameObject newOrderNPC = Instantiate(OrderNPCPrefab, NPCSpawnPoint);
+        newOrderNPC.transform.localScale = Vector3.one;
+        newOrderNPC.transform.SetParent(gameObject.transform);
+        newOrderNPC.GetComponent<OrderNPC>().myOrderID = _orderData.OrderID;
+        newOrderNPC.GetComponent<OrderNPC>().SetMyStartPosition(GamePlayController.Instance.Orders.Count);
+        orderNPCs.Add(newOrderNPC.GetComponent<OrderNPC>());
+    }
+
+    public void ClearOrderNPCList()
+    {
+        if(orderNPCs.Count > 0)
+        {
+            for (int i = 0; i < orderNPCs.Count; i++)
+            {
+                Destroy(orderNPCs[i].gameObject);
+            }
+            orderNPCs.Clear();
         }
     }
 

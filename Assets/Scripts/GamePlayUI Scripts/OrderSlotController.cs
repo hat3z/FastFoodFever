@@ -7,7 +7,7 @@ using TMPro;
 public class OrderSlotController : MonoBehaviour
 {
 
-    public enum orderType {NotCompleted, Completed };
+    public enum orderType {Assignable,NotCompleted, Completed };
     public orderType OrderType;
 
     public TextMeshProUGUI OrderIDLabel;

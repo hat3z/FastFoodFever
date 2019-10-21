@@ -58,7 +58,6 @@ public class GamePlayController : MonoBehaviour
         isPlayMode = true;
         isBuildMode = false;
         SetupOrders();
-        OrderNPCController.Instance.SpawnOrderNPC();
     }
 
     #endregion
@@ -119,13 +118,24 @@ public class GamePlayController : MonoBehaviour
 
     #region Order Handling
 
+    public void RefreshOrders()
+    {
+        OrderNPCController.Instance.ClearOrderNPCList();
+        SetupOrders();
+    }
+
     public void SetupOrders()
     {
+        if(Orders.Count> 0)
+        {
+            Orders.Clear();
+        }
+
         //How many fooditems will be order by the Customer
         int randomFoodItemCount;
 
-        // Which FoodItem from the available foooditems
-        int randomPickFoodIndex;
+        // Which FoodItem from the available fooditems
+        int randomPickFoodIndex = 0;
 
         for (int i = 0; i < maxOrdersNum; i++)
         {
@@ -137,8 +147,25 @@ public class GamePlayController : MonoBehaviour
             {
                 newOrder.OrderItems.Add(ProfileController.Instance.playerProfile.PlayerFoodItems[randomPickFoodIndex].foodID);
             }
+            OrderNPCController.Instance.CreateNewOrderNPC(newOrder);
             Orders.Add(newOrder);
         }
+        if(Orders.Count == maxOrdersNum)
+        {
+            StartCoroutine(OrderNPCController.Instance.Refresh(1));
+        }
+    }
+
+    public Order GetOrderByID(int _id)
+    {
+        for (int i = 0; i < Orders.Count; i++)
+        {
+            if(Orders[i].OrderID == _id)
+            {
+                return Orders[i];
+            }
+        }
+        return null;
     }
 
     #endregion
