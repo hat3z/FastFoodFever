@@ -29,17 +29,17 @@ public class OrderNPCController : MonoBehaviour
         
     }
 
-    public IEnumerator Refresh(float waitTimeToPoint)
+    public IEnumerator Refresh(float waitTimeToMove, float waitTimeInactive)
     {
         if(orderNPCs.Count !=0)
         {
-            yield return new WaitForSeconds(waitTimeToPoint);
+            yield return new WaitForSeconds(waitTimeToMove);
             activeNPCs.Add(orderNPCs[0]);
             orderNPCs.Remove(activeNPCs[0]);
             activeNPCs[0].GetComponent<OrderNPC>().PlayAnimByTrigger("comeToOrderPoint");
             for (int i = 0; i < orderNPCs.Count; i++)
             {
-                yield return new WaitForSeconds(waitTimeToPoint);
+                yield return new WaitForSeconds(waitTimeInactive);
                 orderNPCs[i].GetComponent<OrderNPC>().PlayAnimByTrigger("comeToOrder");
             }
         }

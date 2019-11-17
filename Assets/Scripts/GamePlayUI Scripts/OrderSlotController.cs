@@ -26,6 +26,16 @@ public class OrderSlotController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+    }
+
+    public void CreateOrderSlot(Order _orderData)
+    {
         
     }
+
+    //--->>
+    //TODO: Create OrderSlot prefabs, setup by Order class.
+    //<<---
 }

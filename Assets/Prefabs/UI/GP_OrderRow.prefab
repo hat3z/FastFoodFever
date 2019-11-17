@@ -957,7 +957,8 @@ MonoBehaviour:
   ReadyOrderButton: {fileID: 6676682103371179508}
   OrderReadyLabel: {fileID: 6676682104834891766}
   CountdownTimerImg: {fileID: 4965506852085072626}
-  OrderItems: []
+  OrderItems:
+  - {fileID: 4893268196772267506, guid: 79f7f7ed84ddb9941b14d22ef6c81e0c, type: 3}
 --- !u!114 &6676682104776829493
 MonoBehaviour:
   m_ObjectHideFlags: 0

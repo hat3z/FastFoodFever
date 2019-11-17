@@ -18,7 +18,9 @@ public class GamePlayController : MonoBehaviour
     public int maxOrdersNum;
     public int itemRepeatRate;
     public int orderWaitTime;
-
+    public float orderMoveTimeToActive;
+    public float orderMoveTimeInactive;
+    public float orderWaitToOrderTime;
     public List<Order> Orders;
 
     private void Awake()
@@ -141,7 +143,7 @@ public class GamePlayController : MonoBehaviour
         {
             Order newOrder = new Order();
             randomFoodItemCount = Random.Range(1, itemRepeatRate + 1);
-            newOrder.OrderID = Orders.Count +1;
+            newOrder.OrderID = Orders.Count + 1;
             randomPickFoodIndex = Random.Range(0, ProfileController.Instance.playerProfile.PlayerFoodItems.Count);
             for (int a = 0; a < randomFoodItemCount; a++)
             {
@@ -152,7 +154,7 @@ public class GamePlayController : MonoBehaviour
         }
         if(Orders.Count == maxOrdersNum)
         {
-            StartCoroutine(OrderNPCController.Instance.Refresh(1));
+            StartCoroutine(OrderNPCController.Instance.Refresh(orderMoveTimeToActive, orderMoveTimeInactive));
         }
     }
 
