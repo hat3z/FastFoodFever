@@ -103,6 +103,7 @@
     <Compile Include="Assets\Scripts\GamePlayUI Scripts\IngredientsPanelController.cs" />
     <Compile Include="Assets\Scripts\GamePlayUI Scripts\MenuItemController.cs" />
     <Compile Include="Assets\Scripts\GamePlayUI Scripts\MenusPanelController.cs" />
+    <Compile Include="Assets\Scripts\GamePlayUI Scripts\NewOrderUIController.cs" />
     <Compile Include="Assets\Scripts\GamePlayUI Scripts\OrderItemController.cs" />
     <Compile Include="Assets\Scripts\GamePlayUI Scripts\OrderSlotController.cs" />
     <Compile Include="Assets\Scripts\GamePlayUI Scripts\OrdersPanelController.cs" />

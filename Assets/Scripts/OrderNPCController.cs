@@ -12,6 +12,8 @@ public class OrderNPCController : MonoBehaviour
 
     public List<OrderNPC> activeNPCs;
 
+    public List<OrderNPC> waitingNPCs;
+
     private void Awake()
     {
         Instance = this;
