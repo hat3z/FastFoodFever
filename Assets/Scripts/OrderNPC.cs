@@ -27,12 +27,16 @@ public class OrderNPC : MonoBehaviour
         {
             case "comeToOrder":
                 NPCAnimator.SetTrigger("comeToOrder");
-                //WAITING!
+                //WAITING TO ACTIVE!
                 break;
             case "comeToOrderPoint":
                 NPCAnimator.SetTrigger("comeToOrderPoint");
-                GamePlayController.Instance.EnableNewOrderPanel(myOrderID);
+                StartCoroutine(GamePlayController.Instance.EnableNewOrderPanel(myOrderID));
                 //ORDERING!
+                break;
+            case "comeToWait":
+                NPCAnimator.SetTrigger("comeToWait");
+
                 break;
             default:
                 break;

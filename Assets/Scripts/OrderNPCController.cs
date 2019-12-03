@@ -31,6 +31,18 @@ public class OrderNPCController : MonoBehaviour
         
     }
 
+    public void SetActiveOrderToWait()
+    {
+        waitingNPCs.Add(activeNPCs[0]);
+        waitingNPCs[waitingNPCs.Count-1].GetComponent<OrderNPC>().PlayAnimByTrigger("comeToWait");
+        activeNPCs.Clear();
+        StartCoroutine(Refresh(GamePlayController.Instance.orderMoveTimeToActive, GamePlayController.Instance.orderMoveTimeInactive));
+        if (OrdersPanelController.Instance.gameObject.activeSelf)
+        {
+            OrdersPanelController.Instance.RefreshWaitingOrders();
+        }
+    }
+
     public IEnumerator Refresh(float waitTimeToMove, float waitTimeInactive)
     {
         if(orderNPCs.Count !=0)

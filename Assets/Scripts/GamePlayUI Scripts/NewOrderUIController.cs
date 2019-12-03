@@ -16,7 +16,7 @@ public class NewOrderUIController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        NewOrderPanel.gameObject.SetActive(false);
+        NewOrderPanel.gameObject.SetActive(false); 
     }
 
     public void SetupNewOrderData(Order _orderData)
@@ -29,6 +29,13 @@ public class NewOrderUIController : MonoBehaviour
             newOrderItem.AddComponent<Image>().sprite = ItemDatabase.Instance.GetSpriteFromPath(_orderData.OrderItems[i]);
 
         }
+    }
+
+    public void PickUpOrder()
+    {
+        OrderNPCController.Instance.SetActiveOrderToWait();
+        NewOrderPanel.gameObject.SetActive(false);
+
     }
 
     // Start is called before the first frame update

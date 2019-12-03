@@ -158,8 +158,9 @@ public class GamePlayController : MonoBehaviour
         }
     }
 
-    public void EnableNewOrderPanel(int _orderID)
+    public IEnumerator EnableNewOrderPanel(int _orderID)
     {
+        yield return new WaitForSeconds(orderWaitToOrderTime);
         if(!NewOrderUIController.Instance.NewOrderPanel.gameObject.activeSelf)
         {
             NewOrderUIController.Instance.NewOrderPanel.gameObject.SetActive(true);

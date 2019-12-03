@@ -547,7 +547,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 222.2, y: 0}
   m_SizeDelta: {x: 444.4, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6676682103605378598
@@ -957,8 +957,10 @@ MonoBehaviour:
   ReadyOrderButton: {fileID: 6676682103371179508}
   OrderReadyLabel: {fileID: 6676682104834891766}
   CountdownTimerImg: {fileID: 4965506852085072626}
-  OrderItems:
-  - {fileID: 4893268196772267506, guid: 79f7f7ed84ddb9941b14d22ef6c81e0c, type: 3}
+  OrdersWrapper: {fileID: 6676682103605378599}
+  OrderItems: []
+  OrderItemPrefab: {fileID: 2865104533545378465, guid: 79f7f7ed84ddb9941b14d22ef6c81e0c,
+    type: 3}
 --- !u!114 &6676682104776829493
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,9 +14,9 @@ public class OrderSlotController : MonoBehaviour
     public Button ReadyOrderButton;
     public TextMeshProUGUI OrderReadyLabel;
     public Image CountdownTimerImg;
-
+    public RectTransform OrdersWrapper;
     public List<OrderItemController> OrderItems;
-
+    public GameObject OrderItemPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,13 +26,20 @@ public class OrderSlotController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        CountdownTimerImg.fillAmount -= 1.0f / GamePlayController.Instance.orderWaitTime * Time.deltaTime;
 
     }
 
+
     public void CreateOrderSlot(Order _orderData)
     {
-        
+        for (int i = 0; i < _orderData.OrderItems.Count; i++)
+        {
+            GameObject newOrderItem = Instantiate(OrderItemPrefab, OrdersWrapper);
+            newOrderItem.transform.localScale = new Vector3(1, 1, 1);
+            newOrderItem.GetComponent<OrderItemController>().SetupOrderItem(_orderData.OrderItems[i]);
+
+        }
     }
 
     //--->>

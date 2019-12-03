@@ -39,12 +39,25 @@ public class GameplayUIButton : MonoBehaviour
         myImage.color = new Color(myImage.color.r, myImage.color.g, myImage.color.b, 0);
     }
 
-    public void OpenPanel()
+    public void OpenPanel(string _panelName)
     {
+        switch (_panelName)
+        {
+            case "orders":
+                MyPanel.GetComponent<OrdersPanelController>().RefreshWaitingOrders();
+                break;
+            case "menus":
+                break;
+            case "ingredients":
+                break;
+            default:
+                break;
+        }
         if (!MyPanel.activeSelf)
         {
             MyPanel.gameObject.SetActive(true);
             SetHoverToButton(GetComponent<Image>());
         }
+
     }
 }

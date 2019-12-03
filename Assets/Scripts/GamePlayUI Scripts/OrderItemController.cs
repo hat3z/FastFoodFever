@@ -13,4 +13,12 @@ public class OrderItemController : MonoBehaviour
     public Color AssignedItemColor;
     public bool isAssigned;
 
+    public void SetupOrderItem(string _orderID)
+    {
+        Debug.Log("OrderID: " + _orderID);
+        OrderItemImage.sprite = ItemDatabase.Instance.GetSpriteFromPath(_orderID);
+        OrderItemLabel.text = ItemDatabase.Instance.GetFoodItemByID(_orderID).foodName;
+        isAssigned = false;
+    }
+
 }

@@ -16,10 +16,13 @@ public class OrdersPanelController : MonoBehaviour
 
     [Space(5)]
     public GameObject OrdersContent;
+    public Transform OrderContentWrapper;
     public GameObject ComplOrdersContent;
+    public Transform ComplOrdersWrapper;
 
     [Header("Orders")]
     public List<Order> CompletedOrders;
+    public List<Order> WaitingOrders;
     private void Awake()
     {
         Instance = this;
@@ -29,6 +32,46 @@ public class OrdersPanelController : MonoBehaviour
     void Start()
     {
         
+    }
+
+    public void RefreshWaitingOrders()
+    {
+        DeleteWaitingOrdersUI();
+        for (int i = 0; i < OrderNPCController.Instance.waitingNPCs.Count; i++)
+        {
+            Order neworder = GamePlayController.Instance.GetOrderByID(OrderNPCController.Instance.waitingNPCs[i].myOrderID);
+            WaitingOrders.Add(neworder);
+            neworder.isWaiting = true;
+        }
+
+        for (int i = 0; i < WaitingOrders.Count; i++)
+        {
+            GameObject newWaitingOrderUI = Instantiate(OrderRowPrefab, OrderContentWrapper.transform);
+            newWaitingOrderUI.transform.localScale = new Vector3(1, 1, 1);
+            newWaitingOrderUI.GetComponent<OrderSlotController>().CreateOrderSlot(WaitingOrders[i]);
+        }
+    }
+
+    public void RefreshActiveOrderContent(Order newOrderData)
+    {
+        DeleteWaitingOrdersUI();
+        WaitingOrders.Add(newOrderData);
+
+        for (int i = 0; i < WaitingOrders.Count; i++)
+        {
+            GameObject newWaitingOrderUI = Instantiate(OrderRowPrefab, OrdersContent.transform);
+            newWaitingOrderUI.transform.localScale = new Vector3(1, 1, 1);
+            newWaitingOrderUI.GetComponent<OrderSlotController>().CreateOrderSlot(newOrderData);
+        }
+    }
+
+    void DeleteWaitingOrdersUI()
+    {
+        for (int i = 0; i < OrderContentWrapper.transform.childCount; i++)
+        {
+            Destroy(OrderContentWrapper.transform.GetChild(i).gameObject);
+        }
+        WaitingOrders.Clear();
     }
 
     // Update is called once per frame
@@ -73,5 +116,5 @@ public class Order
     public int OrderID;
     public List<string> OrderItems = new List<string>();
     public bool isCompleted = false;
-    public bool isActive = false;
+    public bool isWaiting = false;
 }
