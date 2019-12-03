@@ -31,6 +31,7 @@ public class OrderNPC : MonoBehaviour
                 break;
             case "comeToOrderPoint":
                 NPCAnimator.SetTrigger("comeToOrderPoint");
+                GamePlayController.Instance.EnableNewOrderPanel(myOrderID);
                 //ORDERING!
                 break;
             default:

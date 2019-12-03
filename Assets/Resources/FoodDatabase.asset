@@ -16,7 +16,7 @@ MonoBehaviour:
   - foodName: Burger
     foodID: burger
     foodModelPath: 
-    foodImagePath: 
+    foodImagePath: burger
     description: A simple burger.
     Type: 0
     Tier: 0
@@ -32,7 +32,7 @@ MonoBehaviour:
   - foodName: Cola
     foodID: cola
     foodModelPath: 
-    foodImagePath: 
+    foodImagePath: cola
     description: Cuca cola, not gay advertisement.
     Type: 1
     Tier: 0

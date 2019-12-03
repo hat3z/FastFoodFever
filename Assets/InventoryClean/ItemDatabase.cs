@@ -27,6 +27,7 @@ public class ItemDatabase : ScriptableObject {
 
     #region FoodItem item handlings
 
+
     public FoodItem GetFoodItemByID(string _itemIDName)
     {
         for (int i = 0; i < FoodDatabase.Count; i++)
@@ -252,6 +253,7 @@ public class ItemDatabase : ScriptableObject {
     public Sprite GetSpriteFromPath(string _path)
     {
         Sprite result =(Sprite) Resources.Load("ItemSprites/" + _path, typeof(Sprite));
+        Debug.Log("<color=green>" + _path + "</color>");
         return result;
     }
 

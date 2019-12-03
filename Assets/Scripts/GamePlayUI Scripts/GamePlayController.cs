@@ -158,6 +158,16 @@ public class GamePlayController : MonoBehaviour
         }
     }
 
+    public void EnableNewOrderPanel(int _orderID)
+    {
+        if(!NewOrderUIController.Instance.NewOrderPanel.gameObject.activeSelf)
+        {
+            NewOrderUIController.Instance.NewOrderPanel.gameObject.SetActive(true);
+            Order newOrderData = GetOrderByID(_orderID);
+            NewOrderUIController.Instance.SetupNewOrderData(newOrderData);
+        }
+    }
+
     public Order GetOrderByID(int _id)
     {
         for (int i = 0; i < Orders.Count; i++)
