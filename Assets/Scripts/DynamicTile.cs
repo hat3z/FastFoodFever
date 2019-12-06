@@ -47,6 +47,7 @@ public class DynamicTile : MonoBehaviour
         RemoveObjectModel();
         Quaternion newRotate = Quaternion.Euler(new Vector3(0, rotatingAngle, 0));
         GameObject newObject = Instantiate(ItemDatabase.Instance.GetGameObjectFromPath(_objectPath),ObjectPivot.transform.position, newRotate);
+        newObject.GetComponent<ApplianceController>().SetMyApplianceID(myApplianceHash);
         newObject.transform.SetParent(ObjectPivot,true);
         modelObject = newObject;
         if (isPreload)

@@ -125,6 +125,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0629bb1c3db59e34f849939802c2d0b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UIPanelPosition: {x: 0, y: 0}
+  MyPanelPrefab: {fileID: 613083130822256822, guid: e37fda751c14d664ab6381f5546268e4,
+    type: 3}
+  MyAppliancePanel: {fileID: 0}
 --- !u!65 &7016950761301187477
 BoxCollider:
   m_ObjectHideFlags: 0

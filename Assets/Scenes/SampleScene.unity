@@ -9476,7 +9476,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 7.93e-43, y: 4.9e-44, z: 0, w: -1.4211811e+38}
+  m_BoundingSphereOverride: {x: 0.03125, y: 0.125, z: 0.03125, w: -0.046875}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -22872,6 +22872,8 @@ MonoBehaviour:
   - {fileID: 1022803253}
   - {fileID: 713762873}
   - {fileID: 418960547}
+  PanelsParent: {fileID: 1793303195}
+  BP_Panels: []
 --- !u!114 &1839721376
 MonoBehaviour:
   m_ObjectHideFlags: 0

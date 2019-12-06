@@ -7,7 +7,10 @@ using TMPro;
 public class BurgerPadController : MonoBehaviour
 {
 
+    public GameObject BurgerPadPanel;
 
+    public List<GameObject> Slots;
+    public string myApplianceID;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +22,15 @@ public class BurgerPadController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OpenPanelToAppliance(string _applianceID)
+    {
+        Appliance newAppliance = ProfileController.Instance.GetApplianceFromProfileByHash(_applianceID);
+        for (int i = 0; i < newAppliance.ProduceQuantity; i++)
+        {
+            Slots[i].gameObject.SetActive(true);
+        }
     }
 
     public void ClosePanel()
