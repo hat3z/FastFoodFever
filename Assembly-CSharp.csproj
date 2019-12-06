@@ -97,6 +97,7 @@
     <Compile Include="Assets\Scripts\BuildUI Scripts\ShopUIController.cs" />
     <Compile Include="Assets\Scripts\DynamicTile.cs" />
     <Compile Include="Assets\Scripts\GamePlayUI Scripts\AmountSelectButton.cs" />
+    <Compile Include="Assets\Scripts\GamePlayUI Scripts\BurgerPadController.cs" />
     <Compile Include="Assets\Scripts\GamePlayUI Scripts\GamePlayController.cs" />
     <Compile Include="Assets\Scripts\GamePlayUI Scripts\GameplayUIButton.cs" />
     <Compile Include="Assets\Scripts\GamePlayUI Scripts\GameUIController.cs" />

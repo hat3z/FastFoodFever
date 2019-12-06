@@ -12,6 +12,7 @@ public class NewOrderUIController : MonoBehaviour
     public TextMeshProUGUI OrderIDText;
     public RectTransform OrderItemsParent;
 
+    public Image OrderTimerImg;
 
     private void Awake()
     {
@@ -21,6 +22,10 @@ public class NewOrderUIController : MonoBehaviour
 
     public void SetupNewOrderData(Order _orderData)
     {
+        for (int i = 0; i < OrderItemsParent.transform.childCount; i++)
+        {
+            Destroy(OrderItemsParent.transform.GetChild(i).gameObject);
+        }
         OrderIDText.text = _orderData.OrderID.ToString();
         for (int i = 0; i < _orderData.OrderItems.Count; i++)
         {
@@ -35,7 +40,11 @@ public class NewOrderUIController : MonoBehaviour
     {
         OrderNPCController.Instance.SetActiveOrderToWait();
         NewOrderPanel.gameObject.SetActive(false);
-
+        OrderTimerImg.fillAmount = 1.0f;
+        if (GameUIController.Instance.DragabblePanels[0].activeSelf)
+        {
+            OrdersPanelController.Instance.RefreshWaitingOrders();
+        }
     }
 
     // Start is called before the first frame update
@@ -47,6 +56,10 @@ public class NewOrderUIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(NewOrderPanel.gameObject.activeSelf)
+        {
+            OrderTimerImg.fillAmount -= 1.0f / GamePlayController.Instance.orderPickupTime * Time.deltaTime;
+        }
+
     }
 }

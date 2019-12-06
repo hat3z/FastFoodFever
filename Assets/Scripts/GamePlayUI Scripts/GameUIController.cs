@@ -10,7 +10,7 @@ public class GameUIController : MonoBehaviour
 
     public GameObject GameplayUI;
 
-
+    public List<GameObject> DragabblePanels;
 
     private void Awake()
     {
@@ -28,6 +28,8 @@ public class GameUIController : MonoBehaviour
     {
         
     }
+
+
 
     public void SetButtonText()
     {

@@ -28,6 +28,16 @@ MonoBehaviour:
       amount: 2
     - IngredientID: bums
       amount: 1
+    - IngredientID: bacon
+      amount: 2
+    - IngredientID: salad
+      amount: 1
+    - IngredientID: burgermeat
+      amount: 1
+    - IngredientID: cheese
+      amount: 1
+    - IngredientID: goudacheese
+      amount: 1
     isLocked: 1
   - foodName: Cola
     foodID: cola
@@ -39,6 +49,18 @@ MonoBehaviour:
     StoredAmount: 0
     sellPrice: 2
     costPrice: 5
+    Ingredients: []
+    isLocked: 1
+  - foodName: Juice
+    foodID: juice
+    foodModelPath: 
+    foodImagePath: juice
+    description: Fresh orange juice from the bottom of the heart.
+    Type: 1
+    Tier: 0
+    StoredAmount: 0
+    sellPrice: 3
+    costPrice: 6
     Ingredients: []
     isLocked: 1
   FoodIngredients:
@@ -54,6 +76,36 @@ MonoBehaviour:
     IngredientStoredAmount: 0
     CostPrice: 20
     TravelTime: 10
+  - IngredientName: Salad
+    IngredientID: salad
+    IngredientImagePath: 
+    IngredientStoredAmount: 0
+    CostPrice: 20
+    TravelTime: 5
+  - IngredientName: BurgerMeat
+    IngredientID: burgermeat
+    IngredientImagePath: burgermeat
+    IngredientStoredAmount: 0
+    CostPrice: 2
+    TravelTime: 5
+  - IngredientName: Bacon
+    IngredientID: bacon
+    IngredientImagePath: bacon
+    IngredientStoredAmount: 0
+    CostPrice: 1
+    TravelTime: 5
+  - IngredientName: Cheese
+    IngredientID: cheese
+    IngredientImagePath: cheese
+    IngredientStoredAmount: 0
+    CostPrice: 1
+    TravelTime: 5
+  - IngredientName: GoudaCheese
+    IngredientID: goudacheese
+    IngredientImagePath: goudacheese
+    IngredientStoredAmount: 0
+    CostPrice: 2
+    TravelTime: 5
   Appliances:
   - applianceName: Basic Cooker Pad
     applianceID: cooker1

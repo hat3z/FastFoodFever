@@ -35,8 +35,9 @@ public class OrderNPC : MonoBehaviour
                 //ORDERING!
                 break;
             case "comeToWait":
-                NPCAnimator.SetTrigger("comeToWait");
-
+                //WAITING!
+                NPCAnimator.SetInteger("moveToWaitSpot", OrderNPCController.Instance.GetFirstFreeWaitingSpot().spotID);
+                OrderNPCController.Instance.GetFirstFreeWaitingSpot().isFree = false;
                 break;
             default:
                 break;

@@ -21,6 +21,7 @@ public class GamePlayController : MonoBehaviour
     public float orderMoveTimeToActive;
     public float orderMoveTimeInactive;
     public float orderWaitToOrderTime;
+    public float orderPickupTime;
     public List<Order> Orders;
 
     private void Awake()
@@ -46,6 +47,16 @@ public class GamePlayController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void RefreshOrderDataByID(int _orderID, Order.orderProgress _orderProgress, bool _useLog)
+    {
+        Order newOrder = GetOrderByID(_orderID);
+        if (_useLog)
+        {
+            Debug.Log("Try to refreshing order data:" + newOrder);
+        }
+        newOrder.OrderProgress = _orderProgress;
     }
 
     #region Build/Play Mode handling

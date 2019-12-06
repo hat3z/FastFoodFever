@@ -38,7 +38,8 @@ public class OrderSlotController : MonoBehaviour
             GameObject newOrderItem = Instantiate(OrderItemPrefab, OrdersWrapper);
             newOrderItem.transform.localScale = new Vector3(1, 1, 1);
             newOrderItem.GetComponent<OrderItemController>().SetupOrderItem(_orderData.OrderItems[i]);
-
+            ReadyOrderButton.interactable = false;
+            OrderIDLabel.text = "Order#" + _orderData.OrderID;
         }
     }
 

@@ -14,6 +14,8 @@ public class OrderNPCController : MonoBehaviour
 
     public List<OrderNPC> waitingNPCs;
 
+    public List<WaitingSpot> WaitingSpots;
+
     private void Awake()
     {
         Instance = this;
@@ -31,16 +33,30 @@ public class OrderNPCController : MonoBehaviour
         
     }
 
+    public WaitingSpot GetFirstFreeWaitingSpot()
+    {
+        foreach (WaitingSpot item in WaitingSpots)
+        {
+            if(item.isFree)
+            {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    public void SetOrderNPCToWaitSpot()
+    {
+
+    }
+
     public void SetActiveOrderToWait()
     {
         waitingNPCs.Add(activeNPCs[0]);
         waitingNPCs[waitingNPCs.Count-1].GetComponent<OrderNPC>().PlayAnimByTrigger("comeToWait");
+        GamePlayController.Instance.RefreshOrderDataByID(waitingNPCs[waitingNPCs.Count-1].myOrderID, Order.orderProgress.Waiting, true);
         activeNPCs.Clear();
         StartCoroutine(Refresh(GamePlayController.Instance.orderMoveTimeToActive, GamePlayController.Instance.orderMoveTimeInactive));
-        if (OrdersPanelController.Instance.gameObject.activeSelf)
-        {
-            OrdersPanelController.Instance.RefreshWaitingOrders();
-        }
     }
 
     public IEnumerator Refresh(float waitTimeToMove, float waitTimeInactive)
@@ -84,4 +100,10 @@ public class OrderNPCController : MonoBehaviour
     }
 
 
+}
+[System.Serializable]
+public class WaitingSpot
+{
+    public int spotID;
+    public bool isFree = true;
 }
