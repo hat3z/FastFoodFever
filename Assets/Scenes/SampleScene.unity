@@ -6280,6 +6280,7 @@ MonoBehaviour:
   myApplianceHash: 
   ObjectPivot: {fileID: 1673695139}
   rotatingAngle: 90
+  UIPanelPosition: {x: -185, y: 225}
 --- !u!1 &535836453
 GameObject:
   m_ObjectHideFlags: 0
@@ -9476,7 +9477,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0.03125, y: 0.125, z: 0.03125, w: -0.046875}
+  m_BoundingSphereOverride: {x: 4.397631e+21, y: 4.555656e+30, z: 4.070029e+31, w: -521198.25}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -13026,6 +13027,7 @@ MonoBehaviour:
   myApplianceHash: 
   ObjectPivot: {fileID: 1916220290}
   rotatingAngle: 90
+  UIPanelPosition: {x: 0, y: 0}
 --- !u!1 &1000056348
 GameObject:
   m_ObjectHideFlags: 0
@@ -15440,6 +15442,7 @@ MonoBehaviour:
   myApplianceHash: 
   ObjectPivot: {fileID: 1221757175}
   rotatingAngle: -90
+  UIPanelPosition: {x: 0, y: 0}
 --- !u!1 &1186569330
 GameObject:
   m_ObjectHideFlags: 0
@@ -16242,6 +16245,7 @@ MonoBehaviour:
   myApplianceHash: 
   ObjectPivot: {fileID: 1577482700}
   rotatingAngle: 0
+  UIPanelPosition: {x: 0, y: 0}
 --- !u!1 &1257488693
 GameObject:
   m_ObjectHideFlags: 0
@@ -16644,6 +16648,7 @@ MonoBehaviour:
   myApplianceHash: 
   ObjectPivot: {fileID: 313069664}
   rotatingAngle: -90
+  UIPanelPosition: {x: 0, y: 0}
 --- !u!1 &1307794600
 GameObject:
   m_ObjectHideFlags: 0
@@ -22501,6 +22506,7 @@ MonoBehaviour:
   myApplianceHash: 
   ObjectPivot: {fileID: 1266595331}
   rotatingAngle: 0
+  UIPanelPosition: {x: 0, y: 0}
 --- !u!1 &1831266929
 GameObject:
   m_ObjectHideFlags: 0
@@ -22873,7 +22879,7 @@ MonoBehaviour:
   - {fileID: 713762873}
   - {fileID: 418960547}
   PanelsParent: {fileID: 1793303195}
-  BP_Panels: []
+  AppliancePanels: []
 --- !u!114 &1839721376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23645,6 +23651,7 @@ MonoBehaviour:
   myApplianceHash: 
   ObjectPivot: {fileID: 365863931}
   rotatingAngle: -90
+  UIPanelPosition: {x: 0, y: 0}
 --- !u!1 &1887042459
 GameObject:
   m_ObjectHideFlags: 0
@@ -24519,6 +24526,7 @@ MonoBehaviour:
   myApplianceHash: 
   ObjectPivot: {fileID: 525635765}
   rotatingAngle: 90
+  UIPanelPosition: {x: 0, y: 0}
 --- !u!1 &1948590339
 GameObject:
   m_ObjectHideFlags: 0

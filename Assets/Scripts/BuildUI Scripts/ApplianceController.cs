@@ -7,10 +7,8 @@ public class ApplianceController : MonoBehaviour
 {
     RaycastHit hit;
 
-    public Vector2 UIPanelPosition;
-
     string myApplianceHash;
-
+    int myDynamicTileID;
     public GameObject MyPanelPrefab;
     public GameObject MyAppliancePanel;
 
@@ -24,35 +22,51 @@ public class ApplianceController : MonoBehaviour
         return myApplianceHash;
     }
 
-    public void SetMyApplianceID(string _aplHash)
+    public void SetMyData(string _aplHash, int _dID)
     {
         myApplianceHash = _aplHash;
+        myDynamicTileID = _dID;
+    }
+
+    public bool IsPanelOpened()
+    {
+        if(HadAppliancePanel())
+        {
+            if (MyAppliancePanel.gameObject.activeSelf)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool HadAppliancePanel()
+    {
+        if(MyAppliancePanel != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public void CreateAppliancePanel()
     {
         GameObject newPanel = Instantiate(MyPanelPrefab);
+        MyAppliancePanel = newPanel;
         newPanel.transform.SetParent(GameUIController.Instance.PanelsParent);
         newPanel.transform.localScale = new Vector3(1, 1, 1);
-        newPanel.gameObject.GetComponent<BurgerPadController>().myApplianceID = myApplianceHash;
+        GamePlayController.Instance.GetDynamicTIleByID(myDynamicTileID).SetupAppliancePanelPosition(newPanel);
     }
 
-    
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = CameraController.Instance.MainCamera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.transform.gameObject.tag == "Appliance")
-                {
-                    GameUIController.Instance.SetupBurgerPanel(this, MyPanelPrefab.GetComponent<BurgerPadController>());
-                }
-
-            }
-        }
-    }
+   
 }

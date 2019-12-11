@@ -47,6 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0629bb1c3db59e34f849939802c2d0b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MyPanelPrefab: {fileID: 7448989786397631302, guid: f0a91f42af5b61341b322827adac59ba,
+    type: 3}
+  MyAppliancePanel: {fileID: 0}
 --- !u!65 &8460923176056886259
 BoxCollider:
   m_ObjectHideFlags: 0

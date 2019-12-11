@@ -7,14 +7,14 @@ public class GameUIController : MonoBehaviour
 {
 
     public static GameUIController Instance;
-
+    RaycastHit hit;
     public GameObject GameplayUI;
 
     public List<GameObject> DragabblePanels;
 
     [Header("Appliance Panels")]
     public Transform PanelsParent;
-    public List<BurgerPadController> BP_Panels;
+    public List<GameObject> AppliancePanels;
 
 
     private void Awake()
@@ -31,41 +31,40 @@ public class GameUIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = CameraController.Instance.MainCamera.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.transform.gameObject.tag == "Appliance")
+                {
+                    ApplianceController detectedAC = hit.transform.GetComponent<ApplianceController>();
+                    if(!detectedAC.IsPanelOpened())
+                    {
+                        SetupBurgerPanel(detectedAC);
+                    }
+
+                }
+
+            }
+        }
     }
 
-
-
-    public void SetupBurgerPanel(ApplianceController _applianceController, BurgerPadController _BPController)
+    public void SetupBurgerPanel(ApplianceController _applianceController)
     {
-        if(!IsBurgerPadPanelExists(_applianceController.GetMyApplianceHash()))
+        if(_applianceController.HadAppliancePanel())
         {
-            BP_Panels.Add(_BPController);
-            _applianceController.CreateAppliancePanel();
+            _applianceController.MyAppliancePanel.gameObject.SetActive(true);
+            Debug.Log("ExistsDetectedACHash: " + _applianceController.GetMyApplianceHash());
         }
         else
         {
-            _applianceController.MyAppliancePanel.gameObject.SetActive(true);
+            AppliancePanels.Add(_applianceController.gameObject);
+            _applianceController.CreateAppliancePanel();
+            Debug.Log("DetectedACHash: " + _applianceController.GetMyApplianceHash());
         }
     }
 
-    bool IsBurgerPadPanelExists(string _applianceID)
-    {
-        Debug.Log(_applianceID);
-        for (int i = 0; i < BP_Panels.Count; i++)
-        {
-            if(BP_Panels[i].myApplianceID == _applianceID)
-            {
-
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        return false;
-    }
 
     public IEnumerator EnableGameplayUIDelayed()
     {

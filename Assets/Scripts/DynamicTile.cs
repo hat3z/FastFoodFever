@@ -14,12 +14,13 @@ public class DynamicTile : MonoBehaviour
     public int rotatingAngle;
 
     Material modelMaterial;
-
+    public Vector2 UIPanelPosition;
     // Start is called before the first frame update
     void Start()
     {
         
     }
+
 
 
     public void SetApplianceData(DynamicTile _dynamicTileData)
@@ -47,7 +48,7 @@ public class DynamicTile : MonoBehaviour
         RemoveObjectModel();
         Quaternion newRotate = Quaternion.Euler(new Vector3(0, rotatingAngle, 0));
         GameObject newObject = Instantiate(ItemDatabase.Instance.GetGameObjectFromPath(_objectPath),ObjectPivot.transform.position, newRotate);
-        newObject.GetComponent<ApplianceController>().SetMyApplianceID(myApplianceHash);
+        newObject.GetComponent<ApplianceController>().SetMyData(myApplianceHash, ID);
         newObject.transform.SetParent(ObjectPivot,true);
         modelObject = newObject;
         if (isPreload)
@@ -91,6 +92,11 @@ public class DynamicTile : MonoBehaviour
     public void SetupNamesByType(string _appLName)
     {
         gameObject.name = "DynamicTile_" + _appLName;
+    }
+
+    public void SetupAppliancePanelPosition(GameObject _panelGO)
+    {
+        _panelGO.gameObject.GetComponent<RectTransform>().anchoredPosition = UIPanelPosition;
     }
 
 }
