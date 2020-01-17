@@ -57,7 +57,7 @@ public class ItemDatabaseEditor : Editor
                 SerializedProperty item = foodItems.GetArrayElementAtIndex(i);
                 EditorGUILayout.PropertyField(item, true);
 
-                if(itemDatabaseList.FoodDatabase[i].foodModelPath == string.Empty)
+                if(itemDatabaseList.FoodDatabase[i].foodModelPath == string.Empty && Selection.activeGameObject != null)
                 {
                     if (GUILayout.Button("Set Model Path!"))
                     {
