@@ -14,7 +14,7 @@ public class GameUIController : MonoBehaviour
 
     [Header("Appliance Panels")]
     public Transform PanelsParent;
-    public List<GameObject> AppliancePanels;
+    public List<GameObject> ActiveAppliancePanels;
 
 
     private void Awake()
@@ -59,7 +59,7 @@ public class GameUIController : MonoBehaviour
         }
         else
         {
-            AppliancePanels.Add(_applianceController.gameObject);
+            ActiveAppliancePanels.Add(_applianceController.gameObject);
             _applianceController.CreateAppliancePanel();
             Debug.Log("DetectedACHash: " + _applianceController.GetMyApplianceHash());
         }
