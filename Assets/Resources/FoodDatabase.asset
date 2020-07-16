@@ -195,7 +195,7 @@ MonoBehaviour:
     storedAmount: 0
     sellPrice: 2
     costPrice: 5
-    produceID: burger
+    produceID: burgermeat
     DynamicTileID: 0
     ProfileHash: 
   - applianceName: Burger Pad Advanced
@@ -208,7 +208,7 @@ MonoBehaviour:
     storedAmount: 0
     sellPrice: 10
     costPrice: 20
-    produceID: burger
+    produceID: burgermeat
     DynamicTileID: 0
     ProfileHash: 
   - applianceName: Burger Pad Pro
@@ -221,7 +221,7 @@ MonoBehaviour:
     storedAmount: 0
     sellPrice: 20
     costPrice: 50
-    produceID: burger
+    produceID: burgermeat
     DynamicTileID: 0
     ProfileHash: 
   - applianceName: Burger Pad Premium
@@ -234,6 +234,6 @@ MonoBehaviour:
     storedAmount: 0
     sellPrice: 45
     costPrice: 100
-    produceID: burger
+    produceID: burgermeat
     DynamicTileID: 0
     ProfileHash: 
