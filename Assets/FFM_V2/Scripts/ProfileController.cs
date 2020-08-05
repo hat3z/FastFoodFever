@@ -25,7 +25,7 @@ public class ProfileController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        LoadProfileFromFile();
     }
 
     // Update is called once per frame
@@ -199,7 +199,7 @@ public class ProfileController : MonoBehaviour
         switch (_type)
         {
             case FFM_ApplianceSlotUI.applianceType.BurgerPad:
-                if(playerProfile.BurgerPadSlot == null)
+                if(playerProfile.BurgerPadSlot.applianceID == string.Empty)
                 {
                     return true;
                 }
@@ -208,7 +208,7 @@ public class ProfileController : MonoBehaviour
                     return false;
                 }
             case FFM_ApplianceSlotUI.applianceType.CookerPad:
-                if (playerProfile.CookerPadSlot == null)
+                if (playerProfile.CookerPadSlot.applianceID == string.Empty)
                 {
                     return true;
                 }
@@ -217,7 +217,7 @@ public class ProfileController : MonoBehaviour
                     return false;
                 }
             case FFM_ApplianceSlotUI.applianceType.DrinkMachine:
-                if (playerProfile.DrinkMachineSlot == null)
+                if (playerProfile.DrinkMachineSlot.applianceID == string.Empty)
                 {
                     return true;
                 }
@@ -273,7 +273,10 @@ public class ProfileController : MonoBehaviour
             playerProfile = loadedProfile;
             stream.Close();
         }
-
+        else
+        {
+            SavePlayerProfileToFile();
+        }
     }
     #endregion
 

@@ -29,7 +29,7 @@ public class FFM_ApplianceSlotUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -37,4 +37,19 @@ public class FFM_ApplianceSlotUI : MonoBehaviour
     {
         
     }
+
+    public void DetectApplianceSlot()
+    {
+        if(ProfileController.Instance.isApplianceSlotEmpty(ApplianceType))
+        {
+            FFM_PlayerUIController.Instance.ApplianceSlotControl(ApplianceType, false);
+            Debug.Log("true");
+        }
+        else
+        {
+            Debug.Log("false");
+            FFM_PlayerUIController.Instance.ApplianceSlotControl(ApplianceType, true);
+        }
+    }
+
 }
