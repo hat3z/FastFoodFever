@@ -111,6 +111,7 @@ MonoBehaviour:
     applianceID: cooker1
     modelPath: CookerPad
     applianceImagePath: 
+    groupID: cookerpad
     Tier: 0
     ProduceTime: 10
     ProduceQuantity: 1
@@ -124,6 +125,7 @@ MonoBehaviour:
     applianceID: cooker2
     modelPath: CookerPad
     applianceImagePath: 
+    groupID: cookerpad
     Tier: 1
     ProduceTime: 8
     ProduceQuantity: 1
@@ -137,6 +139,7 @@ MonoBehaviour:
     applianceID: cooker3
     modelPath: CookerPad
     applianceImagePath: 
+    groupID: cookerpad
     Tier: 2
     ProduceTime: 8
     ProduceQuantity: 2
@@ -150,6 +153,7 @@ MonoBehaviour:
     applianceID: cooker4
     modelPath: CookerPad
     applianceImagePath: 
+    groupID: cookerpad
     Tier: 3
     ProduceTime: 6
     ProduceQuantity: 3
@@ -163,6 +167,7 @@ MonoBehaviour:
     applianceID: drinkMachine1
     modelPath: DrinkMachine
     applianceImagePath: 
+    groupID: drinkmachine
     Tier: 0
     ProduceTime: 8
     ProduceQuantity: 2
@@ -176,6 +181,7 @@ MonoBehaviour:
     applianceID: drinkMachine2
     modelPath: DrinkMachine
     applianceImagePath: 
+    groupID: drinkmachine
     Tier: 1
     ProduceTime: 4
     ProduceQuantity: 2
@@ -189,6 +195,7 @@ MonoBehaviour:
     applianceID: burgerPad1
     modelPath: BurgerBoard
     applianceImagePath: 
+    groupID: burgerpad
     Tier: 0
     ProduceTime: 8.5
     ProduceQuantity: 1
@@ -202,6 +209,7 @@ MonoBehaviour:
     applianceID: burgerPad2
     modelPath: BurgerBoard
     applianceImagePath: 
+    groupID: burgerpad
     Tier: 1
     ProduceTime: 6.5
     ProduceQuantity: 1
@@ -215,6 +223,7 @@ MonoBehaviour:
     applianceID: burgerPad3
     modelPath: BurgerBoard
     applianceImagePath: 
+    groupID: burgerpad
     Tier: 2
     ProduceTime: 6
     ProduceQuantity: 2
@@ -228,6 +237,7 @@ MonoBehaviour:
     applianceID: burgerPad4
     modelPath: BurgerBoard
     applianceImagePath: 
+    groupID: burgerpad
     Tier: 3
     ProduceTime: 3
     ProduceQuantity: 2

@@ -36,7 +36,7 @@ public class ItemDatabaseEditor : Editor
 
     public override void OnInspectorGUI()
     {
-
+        EditorUtility.SetDirty(itemDatabaseList);
         serializedObject.Update();
 
 
@@ -192,7 +192,7 @@ public class ItemDatabaseEditor : Editor
         #endregion
 
         serializedObject.ApplyModifiedProperties();
-
+        
     }
 
     void SetModelPath(string _pathToset)

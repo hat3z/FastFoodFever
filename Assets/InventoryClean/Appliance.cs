@@ -9,6 +9,7 @@ public class Appliance
     public string applianceID;
     public string modelPath;
     public string applianceImagePath;
+    public string groupID;
     public enum tier { Low, Medium, High, Premium};
     public tier Tier;
     public float ProduceTime;
@@ -26,6 +27,7 @@ public class Appliance
         newItem.applianceName = applianceName;
         newItem.modelPath = modelPath;
         newItem.applianceImagePath = applianceImagePath;
+        newItem.groupID = groupID;
         newItem.Tier = Tier;
         newItem.ProduceTime = ProduceTime;
         newItem.ProduceQuantity = ProduceQuantity;
