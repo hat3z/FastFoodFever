@@ -40,7 +40,7 @@ public class FFM_ApplianceSlotUI : MonoBehaviour
 
     public void DetectApplianceSlot()
     {
-        if(ProfileController.Instance.isApplianceSlotEmpty(ApplianceType))
+        if (ProfileController.Instance.isApplianceSlotEmpty(ApplianceType))
         {
             FFM_PlayerUIController.Instance.ApplianceSlotControl(ApplianceType, false);
             Debug.Log("true");
@@ -49,7 +49,25 @@ public class FFM_ApplianceSlotUI : MonoBehaviour
         {
             Debug.Log("false");
             FFM_PlayerUIController.Instance.ApplianceSlotControl(ApplianceType, true);
+            SetupUI();
         }
     }
 
+    void SetupUI()
+    {
+        switch (ApplianceType)
+        {
+            case applianceType.BurgerPad:
+                HeaderLabel.text = "BurgerPad";
+                break;
+            case applianceType.CookerPad:
+                HeaderLabel.text = "CookerPad";
+                break;
+            case applianceType.DrinkMachine:
+                HeaderLabel.text = "DrinkMachine";
+                break;
+            default:
+                break;
+        }
+    }
 }
