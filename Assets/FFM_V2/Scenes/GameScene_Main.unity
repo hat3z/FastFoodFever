@@ -2706,6 +2706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerCanvas: {fileID: 1081426746}
   RestaurantCanvas: {fileID: 893341480}
+  playerCoinsValueText: {fileID: 647791501}
   ApplianceSlotShop: {fileID: 9079743653511941947, guid: 98d66be7181882446a69fbdefa8213c6,
     type: 3}
   ContentWrapper: {fileID: 960732705}
@@ -4605,12 +4606,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProfileFilePath: 
-  useDebug: 0
+  useDebug: 1
   useSaving: 1
   playerProfile:
     RestaurantName: "Zabb\xE1r"
     RestaurantImagePath: 
-    PlayerMoney: 9999
+    PlayerMoney: 0
     BurgerPadSlot:
       applianceName: 
       applianceID: 
@@ -4618,6 +4619,7 @@ MonoBehaviour:
       applianceImagePath: 
       groupID: 
       Tier: 0
+      ApplianceType: 0
       ProduceTime: 0
       ProduceQuantity: 0
       storedAmount: 0
@@ -4632,6 +4634,7 @@ MonoBehaviour:
       applianceImagePath: 
       groupID: 
       Tier: 0
+      ApplianceType: 1
       ProduceTime: 0
       ProduceQuantity: 0
       storedAmount: 0
@@ -4646,6 +4649,7 @@ MonoBehaviour:
       applianceImagePath: 
       groupID: 
       Tier: 0
+      ApplianceType: 2
       ProduceTime: 0
       ProduceQuantity: 0
       storedAmount: 0
