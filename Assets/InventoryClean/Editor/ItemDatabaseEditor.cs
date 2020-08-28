@@ -195,6 +195,8 @@ public class ItemDatabaseEditor : Editor
         
     }
 
+    
+
     void SetModelPath(string _pathToset)
     {
         _pathToset = AssetDatabase.GetAssetPath(Selection.activeObject);

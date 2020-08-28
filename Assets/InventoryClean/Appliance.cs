@@ -12,13 +12,15 @@ public class Appliance
     public string groupID;
     public enum tier { Low, Medium, High, Premium};
     public tier Tier;
+    public enum type { BurgerPad, CookerPad, DrinkMachine};
+    public type ApplianceType;
+
     public float ProduceTime;
     public int ProduceQuantity;
     public int storedAmount;
     public int sellPrice;
     public int costPrice;
     public string produceID;
-    public int DynamicTileID;
     public string ProfileHash;
     public Appliance MyClone()
     {

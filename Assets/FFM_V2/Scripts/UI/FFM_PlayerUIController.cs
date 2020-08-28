@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class FFM_PlayerUIController : MonoBehaviour
 {
     public static FFM_PlayerUIController Instance;
@@ -13,6 +13,13 @@ public class FFM_PlayerUIController : MonoBehaviour
     [Header("Canvases")]
     public Canvas PlayerCanvas;
     public Canvas RestaurantCanvas;
+
+    [Header("Player Coins")]
+    public TextMeshProUGUI playerCoinsValueText;
+
+    [Header("Shop UI")]
+    public GameObject ApplianceSlotShop;
+    public RectTransform ContentWrapper;
 
     [Header("BurgerPad Slot")]
     public FFM_ApplianceSlotUI BurgerPadSlot;
@@ -46,9 +53,20 @@ public class FFM_PlayerUIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetupApplianceSlots();
+        RefreshAppliancesContent();
+
     }
 
+    #region --- APPLIANCES --- 
+
+    public void RefreshAppliancesContent()
+    {
+        SetupPlayerApplianceSlots();
+
+        SetupShopApplianceSlot();
+    }    
+
+    #region ----- PLAYER SIDE [APPLIANCES] -----
     public void ApplianceSlotControl(FFM_ApplianceSlotUI.applianceType _type, bool _state)
     {
         switch (_type)
@@ -94,11 +112,34 @@ public class FFM_PlayerUIController : MonoBehaviour
         }
     }
 
-    void SetupApplianceSlots()
+    public void SetupPlayerApplianceSlots()
     {
         BurgerPadSlot.DetectApplianceSlot();
         CookerPadSlot.DetectApplianceSlot();
         DrinkMachineSlot.DetectApplianceSlot();
     }
+
+    public void RefreshPlayerCoinsLabel()
+    {
+        playerCoinsValueText.text = ProfileController.Instance.playerProfile.PlayerMoney.ToString();
+    }
+
+    #endregion
+
+    #region ----- SHOP SIDE [APPLIANCES] -----
+
+    void SetupShopApplianceSlot()
+    {
+        for (int i = 0; i < ItemDatabase.Instance.Appliances.Count; i++)
+        {
+            GameObject shopSlot = Instantiate(ApplianceSlotShop);
+            shopSlot.transform.SetParent(ContentWrapper, false);
+            shopSlot.transform.localScale = Vector2.one;
+            shopSlot.GetComponent<FFM_ApplianceSlotUI>().SetupApplianceSlotUI(ItemDatabase.Instance.Appliances[i]);
+        }
+    }
+
+    #endregion
+    #endregion
 
 }

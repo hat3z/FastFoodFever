@@ -43,7 +43,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000030518}
+  m_AnchoredPosition: {x: 0, y: 0.000030517578}
   m_SizeDelta: {x: 0, y: 0.00006866419}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2405326571532409606
@@ -59,14 +59,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ApplianceType: 2
+  SlotType: 0
   HeaderLabel: {fileID: 4179902113975891377}
   ApplianceNameLabel: {fileID: 4179902114047679053}
   ProduceTimeLabel: {fileID: 4179902113979594314}
   ProduceQuantityLabel: {fileID: 4179902115192010557}
   TierLabel: {fileID: 4179902113615555454}
-  SellValueLabel: {fileID: 3364189015615186539}
-  ApplianceIcon: {fileID: 4179902114476631789}
-  ApplianceProduceIcon: {fileID: 4179902114356747146}
+  PriceValueLabel: {fileID: 3364189015615186539}
+  ApplianceIcon: {fileID: 5053127711306171368}
+  ApplianceProduceIcon: {fileID: 4821274670890428585}
+  EventButton: {fileID: 4179902113705010992}
 --- !u!222 &5444936573939016562
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1446,7 +1448,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4179902114356747147}
   - component: {fileID: 4179902114356747149}
-  - component: {fileID: 4179902114356747146}
+  - component: {fileID: 4821274670890428585}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -1481,7 +1483,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4179902114356747144}
   m_CullTransparentMesh: 0
---- !u!114 &4179902114356747146
+--- !u!114 &4821274670890428585
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1490,7 +1492,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4179902114356747144}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -1501,16 +1503,13 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 4663d28309109446788af134ecaf938e, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_Texture: {fileID: 2800000, guid: 4663d28309109446788af134ecaf938e, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &4179902114476631787
 GameObject:
   m_ObjectHideFlags: 0
@@ -1521,7 +1520,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4179902114476631786}
   - component: {fileID: 4179902114476631788}
-  - component: {fileID: 4179902114476631789}
+  - component: {fileID: 5053127711306171368}
   m_Layer: 5
   m_Name: _img
   m_TagString: Untagged
@@ -1556,7 +1555,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4179902114476631787}
   m_CullTransparentMesh: 0
---- !u!114 &4179902114476631789
+--- !u!114 &5053127711306171368
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1565,7 +1564,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4179902114476631787}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -1576,16 +1575,13 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 4663d28309109446788af134ecaf938e, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_Texture: {fileID: 2800000, guid: 4663d28309109446788af134ecaf938e, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &4179902114719951395
 GameObject:
   m_ObjectHideFlags: 0

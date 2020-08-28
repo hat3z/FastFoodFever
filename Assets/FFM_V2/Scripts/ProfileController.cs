@@ -70,6 +70,33 @@ public class ProfileController : MonoBehaviour
 
     #endregion
 
+    public void AddApplianceToProfile(Appliance _applianceToAdd, FFM_ApplianceSlotUI.applianceType _applianceType)
+    {
+        if(CanBuyItemByCost(_applianceToAdd.costPrice))
+        {
+            switch (_applianceType)
+            {
+                case FFM_ApplianceSlotUI.applianceType.BurgerPad:
+                    playerProfile.BurgerPadSlot = _applianceToAdd;
+                    FFM_PlayerUIController.Instance.RefreshPlayerCoinsLabel();
+                    FFM_PlayerUIController.Instance.SetupPlayerApplianceSlots();
+                    break;
+                case FFM_ApplianceSlotUI.applianceType.CookerPad:
+                    playerProfile.CookerPadSlot = _applianceToAdd;
+                    FFM_PlayerUIController.Instance.RefreshPlayerCoinsLabel();
+                    FFM_PlayerUIController.Instance.SetupPlayerApplianceSlots();
+                    break;
+                case FFM_ApplianceSlotUI.applianceType.DrinkMachine:
+                    playerProfile.DrinkMachineSlot = _applianceToAdd;
+                    FFM_PlayerUIController.Instance.RefreshPlayerCoinsLabel();
+                    FFM_PlayerUIController.Instance.SetupPlayerApplianceSlots();
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
     public void AddItemToProfile(object _itemObject)
     {
         if(_itemObject is Appliance)
@@ -78,7 +105,6 @@ public class ProfileController : MonoBehaviour
             if(CanBuyItemByCost(_applianceItem.costPrice))
             {
                 _applianceItem.ProfileHash = StringRandomizer.Instance.GetRandomString();
-                //playerProfile.PlayerAppliances.Add(_applianceItem);
                 UnlockFoodByAppliance(_applianceItem);
             }
         }
@@ -188,7 +214,6 @@ public class ProfileController : MonoBehaviour
     #endregion
 
     #region ----- APPLIANCE -----
-
     public void SellApplianceByID(string _itemID)
     {
         playerProfile.PlayerMoney += ItemDatabase.Instance.GetApplianceByID(_itemID).sellPrice;
@@ -248,15 +273,9 @@ public class ProfileController : MonoBehaviour
 
     public void LoadProfileFromFile()
     {
-        // CLEARING
-        playerProfile.BurgerPadSlot = null;
-        playerProfile.CookerPadSlot = null;
-        playerProfile.DrinkMachineSlot = null;
-        playerProfile.PlayerFoodIngredients.Clear();
-        playerProfile.PlayerFoodItems.Clear();
         if (useDebug)
         {
-            playerProfile.PlayerMoney = 500;
+            playerProfile.PlayerMoney = 5000;
         }
         else
         {
@@ -264,7 +283,7 @@ public class ProfileController : MonoBehaviour
         }
         playerProfile.RestaurantName = string.Empty;
         playerProfile.RestaurantImagePath = string.Empty;
-
+        FFM_PlayerUIController.Instance.RefreshPlayerCoinsLabel();
         if(File.Exists(ProfileFilePath + Path.DirectorySeparatorChar + ProfileFileName))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -280,5 +299,14 @@ public class ProfileController : MonoBehaviour
     }
     #endregion
 
+    #region ----- UTILITIES (GET OBJECTS) -----
 
+    public Texture GetSpriteFromResourcesByName(string _spriteName)
+    {
+        Texture result;
+        result = Resources.Load<Texture>("ItemSprites/" + _spriteName);
+        return result;
+    }
+
+    #endregion
 }

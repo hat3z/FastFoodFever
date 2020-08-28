@@ -55,12 +55,24 @@ MonoBehaviour:
     foodID: juice
     foodModelPath: 
     foodImagePath: juice
-    description: Fresh orange juice from the bottom of the heart.
+    description: Fresh orange juice from the bottom of our heart.
     Type: 1
     Tier: 0
     StoredAmount: 0
     sellPrice: 3
     costPrice: 6
+    Ingredients: []
+    isLocked: 1
+  - foodName: Cheese Burger
+    foodID: cheeseburger
+    foodModelPath: 
+    foodImagePath: 
+    description: A normal burger with cheese, u know its simply as fuck.
+    Type: 0
+    Tier: 1
+    StoredAmount: 0
+    sellPrice: 15
+    costPrice: 20
     Ingredients: []
     isLocked: 1
   FoodIngredients:
@@ -119,7 +131,6 @@ MonoBehaviour:
     sellPrice: 10
     costPrice: 20
     produceID: burger
-    DynamicTileID: 0
     ProfileHash: 
   - applianceName: Advanced Cooker Pad
     applianceID: cooker2
@@ -133,7 +144,6 @@ MonoBehaviour:
     sellPrice: 20
     costPrice: 50
     produceID: burger
-    DynamicTileID: 0
     ProfileHash: 
   - applianceName: Cooker Pad Pro
     applianceID: cooker3
@@ -147,7 +157,6 @@ MonoBehaviour:
     sellPrice: 40
     costPrice: 80
     produceID: burger
-    DynamicTileID: 0
     ProfileHash: 
   - applianceName: Cooker Pad Premium
     applianceID: cooker4
@@ -161,7 +170,6 @@ MonoBehaviour:
     sellPrice: 50
     costPrice: 100
     produceID: burger
-    DynamicTileID: 0
     ProfileHash: 
   - applianceName: Basic Drink Machine
     applianceID: drinkMachine1
@@ -175,7 +183,6 @@ MonoBehaviour:
     sellPrice: 5
     costPrice: 10
     produceID: cola
-    DynamicTileID: 0
     ProfileHash: 
   - applianceName: Drink Machine Master
     applianceID: drinkMachine2
@@ -189,7 +196,6 @@ MonoBehaviour:
     sellPrice: 45
     costPrice: 100
     produceID: cola
-    DynamicTileID: 0
     ProfileHash: 
   - applianceName: Burger Pad Basic
     applianceID: burgerPad1
@@ -203,7 +209,6 @@ MonoBehaviour:
     sellPrice: 2
     costPrice: 5
     produceID: burgermeat
-    DynamicTileID: 0
     ProfileHash: 
   - applianceName: Burger Pad Advanced
     applianceID: burgerPad2
@@ -217,7 +222,6 @@ MonoBehaviour:
     sellPrice: 10
     costPrice: 20
     produceID: burgermeat
-    DynamicTileID: 0
     ProfileHash: 
   - applianceName: Burger Pad Pro
     applianceID: burgerPad3
@@ -231,7 +235,6 @@ MonoBehaviour:
     sellPrice: 20
     costPrice: 50
     produceID: burgermeat
-    DynamicTileID: 0
     ProfileHash: 
   - applianceName: Burger Pad Premium
     applianceID: burgerPad4
@@ -245,5 +248,4 @@ MonoBehaviour:
     sellPrice: 45
     costPrice: 100
     produceID: burgermeat
-    DynamicTileID: 0
     ProfileHash: 
