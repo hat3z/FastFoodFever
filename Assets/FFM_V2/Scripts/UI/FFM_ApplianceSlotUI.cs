@@ -46,7 +46,7 @@ public class FFM_ApplianceSlotUI : MonoBehaviour
         ProduceTimeLabel.text = _applianceData.ProduceTime.ToString();
         ProduceQuantityLabel.text = _applianceData.ProduceQuantity.ToString();
         TierLabel.text = _applianceData.Tier.ToString();
-        PriceValueLabel.text = _applianceData.sellPrice.ToString();
+
         myApplianceID = _applianceData.applianceID;
         if(_applianceData.applianceImagePath != string.Empty)
         {
@@ -62,9 +62,13 @@ public class FFM_ApplianceSlotUI : MonoBehaviour
 
         if(SlotType == slotType.Shop)
         {
+            PriceValueLabel.text = _applianceData.costPrice.ToString();
             SetShopApplianceType(_applianceData.ApplianceType);
         }
-
+        if(SlotType == slotType.Player)
+        {
+            PriceValueLabel.text = _applianceData.sellPrice.ToString();
+        }
         SubscribeToEventButton();
 
     }
